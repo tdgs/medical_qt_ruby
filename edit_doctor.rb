@@ -3,8 +3,8 @@ require 'Qt4'
 
 class EditDoctorWidget < Qt::Dialog
   
-  def initialize(doctor_id = nil, parent = nil)
-	@d = Doctor.get(doctor_id) || Doctor.new
+  def initialize(doctor, parent = nil)
+	@d = doctor || Doctor.new
 	super(parent)
 	setup_ui(parent)
 	
@@ -26,7 +26,6 @@ class EditDoctorWidget < Qt::Dialog
   end
   
   def save
-	puts "Hello!"
 	@d.name = @name.text
 	@d.surname = @surname.text
 	emit done(Qt::Dialog::Accepted) if @d.save
