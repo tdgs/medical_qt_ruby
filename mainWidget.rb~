@@ -1,0 +1,9 @@
+require 'Qt4'
+
+class MainWidget < Qt::MainWindow
+  def 
+	
+  end
+end
+
+
