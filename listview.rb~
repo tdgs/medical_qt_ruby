@@ -1,36 +1,38 @@
+require_relative 'person_model'
+require_relative 'edit_person'
 require 'Qt4'
-require_relative 'custom_widget_item'
-require_relative 'edit_doctor'
 
 
-class DoctorListView < Qt::ListWidget
+class PersonList < Qt::ListView
   
-  slots 'activated(QListWidgetItem*)'
-  def initialize(parent = nil)
+  slots "edit_person(const QModelIndex&)"
+  def initialize(modelKlass, parent = nil)
 	super(parent)
-	#populate
-	Qt::Object.connect(self, SIGNAL('itemActivated(QListWidgetItem*)'), self, SLOT('activated(QListWidgetItem*)'))
+	setModel(modelKlass.new)
+	self.connect(SIGNAL('activated(const QModelIndex&)'), self, :edit_person)
   end
   
-  def populate
-	list = self
-	@widgets = Doctor.all.collect do |d|
-	  w =   CustomWidgetItem.new(d)
+  def edit_person(index)
+	saved = self.model.newEditWidget(index, self).exec
+	puts "EMIT? #{saved and not index.valid?}"
+	if saved and not index.valid?
+	  #self.rowsInserted(Qt::ModelIndex.new, 0, self.model.rowCount)
 	end
-	@widgets.each {|w| list.addItem(w)}
-  end  
-  
-  def activated(widget)
-	doctor = widget.custom_data
-	docEditor = EditDoctorWidget.new(doctor, self)
-	if docEditor.exec
-	  widget.text = doctor.to_s
-	  emit itemChanged(widget)
-	end
-	
+	return saved
   end
- 
-
 end
+
+class DoctorList < PersonList
+  def initialize(parent = nil)
+	super(DoctorModel, parent)
+  end
+end
+
+class PatientList < PersonList
+  def initialize(parent = nil)
+	super(PatientModel, parent)
+  end
+end
+	
 
 

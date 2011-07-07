@@ -1,3 +1,0 @@
-require 'Qt4'
-require 'rubygems'
-require 'data_mapper' 

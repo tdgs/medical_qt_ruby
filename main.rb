@@ -4,18 +4,15 @@
 
 require_relative 'db_models'
 require 'Qt4'
-require_relative 'edit_patient'
-require_relative 'edit_doctor'
 require_relative 'listview'
 
 
 
 app = Qt::Application.new(ARGV)
-d = DoctorListView.new
-d.populate
-puts d.class
+d = PatientList.new
 d.show
 app.exec
+
 
 
 
