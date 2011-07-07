@@ -1,3 +1,7 @@
+begin
+
+  
+end
 require 'Qt4'
 require_relative 'custom_widget_item'
 require_relative 'edit_doctor'

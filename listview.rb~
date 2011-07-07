@@ -1,3 +1,7 @@
+begin
+
+  
+end
 require 'Qt4'
 require_relative 'custom_widget_item'
 require_relative 'edit_doctor'
@@ -24,6 +28,7 @@ class DoctorListView < Qt::ListWidget
 	doctor = widget.custom_data
 	docEditor = EditDoctorWidget.new(doctor, self)
 	if docEditor.exec
+	  puts 'Update'
 	  widget.text = doctor.to_s
 	  emit itemChanged(widget)
 	end
