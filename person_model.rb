@@ -1,8 +1,9 @@
+require 'singleton'
 require_relative 'db_models'
 require 'Qt4'
 
 class PersonModel < Qt::AbstractListModel
-  @editWidgetKlass
+  include Singleton
   
   def initialize(klass, editWidgetKlass, parent = nil)
 	

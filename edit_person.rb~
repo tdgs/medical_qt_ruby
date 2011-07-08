@@ -8,7 +8,6 @@ class EditPersonWidget < Qt::Dialog
 	@p = person || klass.new
 	super(parent)
 	setup_ui(parent)
-	
   end
   
   def setup_ui(parent = nil)

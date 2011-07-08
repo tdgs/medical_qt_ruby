@@ -6,6 +6,7 @@ require_relative 'person'
 
  
  class Patient
+   include DataMapper::Resource
    include Person
    
    belongs_to :doctor

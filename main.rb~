@@ -2,15 +2,16 @@
 #!/usr/bin/env ruby
 
 
-require_relative 'db_models'
-require 'Qt4'
-require_relative 'listview'
+require_relative 'init'
+require_relative 'mainWidget'
 
 
 
 app = Qt::Application.new(ARGV)
-d = DoctorList.new
-d.show
+Qt.debug_level = Qt::DebugLevel::High
+mainWindow = Qt::MainWindow.new
+mainWindow.centralWidget = MainWidget.new(mainWindow)
+mainWindow.show
 app.exec
 
 

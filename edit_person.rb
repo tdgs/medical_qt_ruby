@@ -55,7 +55,7 @@ class EditPatientWidget < EditPersonWidget
 	super(parent)
 	
 	@doctorComboBox = Qt::ComboBox.new
-	@doctorComboBox.setModel(DoctorModel.new)
+	@doctorComboBox.setModel(DoctorModel.instance)
 	layout.insertRow layout.rowCount-1, 'Ιατρός', @doctorComboBox
   end
 end
