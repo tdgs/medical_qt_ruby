@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'Qt4'
-require_relative 'listview'
+require_relative 'ui'
 
 class MainWidget < Qt::TabWidget
   
@@ -21,6 +21,8 @@ class DoctorTab < Qt::Widget
   def initialize(parent = nil)
 	super(parent)
 	@doctorList = DoctorList.new(self)
+	@layout = Qt::GridLayout.new
+	@layout.addWidget(@doctorList, 0,0)
   end
 end
 

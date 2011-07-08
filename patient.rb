@@ -7,7 +7,7 @@ require_relative 'person'
  
  class Patient
    include Person
-   
    belongs_to :doctor
-   
  end
+ 
+ 

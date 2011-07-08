@@ -1,3 +1,3 @@
  
 require_relative 'edit_person'
-require_relative 'listview'
+require_relative 'tableview'

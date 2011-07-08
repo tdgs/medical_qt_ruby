@@ -5,7 +5,11 @@ class DataMapper::Property
   
   accept_options :disp_name
   def disp_name
-	options[:disp_name] || self.name
+	options[:disp_name]  || nil
+  end
+  
+  def disp_name=(name)
+	options[:disp_name] = name
   end
   
 end  

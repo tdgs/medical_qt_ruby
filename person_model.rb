@@ -2,7 +2,9 @@ require 'singleton'
 require_relative 'db_models'
 require 'Qt4'
 
-class PersonModel < Qt::AbstractListModel
+class PersonModel < Qt::AbstractTableModel
+  
+  attr_reader :columnNames
   include Singleton
   
   def initialize(klass, editWidgetKlass, parent = nil)
@@ -10,6 +12,7 @@ class PersonModel < Qt::AbstractListModel
 	@klass = klass
 	@editWidgetKlass = editWidgetKlass
 	@people = @klass.all
+	@columnNames = @klass.properties.collect {|p| [p.name, p.disp_name]}
 	load_from_db
 	super(parent)
   end
@@ -23,10 +26,28 @@ class PersonModel < Qt::AbstractListModel
 	@people.count
   end
   
+  def columnCount(parent = nil)
+	@columnNames.count
+  end
+  
    
   def data(index, role = Qt::DisplayRole)
 	return Qt::Variant.new if (not index.valid? or role != Qt::DisplayRole)	
-	Qt::Variant.new(itemFromIndex(index).full_name) if Qt::DisplayRole
+	Qt::Variant.new(valueFromIndex(index)) if Qt::DisplayRole
+  end
+  
+  def columnHeader(section)
+	@columnNames[section][1]
+  end
+  
+  def headerData(section, orientation, role)
+	puts section
+	return Qt::Variant.new if section >= columnCount or role != Qt::DisplayRole
+	if orientation == Qt::Horizontal
+	  Qt::Variant.new(columnHeader(section))
+	else 
+	  Qt::Variant.new
+	end
   end
   
   def itemFromIndex(index)
@@ -35,6 +56,11 @@ class PersonModel < Qt::AbstractListModel
 	else
 	  klass.new
 	end
+  end
+  
+  def valueFromIndex(index)
+	item = itemFromIndex(index)
+	item.send(@columnNames[index.column][0])
   end
   
   def newEditWidget(index, parent = nil)
