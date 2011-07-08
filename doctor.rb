@@ -2,27 +2,16 @@
 require 'rubygems'
 require 'data_mapper'
 require_relative 'patient'
+require_relative 'person'
 
 
  
 
  class Doctor 
-   include DataMapper::Resource
    
-   property :id, Serial
-   property :name, String
-   property :surname, String
+   include Person
    has n, :patients
    
-
-   
-   def full_name
-	 self.name + " " + self.surname
-   end
-   
-   def to_s
-	 full_name
-   end
 end 
  
  
