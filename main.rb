@@ -3,15 +3,13 @@
 
 
 require_relative 'init'
-require_relative 'mainWidget'
+require_relative 'mainWindow'
 
 
 
 app = Qt::Application.new(ARGV)
 #Qt.debug_level = Qt::DebugLevel::High
-mainWindow = Qt::MainWindow.new
-
-mainWindow.centralWidget = MainWidget.new(mainWindow)
+mainWindow = MainWindow.new
 mainWindow.show
 app.exec
 
