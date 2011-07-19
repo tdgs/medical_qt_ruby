@@ -88,13 +88,16 @@ class PersonModel < Qt::AbstractTableModel
 end 
 
 class DoctorModel < PersonModel
-  def initialize(parent = nil)
-	super(Doctor, EditDoctorWidget, parent)
+  def initialize(dataMapperCollection = nil, parent = nil)
+	super(Doctor, EditDoctorWidget, parent, dataMapperCollection)
   end
 end
 
 class PatientModel < PersonModel
-  def initialize(parent = nil)
-	super(Patient, EditPatientWidget, parent)
+  def initialize(dataMapperCollection = nil, parent = nil)
+	super(Patient, EditPatientWidget, parent, dataMapperCollection)
   end
 end
+
+    
+  

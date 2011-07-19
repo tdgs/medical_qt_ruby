@@ -54,7 +54,7 @@ class EditDoctorWidget < EditPersonWidget
   
   def initialize(doctor, parent = nil)
 	super(Doctor, doctor, parent)
-	@tabs.addTab(PatientList.new, 'Ασθενθείς')
+	@tabs.addTab(PatientList.new(nil, doctor.patients), 'Ασθενθείς')
   end
   
 end

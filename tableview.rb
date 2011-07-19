@@ -27,8 +27,8 @@ class PersonList < Qt::TableView
 end
 
 class DoctorList < PersonList
-  def initialize(parent = nil)
-	super(DoctorModel.new, parent)
+  def initialize(parent = nil, dataMapperCollection = nil)
+	super(DoctorModel.new(dataMapperCollection), parent)
 	 @newDoctorAction = Qt::Action.new('&Νέος Ιατρός', nil)
 	self.addAction(@newDoctorAction)
 	Qt::Object.connect(@newDoctorAction, SIGNAL('triggered()'), self, SLOT('newDoctor()'))
@@ -40,8 +40,8 @@ class DoctorList < PersonList
 end
 
 class PatientList < PersonList
-  def initialize(parent = nil)
-	super(PatientModel.new, parent)
+    def initialize(parent = nil, dataMapperCollection = nil)
+	super(PatientModel.new(dataMapperCollection), parent)
   end
 end
 	
