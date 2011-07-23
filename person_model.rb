@@ -5,12 +5,10 @@ require 'Qt4'
 class PersonModel < Qt::AbstractTableModel
   
   attr_reader :columnNames
-
   
-  def initialize(klass, editWidgetKlass, parent = nil, dataMapperCollection = nil)
+  def initialize(parent, dataMapperCollection, klass, editWidgetKlass)
 	super(parent)
 	@sortColumn = 1
-	@collection = 
 	@currentSortOrder = Qt::AscendingOrder
 	@klass = klass
 	@editWidgetKlass = editWidgetKlass
@@ -18,6 +16,7 @@ class PersonModel < Qt::AbstractTableModel
 	@columnNames = @klass.properties.collect {|p| [p.name, p.disp_name]}
 	load_from_db
   end
+  
 
   def order2str(order)
 	return 'desc' if order == Qt::DescendingOrder
@@ -82,20 +81,22 @@ class PersonModel < Qt::AbstractTableModel
   end
   
   def newEditWidget(index, parent = nil)
-	rc = self.rowCount
-	load_from_db if  @editWidgetKlass.new(itemFromIndex(index), parent).exec
+	unless @editWidgetKlass.nil?
+	  rc = self.rowCount
+	  load_from_db if  @editWidgetKlass.new(itemFromIndex(index), parent).exec
+	end
   end
 end 
 
 class DoctorModel < PersonModel
-  def initialize(dataMapperCollection = nil, parent = nil)
-	super(Doctor, EditDoctorWidget, parent, dataMapperCollection)
+  def initialize(parent = nil, collection = nil)
+	super(parent, collection, Doctor, EditDoctor)
   end
 end
 
 class PatientModel < PersonModel
-  def initialize(dataMapperCollection = nil, parent = nil)
-	super(Patient, EditPatientWidget, parent, dataMapperCollection)
+  def initialize(parent = nil, collection = nil)
+	super(parent, collection, Patient, nil)
   end
 end
 

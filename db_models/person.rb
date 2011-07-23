@@ -2,7 +2,7 @@
 require 'rubygems'
 require 'data_mapper' 
 
-module Person	
+module Person
   def self.included(base)
 	base.class_eval do
 	  include DataMapper::Resource

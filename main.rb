@@ -8,7 +8,7 @@ require_relative 'mainWindow'
 
 
 app = Qt::Application.new(ARGV)
-#Qt.debug_level = Qt::DebugLevel::High
+Qt.debug_level = Qt::DebugLevel::High
 mainWindow = MainWindow.new
 mainWindow.show
 app.exec

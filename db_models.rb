@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rubygems'
 require 'data_mapper'
 
@@ -17,8 +18,13 @@ end
 DataMapper::Logger.new($stdout, :debug)
 DataMapper::setup(:default, 'sqlite:medical.db')
 
-require_relative 'doctor'
-require_relative 'patient'
+require_relative 'db_models/doctor'
+require_relative 'db_models/patient'
+require_relative 'db_models/exams'
 DataMapper.finalize
 DataMapper.auto_upgrade!
+
+require_relative 'db_models/exam_init_data'
+
+
 

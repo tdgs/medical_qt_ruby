@@ -6,8 +6,8 @@
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
-
-class Ui_Form
+require 'Qt'
+class Ui_EditDoctor
     attr_reader :gridLayout
     attr_reader :groupBox
     attr_reader :formLayout
@@ -24,8 +24,9 @@ class Ui_Form
     attr_reader :horizontalLayout
     attr_reader :patientList
     attr_reader :verticalSpacer
+	
 
-    def setupUi(form)
+    def setupUi(form, doctor)
     if form.objectName.nil?
         form.objectName = "form"
     end
@@ -92,7 +93,7 @@ class Ui_Form
     @groupBox_2.objectName = "groupBox_2"
     @horizontalLayout = Qt::HBoxLayout.new(@groupBox_2)
     @horizontalLayout.objectName = "horizontalLayout"
-    @patientList = PatientList.new(@groupBox_2)
+    @patientList = PatientList.new(@groupBox_2, doctor.patients)
     @patientList.objectName = "patientList"
 
     @horizontalLayout.addWidget(@patientList)
@@ -106,14 +107,14 @@ class Ui_Form
 
 
     retranslateUi(form)
-    Qt::Object.connect(@buttonBox, SIGNAL('accepted()'), form, SLOT('accepted()'))
-    Qt::Object.connect(@buttonBox, SIGNAL('rejected()'), form, SLOT('cancel()'))
+    Qt::Object.connect(@buttonBox, SIGNAL('accepted()'), form, SLOT('accept()'))
+    Qt::Object.connect(@buttonBox, SIGNAL('rejected()'), form, SLOT('reject()'))
 
     Qt::MetaObject.connectSlotsByName(form)
     end # setupUi
 
-    def setup_ui(form)
-        setupUi(form)
+    def setup_ui(form, doctor)
+        setupUi(form, doctor)
     end
 
     def retranslateUi(form)
@@ -135,7 +136,7 @@ class Ui_Form
 end
 
 module Ui
-    class Form < Ui_Form
+    class EditDoctorUi < Ui_EditDoctor
     end
 end  # module Ui
 

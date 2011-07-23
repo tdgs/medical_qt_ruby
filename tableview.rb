@@ -7,9 +7,9 @@ require 'Qt4'
 class PersonList < Qt::TableView
   
   slots "edit_person(const QModelIndex&)"
-  def initialize(model, parent = nil)
+  def initialize(parent = nil, model = nil)
 	super(parent)
-	setModel(model)
+	setModel(model) if model
 	
 	sizePolicy = Qt::SizePolicy.new(Qt::SizePolicy::Expanding, Qt::SizePolicy::Expanding)
 	self.sortingEnabled = true
@@ -28,7 +28,9 @@ end
 
 class DoctorList < PersonList
   def initialize(parent = nil, dataMapperCollection = nil)
-	super(DoctorModel.new(dataMapperCollection), parent)
+	model = DoctorModel.new(parent, dataMapperCollection)
+	super(parent, model)
+	
 	 @newDoctorAction = Qt::Action.new('&Νέος Ιατρός', nil)
 	self.addAction(@newDoctorAction)
 	Qt::Object.connect(@newDoctorAction, SIGNAL('triggered()'), self, SLOT('newDoctor()'))
@@ -40,8 +42,9 @@ class DoctorList < PersonList
 end
 
 class PatientList < PersonList
-    def initialize(parent = nil, dataMapperCollection = nil)
-	super(PatientModel.new(dataMapperCollection), parent)
+  def initialize(parent = nil, dataMapperCollection = nil)
+	model = PatientModel.new(parent, dataMapperCollection)
+	super(parent, model)
   end
 end
 	

@@ -32,7 +32,7 @@ class DoctorTab < Qt::Widget
   def initialize(parent = nil)
 	super(parent)
 	@doctorList = DoctorList.new(self)
-	@layout = Qt::GridLayout.new
+	@layout = Qt::GridLayout.new(self)
 	@layout.addWidget(@doctorList, 0,0)
 	
   end
@@ -43,6 +43,8 @@ class PatientTab < Qt::Widget
   def initialize(parent = nil)
 	super(parent)
 	@patientList = PatientList.new(self)
+	@layout = Qt::GridLayout.new(self)
+	@layout.addWidget(@patientList, 0,0)
   end
 end
 

@@ -8,6 +8,7 @@ require_relative 'person'
  class Patient
    include Person
    belongs_to :doctor
+   has n, :exam_sets
  end
  
  
