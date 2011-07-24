@@ -9,7 +9,8 @@ require_relative 'person'
 
  class Doctor 
    include Person
-   has n, :patients
+   has n, :exam_sets
+   has n, :patients, :through => :exam_sets
 end 
  
  

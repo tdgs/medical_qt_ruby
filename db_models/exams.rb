@@ -20,6 +20,10 @@ class ExamField
   has n, :exam_sets, :through =>:exam_values
   belongs_to :exam_field_group
   
+  def value(exam_set)
+	self.exam_values(:exam_set => exam_set).first || ExamValue.new(:exam_field => self, :exam_set => exam_set)
+  end
+  
 end
 
 
@@ -41,7 +45,8 @@ class ExamSet
   
   property :id, DataMapper::Property::Serial
   property :date, DataMapper::Property::Date
-  belongs_to :patient, :key 
+  belongs_to :patient
+  belongs_to :doctor
   has n, :exam_values
   has n, :exam_fields, :through => :exam_values
 end

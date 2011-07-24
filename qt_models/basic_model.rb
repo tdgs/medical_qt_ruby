@@ -1,9 +1,7 @@
 require 'singleton'
-require_relative 'db_models'
 require 'Qt4'
 
 class PersonModel < Qt::AbstractTableModel
-  
   attr_reader :columnNames
   
   def initialize(parent, dataMapperCollection, klass, editWidgetKlass)
@@ -13,40 +11,25 @@ class PersonModel < Qt::AbstractTableModel
 	@klass = klass
 	@editWidgetKlass = editWidgetKlass
 	@dataMapperCollection = dataMapperCollection || @klass.all
+	
 	@columnNames = @klass.properties.collect {|p| [p.name, p.disp_name]}
-	load_from_db
+	@items = @dataMapperCollection.all
   end
   
-
   def order2str(order)
 	return 'desc' if order == Qt::DescendingOrder
 	return 'asc'
   end
   
-  def load_from_db(sortColumn = @sortColumn, sortOrder = @currentSortOrder)
-	@sortColumn = sortColumn
-	@currentSortOrder = sortOrder
-	columnName = @columnNames[sortColumn][0]
-	emit layoutAboutToBeChanged
-	@people = @dataMapperCollection.all(:order => [columnName.send(order2str(sortOrder))]).to_a
-	emit layoutChanged
-  end
-  
-  
   def rowCount(parent = nil)
 	return 0 if not parent.nil? and parent.valid? 
-	@people.count
+	@items.count
   end
   
   def columnCount(parent = nil)
 	@columnNames.count
   end
   
-  def sort(column, order = Qt::AscendingOrder)
-	load_from_db(column, order)
-  end
-  
-   
   def data(index, role = Qt::DisplayRole)
 	return Qt::Variant.new if (not index.valid? or role != Qt::DisplayRole)	
 	Qt::Variant.new(valueFromIndex(index)) if Qt::DisplayRole
@@ -69,7 +52,7 @@ class PersonModel < Qt::AbstractTableModel
   
   def itemFromIndex(index)
 	if index.valid?
-	  @people[index.row]
+	  @items[index.row]
 	else
 	  @klass.new
 	end
@@ -80,25 +63,18 @@ class PersonModel < Qt::AbstractTableModel
 	item.send(@columnNames[index.column][0])
   end
   
-  def newEditWidget(index, parent = nil)
+  def newEditWidget(parent = nil, index)
 	unless @editWidgetKlass.nil?
-	  rc = self.rowCount
-	  load_from_db if  @editWidgetKlass.new(itemFromIndex(index), parent).exec
+	  @editWidgetKlass.new(itemFromIndex(index), parent).exec
 	end
+  end
+  
+  def new_item
+	puts 'new_item'
+	newEditWidget(Qt::ModelIndex.new, self)
   end
 end 
 
-class DoctorModel < PersonModel
-  def initialize(parent = nil, collection = nil)
-	super(parent, collection, Doctor, EditDoctor)
-  end
-end
-
-class PatientModel < PersonModel
-  def initialize(parent = nil, collection = nil)
-	super(parent, collection, Patient, nil)
-  end
-end
 
     
-  
+   
