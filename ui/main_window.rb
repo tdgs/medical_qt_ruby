@@ -3,8 +3,8 @@ require_relative '../qt_views/tableview'
 require_relative 'ui_files/main_window_ui'
 
 class MainWindow < Qt::MainWindow
+  slots 'edit_item(QVariant&)'
   
-  slots 'object_destroyed(QObject*)'
   def initialize(parent = nil)
 	
 	super(parent)
@@ -14,9 +14,9 @@ class MainWindow < Qt::MainWindow
 	@ui.new_patient.connect :triggered, self, :new_patient
 	
 	
-	puts 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
-	Qt::Object.connect(@ui.patientTable, SIGNAL('destroyed(QObject*)'), self, SLOT('object_destroyed(QObject*)'))
-	puts 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+	
+	Qt::Object.connect(@ui.patientTable, SIGNAL('edit_request(QVariant&)'), self, SLOT('edit_item(QVariant&)'))
+	
 	
   end
   
@@ -26,8 +26,9 @@ class MainWindow < Qt::MainWindow
 	p.save
   end
   
-  def object_destroyed(obj)
-	puts 'Destroy!!'
+  def edit_item(variant)
+	item = variant.value
+	puts item.inspect
   end
   
 

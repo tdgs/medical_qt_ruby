@@ -1,19 +1,18 @@
 require 'singleton'
 require 'Qt4'
 
-class PersonModel < Qt::AbstractTableModel
+class BasicModel < Qt::AbstractTableModel
   attr_reader :columnNames
   
-  def initialize(parent, dataMapperCollection, klass, editWidgetKlass)
+  def initialize(parent, dataMapperCollection)
 	super(parent)
 	@sortColumn = 1
 	@currentSortOrder = Qt::AscendingOrder
-	@klass = klass
-	@editWidgetKlass = editWidgetKlass
-	@dataMapperCollection = dataMapperCollection || @klass.all
+	@dataMapperCollection = dataMapperCollection
 	
-	@columnNames = @klass.properties.collect {|p| [p.name, p.disp_name]}
 	@items = @dataMapperCollection.all.to_a
+	@klass = @dataMapperCollection.model
+	@columnNames = @klass.properties.collect {|p| [p.name, p.disp_name]}
   end
   
   def order2str(order)
@@ -67,11 +66,6 @@ class PersonModel < Qt::AbstractTableModel
 	unless @editWidgetKlass.nil?
 	  @editWidgetKlass.new(itemFromIndex(index), parent).exec
 	end
-  end
-  
-  def new_item
-	puts 'new_item'
-	newEditWidget(Qt::ModelIndex.new, self)
   end
 end 
 

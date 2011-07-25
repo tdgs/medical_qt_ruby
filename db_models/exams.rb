@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'dm-is-tree'
+require_relative 'ui_aware'
 
 class ExamFieldGroup
   include DataMapper::Resource
@@ -42,6 +43,7 @@ end
 
 class ExamSet
   include DataMapper::Resource
+  include UiAware
   
   property :id, DataMapper::Property::Serial
   property :date, DataMapper::Property::Date

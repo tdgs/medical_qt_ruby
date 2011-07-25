@@ -1,11 +1,13 @@
 # encoding: utf-8
 require_relative '../qt_models'
 require 'Qt4'
+require_relative '../lib/ruby_variant.rb'
 
 
 class BasicTable < Qt::TableView
   
   slots "edit_item(const QModelIndex&)", "new_item()"
+  signals "edit_request(QVariant&)"
   def initialize(parent = nil, model = nil)
 	super(parent)
 	setModel(model) if model
@@ -16,12 +18,10 @@ class BasicTable < Qt::TableView
 	self.connect(SIGNAL('activated(const QModelIndex&)'), self, :edit_item)
   end
   
-  def edit_person(index)
-	self.model.newEditWidget(self, index)
-  end
-  
-  def new_item
-	self.model.newEditWidget(self, Qt::ModelIndex.new)
+  def edit_item(index)
+	puts 'Hello!'
+	item = self.model.itemFromIndex(index)
+	emit edit_request(item.to_variant)
   end
   
   def sizeHint
@@ -32,7 +32,6 @@ end
 
 class PatientTable < BasicTable
 end
-
 	
 
 
