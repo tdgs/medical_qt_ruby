@@ -13,7 +13,7 @@ class PersonModel < Qt::AbstractTableModel
 	@dataMapperCollection = dataMapperCollection || @klass.all
 	
 	@columnNames = @klass.properties.collect {|p| [p.name, p.disp_name]}
-	@items = @dataMapperCollection.all
+	@items = @dataMapperCollection.all.to_a
   end
   
   def order2str(order)

@@ -27,6 +27,7 @@ class BasicTable < Qt::TableView
   def sizeHint
 	Qt::Size.new(800,600)
   end
+  
 end
 
 class PatientTable < BasicTable
