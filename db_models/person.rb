@@ -12,6 +12,8 @@ module Person
 	  property :address, DataMapper::Property::String, :disp_name => 'Διεύθυνση'
 	  property :phone, DataMapper::Property::String, :disp_name => 'Τηλέφωνο'
 	  property :email, DataMapper::Property::String, :disp_name => 'email'
+	  property :notes, DataMapper::Property::Text, :disp_name => 'Σχόλια'
+	  property :birthDate, DataMapper::Property::Date, :disp_name => 'Ημ. Γέννησης'
 	end
   end
   

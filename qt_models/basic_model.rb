@@ -8,12 +8,18 @@ class BasicModel < Qt::AbstractTableModel
 	super(parent)
 	@sortColumn = 1
 	@currentSortOrder = Qt::AscendingOrder
-	@dataMapperCollection = dataMapperCollection
 	
-	@items = @dataMapperCollection.all.to_a
+	@dataMapperCollection = dataMapperCollection || @klass.all
 	@klass = @dataMapperCollection.model
-	@columnNames = @klass.properties.collect {|p| [p.name, p.disp_name]}
+	
+	#@columnNames = @klass.properties.collect {|p| [p.name, p.disp_name]}
+	@items = @dataMapperCollection.all.to_a
   end
+  
+  def column_names
+    @columnNames ||= @klass.properties.collect {|p| [p.name, p.disp_name]}
+  end
+
   
   def order2str(order)
 	return 'desc' if order == Qt::DescendingOrder
@@ -26,7 +32,7 @@ class BasicModel < Qt::AbstractTableModel
   end
   
   def columnCount(parent = nil)
-	@columnNames.count
+	column_names.count
   end
   
   def data(index, role = Qt::DisplayRole)
@@ -35,7 +41,7 @@ class BasicModel < Qt::AbstractTableModel
   end
   
   def columnHeader(section)
-	@columnNames[section][1]
+	column_names[section][1]
   end
 	
   
@@ -59,13 +65,18 @@ class BasicModel < Qt::AbstractTableModel
   
   def valueFromIndex(index)
 	item = itemFromIndex(index)
-	item.send(@columnNames[index.column][0])
+	item.send(column_names[index.column][0])
   end
   
   def newEditWidget(parent = nil, index)
 	unless @editWidgetKlass.nil?
 	  @editWidgetKlass.new(itemFromIndex(index), parent).exec
 	end
+  end
+  
+  def new_item
+	puts 'new_item'
+	newEditWidget(Qt::ModelIndex.new, self)
   end
 end 
 
