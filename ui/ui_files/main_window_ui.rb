@@ -1,7 +1,7 @@
 =begin
 ** Form generated from reading ui file 'mainWindow.ui'
 **
-** Created: Sun Jul 24 21:08:24 2011
+** Created: Tue Jul 26 19:07:11 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -10,6 +10,10 @@
 class Ui_MainWindow
     attr_reader :new_patient
     attr_reader :centralwidget
+    attr_reader :gridLayout_2
+    attr_reader :contectWidget
+    attr_reader :gridLayout_3
+    attr_reader :widget_2
     attr_reader :menubar
     attr_reader :menu
     attr_reader :statusbar
@@ -28,6 +32,20 @@ class Ui_MainWindow
     @new_patient.objectName = "new_patient"
     @centralwidget = Qt::Widget.new(mainWindow)
     @centralwidget.objectName = "centralwidget"
+    @gridLayout_2 = Qt::GridLayout.new(@centralwidget)
+    @gridLayout_2.objectName = "gridLayout_2"
+    @contectWidget = Qt::Widget.new(@centralwidget)
+    @contectWidget.objectName = "contectWidget"
+    @gridLayout_3 = Qt::GridLayout.new(@contectWidget)
+    @gridLayout_3.objectName = "gridLayout_3"
+    @widget_2 = Qt::Widget.new(@contectWidget)
+    @widget_2.objectName = "widget_2"
+
+    @gridLayout_3.addWidget(@widget_2, 0, 0, 1, 1)
+
+
+    @gridLayout_2.addWidget(@contectWidget, 0, 0, 1, 1)
+
     mainWindow.centralWidget = @centralwidget
     @menubar = Qt::MenuBar.new(mainWindow)
     @menubar.objectName = "menubar"

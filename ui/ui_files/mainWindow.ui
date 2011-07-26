@@ -13,7 +13,12 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks|QMainWindow::ForceTabbedDocks</set>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2"/>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -43,35 +48,19 @@
     <bool>false</bool>
    </attribute>
    <addaction name="new_patient"/>
-  </widget>
-  <widget class="QDockWidget" name="dockWidget">
-   <attribute name="dockWidgetArea">
-    <number>1</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="PatientTable" name="patientTable"/>
-     </item>
-    </layout>
-   </widget>
+   <addaction name="searchPatient"/>
   </widget>
   <action name="new_patient">
    <property name="text">
     <string>Νέος Ασθενής</string>
    </property>
   </action>
+  <action name="searchPatient">
+   <property name="text">
+    <string>Αναζήτηση Ασθενή</string>
+   </property>
+  </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>PatientTable</class>
-   <extends>QTableView</extends>
-   <header>patienttable.h</header>
-   <slots>
-    <slot>new_item()</slot>
-   </slots>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

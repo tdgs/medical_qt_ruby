@@ -9,7 +9,7 @@ class BasicModel < Qt::AbstractTableModel
 	@sortColumn = 1
 	@currentSortOrder = Qt::AscendingOrder
 	
-	@dataMapperCollection = dataMapperCollection || @klass.all
+	@dataMapperCollection = dataMapperCollection 
 	@klass = @dataMapperCollection.model
 	
 	#@columnNames = @klass.properties.collect {|p| [p.name, p.disp_name]}

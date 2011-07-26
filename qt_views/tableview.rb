@@ -19,7 +19,6 @@ class BasicTable < Qt::TableView
   end
   
   def edit_item(index)
-	puts 'Hello!'
 	item = self.model.itemFromIndex(index)
 	emit edit_request(item.to_variant)
   end

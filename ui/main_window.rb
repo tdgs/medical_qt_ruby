@@ -4,8 +4,9 @@ require_relative 'ui_files/main_window_ui'
 
 class MainWindow < Qt::MainWindow
   slots 'edit_item(QVariant&)'
-  
+  attr_reader :current_item
   def initialize(parent = nil)
+	
 	
 	super(parent)
 	@ui = Ui::MainWindow.new
@@ -16,8 +17,6 @@ class MainWindow < Qt::MainWindow
 	
 	
 	Qt::Object.connect(@ui.patientTable, SIGNAL('edit_request(QVariant&)'), self, SLOT('edit_item(QVariant&)'))
-	
-	
   end
   
   def new_patient
@@ -28,7 +27,10 @@ class MainWindow < Qt::MainWindow
   
   def edit_item(variant)
 	item = variant.value
-	puts item.inspect
+	unless item == current_item
+	  self.centralWidget = item.newEditWidget(self)
+	  current_item = item
+	end
   end
   
 
