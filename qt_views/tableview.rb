@@ -34,6 +34,9 @@ end
 
 class ExamSetTable < BasicTable
 end
+
+class DoctorTable < BasicTable
+end
 	
 
 

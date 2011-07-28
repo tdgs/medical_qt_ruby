@@ -1,6 +1,7 @@
 require_relative '../qt_models'
 require_relative '../qt_views/tableview'
 require_relative 'ui_files/main_window_ui'
+require_relative 'search_widget'
 
 class MainWindow < Qt::MainWindow
   slots 'edit_item(QVariant&)'
@@ -11,12 +12,8 @@ class MainWindow < Qt::MainWindow
 	super(parent)
 	@ui = Ui::MainWindow.new
 	@ui.setup_ui(self)
-	@ui.patientTable.model = PatientModel.new
 	@ui.new_patient.connect :triggered, self, :new_patient
-	
-	
-	
-	Qt::Object.connect(@ui.patientTable, SIGNAL('edit_request(QVariant&)'), self, SLOT('edit_item(QVariant&)'))
+	@ui.searchPatient.connect :triggered, self, :search_patient
   end
   
   def new_patient
@@ -31,6 +28,10 @@ class MainWindow < Qt::MainWindow
 	  self.centralWidget = item.newEditWidget(self)
 	  current_item = item
 	end
+  end
+  
+  def search_patient
+	self.centralWidget = SearchWidget.new(self)
   end
   
 

@@ -1,7 +1,7 @@
 =begin
 ** Form generated from reading ui file 'searchWidget.ui'
 **
-** Created: Tue Jul 26 22:08:52 2011
+** Created: Thu Jul 28 20:48:00 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -44,7 +44,7 @@ class Ui_SearchForm
     attr_reader :widget_2
     attr_reader :horizontalLayout_2
     attr_reader :checkBox_2
-    attr_reader :dateEdit_2
+    attr_reader :examSetFromDate
     attr_reader :label
     attr_reader :widget_3
     attr_reader :horizontalLayout_3
@@ -151,7 +151,7 @@ class Ui_SearchForm
 
     @horizontalLayout.addWidget(@checkBox)
 
-    @patientBirthDate = Qt::DateEdit.new(@widget)
+    @patientBirthDate = MyDateWidget.new(@widget)
     @patientBirthDate.objectName = "patientBirthDate"
     @patientBirthDate.enabled = false
     @patientBirthDate.calendarPopup = true
@@ -239,12 +239,12 @@ class Ui_SearchForm
 
     @horizontalLayout_2.addWidget(@checkBox_2)
 
-    @dateEdit_2 = Qt::DateEdit.new(@widget_2)
-    @dateEdit_2.objectName = "dateEdit_2"
-    @dateEdit_2.enabled = false
-    @dateEdit_2.calendarPopup = true
+    @examSetFromDate = MyDateWidget.new(@widget_2)
+    @examSetFromDate.objectName = "examSetFromDate"
+    @examSetFromDate.enabled = false
+    @examSetFromDate.calendarPopup = true
 
-    @horizontalLayout_2.addWidget(@dateEdit_2)
+    @horizontalLayout_2.addWidget(@examSetFromDate)
 
 
     @formLayout_2.setWidget(2, Qt::FormLayout::FieldRole, @widget_2)
@@ -263,7 +263,7 @@ class Ui_SearchForm
 
     @horizontalLayout_3.addWidget(@checkBox_3)
 
-    @examSetToDate = Qt::DateEdit.new(@widget_3)
+    @examSetToDate = MyDateWidget.new(@widget_3)
     @examSetToDate.objectName = "examSetToDate"
     @examSetToDate.enabled = false
     @examSetToDate.calendarPopup = true
@@ -378,13 +378,13 @@ class Ui_SearchForm
 
     retranslateUi(searchForm)
     Qt::Object.connect(@checkBox, SIGNAL('clicked(bool)'), @patientBirthDate, SLOT('setEnabled(bool)'))
-    Qt::Object.connect(@checkBox_2, SIGNAL('clicked(bool)'), @dateEdit_2, SLOT('setEnabled(bool)'))
+    Qt::Object.connect(@checkBox_2, SIGNAL('clicked(bool)'), @examSetFromDate, SLOT('setEnabled(bool)'))
     Qt::Object.connect(@checkBox_3, SIGNAL('clicked(bool)'), @examSetToDate, SLOT('setEnabled(bool)'))
     Qt::Object.connect(@pushButton_2, SIGNAL('clicked()'), searchForm, SLOT('searchExamSet()'))
     Qt::Object.connect(@pushButton, SIGNAL('clicked()'), searchForm, SLOT('searchPatient()'))
     Qt::Object.connect(@pushButton_3, SIGNAL('clicked()'), searchForm, SLOT('searchDoctor()'))
 
-    @tabWidget.setCurrentIndex(1)
+    @tabWidget.setCurrentIndex(2)
 
 
     Qt::MetaObject.connectSlotsByName(searchForm)
