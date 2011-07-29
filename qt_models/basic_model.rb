@@ -46,13 +46,12 @@ class BasicModel < Qt::AbstractTableModel
 	
   
   def headerData(section, orientation, role)
-	
-	return Qt::Variant.new if section >= columnCount or role != Qt::DisplayRole
-	if orientation == Qt::Horizontal
-	  Qt::Variant.new(columnHeader(section))
-	else 
-	  Qt::Variant.new
-	end
+		return Qt::Variant.new if section >= columnCount or role != Qt::DisplayRole
+		if orientation == Qt::Horizontal
+			Qt::Variant.new(columnHeader(section))
+		else 
+			Qt::Variant.new
+		end
   end
   
   def itemFromIndex(index)

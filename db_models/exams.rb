@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'data_mapper'
 require 'dm-is-tree'
 require_relative 'ui_aware'
@@ -46,9 +47,17 @@ class ExamSet
   include UiAware
   
   property :id, DataMapper::Property::Serial
-  property :date, DataMapper::Property::Date
+  property :date, DataMapper::Property::Date, :disp_name => 'Ημερομηνία'
   belongs_to :patient
   belongs_to :doctor
   has n, :exam_values
   has n, :exam_fields, :through => :exam_values
+	
+	def patient_name
+		self.patient.full_name
+	end
+	
+	def doctor_name
+		self.doctor.full_name
+	end
 end

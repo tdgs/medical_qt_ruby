@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>866</width>
-    <height>550</height>
+    <width>878</width>
+    <height>634</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,14 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="patientTab">
       <attribute name="title">
-       <string>Ασθενείς</string>
+       <string>Μαθητές</string>
+      </attribute>
+      <attribute name="toolTip">
+       <string>Αναζήτηση Ασθενών</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
@@ -432,12 +435,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>110</x>
-     <y>63</y>
+     <x>112</x>
+     <y>173</y>
     </hint>
     <hint type="destinationlabel">
-     <x>111</x>
-     <y>63</y>
+     <x>201</x>
+     <y>174</y>
     </hint>
    </hints>
   </connection>
@@ -480,11 +483,11 @@
    <slot>searchExamSet()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>83</x>
-     <y>262</y>
+     <x>91</x>
+     <y>46</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-1</x>
+     <x>0</x>
      <y>312</y>
     </hint>
    </hints>
@@ -496,8 +499,8 @@
    <slot>searchPatient()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>85</x>
-     <y>47</y>
+     <x>93</x>
+     <y>260</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
@@ -512,8 +515,8 @@
    <slot>searchDoctor()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>61</x>
-     <y>47</y>
+     <x>69</x>
+     <y>46</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
