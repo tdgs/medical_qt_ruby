@@ -19,12 +19,19 @@ class BasicModel < Qt::AbstractTableModel
   def column_names
     @columnNames ||= @klass.properties.collect {|p| [p.name, p.disp_name]}
   end
-
-  
-  def order2str(order)
-	return 'desc' if order == Qt::DescendingOrder
-	return 'asc'
-  end
+	
+	def sort_by_name(name, sortOrder)
+		coll = @dataMapperCollection.all(:order => [name])
+		coll = coll.reverse if sortOrder == Qt::DescendingOrder
+		@items = coll.to_a
+	end
+	
+	def sort(column, sortOrder)
+		emit layoutAboutToBeChanged
+		colName = column_names[column][0]
+		sort_by_name(colName, sortOrder)
+		emit layoutChanged
+	end
   
   def rowCount(parent = nil)
 	return 0 if not parent.nil? and parent.valid? 
@@ -63,20 +70,12 @@ class BasicModel < Qt::AbstractTableModel
   end
   
   def valueFromIndex(index)
-	item = itemFromIndex(index)
-	item.send(column_names[index.column][0])
+		item = itemFromIndex(index)
+		item.send(column_names[index.column][0])
   end
   
-  def newEditWidget(parent = nil, index)
-	unless @editWidgetKlass.nil?
-	  @editWidgetKlass.new(itemFromIndex(index), parent).exec
-	end
-  end
-  
-  def new_item
-	puts 'new_item'
-	newEditWidget(Qt::ModelIndex.new, self)
-  end
+
+
 end 
 
 

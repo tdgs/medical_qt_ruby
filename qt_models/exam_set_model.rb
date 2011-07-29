@@ -12,4 +12,7 @@ class ExamSetModel < BasicModel
 		                [:doctor_name, 'Ιατρός']]  
   end
 	
+	alias :super_sort, :sort
+	
+	
 end 

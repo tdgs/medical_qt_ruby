@@ -17,9 +17,9 @@ class MainWindow < Qt::MainWindow
   end
   
   def new_patient
-	p = Patient.first
-	p.name = 'tdgs'
-	p.save
+		item = Patient.new
+		self.centralWidget = item.newEditWidget(self)
+		current_item = item
   end
   
   def edit_item(variant)
