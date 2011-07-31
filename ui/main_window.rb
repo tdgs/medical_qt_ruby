@@ -19,14 +19,17 @@ class MainWindow < Qt::MainWindow
 
   
   def new_patient
+	edit(Patient.new)
   end
   
   def edit_item(variant)
-	item = variant.value
+	edit(variant.value)
+  end
+  
+  def edit(item)
 	curIndex = @widgetHash[item.class]
 	@stack.widget(curIndex).item = item
 	@stack.currentIndex = curIndex
-
   end
   
   def search_patient

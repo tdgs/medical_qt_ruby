@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>878</width>
-    <height>634</height>
+    <width>896</width>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="patientTab">
       <attribute name="title">
@@ -399,6 +399,9 @@
    <property name="text">
     <string>Αναζητηση Ασθενή</string>
    </property>
+   <property name="shortcut">
+    <string>Return</string>
+   </property>
   </action>
  </widget>
  <customwidgets>
@@ -483,8 +486,8 @@
    <slot>searchExamSet()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>91</x>
-     <y>46</y>
+     <x>99</x>
+     <y>262</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -515,12 +518,92 @@
    <slot>searchDoctor()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>46</y>
+     <x>77</x>
+     <y>337</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
      <y>271</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>patientName</sender>
+   <signal>returnPressed()</signal>
+   <receiver>SearchForm</receiver>
+   <slot>searchPatient()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>131</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>372</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>patientSurname</sender>
+   <signal>returnPressed()</signal>
+   <receiver>SearchForm</receiver>
+   <slot>searchPatient()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-2</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>patientSurname</sender>
+   <signal>returnPressed()</signal>
+   <receiver>SearchForm</receiver>
+   <slot>searchPatient()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>214</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>82</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>patientAddress</sender>
+   <signal>selectionChanged()</signal>
+   <receiver>SearchForm</receiver>
+   <slot>searchPatient()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>43</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>patientPhone</sender>
+   <signal>returnPressed()</signal>
+   <receiver>SearchForm</receiver>
+   <slot>searchPatient()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>138</x>
+     <y>141</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-2</x>
+     <y>237</y>
     </hint>
    </hints>
   </connection>

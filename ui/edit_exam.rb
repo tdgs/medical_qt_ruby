@@ -12,14 +12,16 @@ class FieldLayout < Qt::GridLayout
 	@cr_col = 0
 	@max_row = MaxRow
 	@formLayout = Qt::FormLayout.new
-	addLayout(@formLayout, MaxRow, 0, -1, -1)
+	addLayout(@formLayout, MaxRow+1, 0, -1, -1)
   end
   #alias :old_addWidget :addWidget
   def addGroup(widget)
+	puts "row, col: #{cr_row}, #{cr_col}"
 	addWidget(widget, cr_row, cr_col)
-	if (@cr_col += 1) >= max_row
-	  @cr_col = 0
-	  @cr_row += 1
+	@cr_row += 1
+	if @cr_row >= max_row
+	  @cr_col += 1
+	  @cr_row += 0
 	end
   end
   
@@ -29,9 +31,12 @@ class FieldLayout < Qt::GridLayout
 end
 
 class EditExams < Qt::ScrollArea
+  include DataBaseModelWidget
   def initialize(parent = nil, exam_set)
 	super(parent)
 	@edit_widgets = Array.new
+	@item = @exam_set
+	@attributes = []
 	
 	setupUI(exam_set)
   end
