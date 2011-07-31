@@ -5,17 +5,20 @@ require_relative 'search_widget'
 require_relative '../db_models'
 
 class MainWindow < Qt::MainWindow
-  include Singleton
   slots 'edit_item(QVariant&)'
   attr_reader :current_item
   def initialize(parent = nil)
 	super(parent)
+  end
+  
+  def setup_ui
 	@ui = Ui::MainWindow.new
 	@ui.setup_ui(self)
 	@ui.new_patient.connect :triggered, self, :new_patient
 	@ui.searchPatient.connect :triggered, self, :search_patient
 	initialize_stack
   end
+  
 
   
   def new_patient

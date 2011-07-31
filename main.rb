@@ -5,6 +5,10 @@ require_relative 'ui'
 
 app = Qt::Application.new(ARGV)
 #Qt.debug_level = Qt::DebugLevel::High
-mainWindow = MainWindow.instance
-mainWindow.show
+puts "Main: #{ $lala.inspect}"
+$lala = 7
+
+$mainWindow = MainWindow.new
+$mainWindow.setup_ui
+$mainWindow.show
 app.exec
