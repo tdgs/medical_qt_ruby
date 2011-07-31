@@ -3,19 +3,21 @@ require_relative '../qt_models'
 require 'Qt4'
 require_relative '../lib/ruby_variant.rb'
 
-
 class BasicTable < Qt::TableView
   
   slots "edit_item(const QModelIndex&)", "new_item()"
   signals "edit_request(QVariant&)"
   def initialize(parent = nil, model = nil)
+	
 	super(parent)
+	puts 'Hello from BasicTable initialize!!'
 	setModel(model) if model
 	
 	sizePolicy = Qt::SizePolicy.new(Qt::SizePolicy::Expanding, Qt::SizePolicy::Expanding)
 	self.sortingEnabled = true
 	contextMenuPolicy = Qt::ActionsContextMenu
 	self.connect(SIGNAL('activated(const QModelIndex&)'), self, :edit_item)
+	Qt::Object.connect(self, SIGNAL('edit_request(QVariant&)'), mainWindow, SLOT('edit_item(QVariant&)'))
   end
   
   def edit_item(index)

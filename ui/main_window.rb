@@ -5,6 +5,7 @@ require_relative 'search_widget'
 require_relative '../db_models'
 
 class MainWindow < Qt::MainWindow
+  include Singleton
   slots 'edit_item(QVariant&)'
   attr_reader :current_item
   def initialize(parent = nil)
@@ -14,7 +15,6 @@ class MainWindow < Qt::MainWindow
 	@ui.new_patient.connect :triggered, self, :new_patient
 	@ui.searchPatient.connect :triggered, self, :search_patient
 	initialize_stack
-	Qt::Object.connect(@searchWidget, SIGNAL('edit_request(QVariant&)'), self, SLOT('edit_item(QVariant&)'))
   end
 
   
@@ -42,7 +42,7 @@ class MainWindow < Qt::MainWindow
 	@searchWidget = SearchWidget.new(@stack)
 	@stack.addWidget(@searchWidget)
 	@widgetHash = Hash.new
-	[Patient, ExamSet].each do |klass|
+	[Patient, ExamSet, Doctor].each do |klass|
 	  @widgetHash[klass] = @stack.addWidget klass.editWidget.new(@stack, klass.new)
 	end
   end
