@@ -7,11 +7,9 @@ class BasicModel < Qt::AbstractTableModel
   def initialize(parent, dataMapperCollection)
 	super(parent)
 	@sortColumn = 1
-	@currentSortOrder = Qt::AscendingOrder
-	
+	@currentSortOrder = Qt::AscendingOrder	
 	@dataMapperCollection = dataMapperCollection 
 	@klass = @dataMapperCollection.model
-	
 	@items = @dataMapperCollection.all.to_a
   end
   
@@ -19,19 +17,19 @@ class BasicModel < Qt::AbstractTableModel
     @columnNames ||= @klass.properties.collect {|p| [p.name, p.disp_name]}
   end
 	
-	def sort_by_name(name, sortOrder)
+  def sort_by_name(name, sortOrder)
 	  
-		coll = @dataMapperCollection.all(:order => [name])
-		coll = coll.reverse if sortOrder == Qt::DescendingOrder
-		emit layoutAboutToBeChanged
-		@items = coll.to_a
-		emit layoutChanged
-	end
+	coll = @dataMapperCollection.all(:order => [name])
+	coll = coll.reverse if sortOrder == Qt::DescendingOrder
+	emit layoutAboutToBeChanged
+	@items = coll.to_a
+	emit layoutChanged
+  end
 	
-	def sort(column, sortOrder)
+  def sort(column, sortOrder)
 		colName = column_names[column][0]		
 		sort_by_name(colName, sortOrder)		
-	end
+  end
   
   def rowCount(parent = nil)
 	return 0 if not parent.nil? and parent.valid? 

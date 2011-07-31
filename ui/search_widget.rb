@@ -24,7 +24,7 @@ class SearchWidget < Qt::Widget
 		                                            [:surname,@ui.doctorSurname],
 		                                            [:address, @ui.doctorAddress],
 		                                            [:phone, @ui.doctorPhone],
-		                                            [:email, @ui. doctorEmail]])
+		                                            [:email, @ui.doctorEmail]])
 		
 	end
 	
