@@ -25,10 +25,7 @@ class SearchWidget < Qt::Widget
 		                                            [:address, @ui.doctorAddress],
 		                                            [:phone, @ui.doctorPhone],
 		                                            [:email, @ui. doctorEmail]])
-		Qt::Object.connect(@ui.patientTable, SIGNAL("edit_request(QVariant&)"), 
-		                   self, SIGNAL("edit_request(QVariant&)"))
-		Qt::Object.connect(@ui.examSetTable, SIGNAL("edit_request(QVariant&)"), 
-		                   self, SIGNAL("edit_request(QVariant&)"))
+		
 	end
 	
 	def edit_request(variant)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>DoctorForm</class>
+ <widget class="QWidget" name="DoctorForm">
   <property name="windowModality">
    <enum>Qt::WindowModal</enum>
   </property>
@@ -19,65 +19,62 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QGroupBox" name="groupBox">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
-      <string>Στοιχεία Ιατρού</string>
+      <string>Λίστα Ασθενών</string>
      </property>
      <layout class="QFormLayout" name="formLayout">
-      <property name="fieldGrowthPolicy">
-       <enum>QFormLayout::ExpandingFieldsGrow</enum>
-      </property>
-      <item row="1" column="0">
+      <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
          <string>Όνομα:</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
+      <item row="0" column="1">
        <widget class="QLineEdit" name="name"/>
       </item>
-      <item row="3" column="0">
+      <item row="1" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string>Επώνυμο:</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
+      <item row="1" column="1">
        <widget class="QLineEdit" name="surname"/>
       </item>
-      <item row="6" column="0">
+      <item row="2" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
          <string>Διεύθυνση:</string>
         </property>
        </widget>
       </item>
-      <item row="6" column="1">
+      <item row="2" column="1">
        <widget class="QLineEdit" name="phone">
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="8" column="0">
+      <item row="3" column="0">
        <widget class="QLabel" name="label_4">
         <property name="text">
          <string>Τηλέφωνο:</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="1">
+      <item row="3" column="1">
        <widget class="QLineEdit" name="address">
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="9" column="1">
+      <item row="4" column="1">
        <widget class="QDialogButtonBox" name="buttonBox">
         <property name="standardButtons">
          <set>QDialogButtonBox::Cancel|QDialogButtonBox::Reset|QDialogButtonBox::Save</set>
@@ -87,38 +84,23 @@
      </layout>
     </widget>
    </item>
-   <item row="0" column="1" rowspan="2">
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="title">
-      <string>Λίστα Ασθενών</string>
+   <item>
+    <widget class="QLabel" name="labelPatientList">
+     <property name="text">
+      <string>  Λίστα ασθενών</string>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="PatientList" name="patientList"/>
-      </item>
-     </layout>
     </widget>
    </item>
-   <item row="1" column="0">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>204</height>
-      </size>
-     </property>
-    </spacer>
+   <item>
+    <widget class="PatientTable" name="patientTable"/>
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PatientList</class>
+   <class>PatientTable</class>
    <extends>QTableView</extends>
-   <header>patientlist.h</header>
+   <header>patienttable.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
@@ -126,32 +108,16 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>Form</receiver>
-   <slot>accepted()</slot>
+   <receiver>DoctorForm</receiver>
+   <slot>save()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>338</x>
-     <y>182</y>
+     <x>821</x>
+     <y>143</y>
     </hint>
     <hint type="destinationlabel">
-     <x>322</x>
-     <y>268</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>Form</receiver>
-   <slot>cancel()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>279</x>
-     <y>176</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>172</x>
-     <y>323</y>
+     <x>727</x>
+     <y>0</y>
     </hint>
    </hints>
   </connection>
@@ -160,5 +126,6 @@
   <slot>accepted()</slot>
   <slot>cancel()</slot>
   <slot>reset()</slot>
+  <slot>save()</slot>
  </slots>
 </ui>
