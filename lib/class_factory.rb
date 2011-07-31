@@ -9,10 +9,6 @@ class ClassFactory
   end  
   
   def self.qt_name_to_ruby(s)
-	if s[0] == 'Q'
-	  "#{s[0]}t::#{s[1..s.length]}"
-	else
-	  s
-	end
+	(s[0] == 'Q' and  "#{s[0]}t::#{s[1..s.length]}") || s
   end
 end

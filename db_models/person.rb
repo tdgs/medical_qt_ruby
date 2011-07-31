@@ -21,6 +21,10 @@ module Person
 	"#{self.name} #{self.surname}"
   end
   
+  def age
+ 	Date.today.year - self.birthDate.year
+  end
+  
   def to_s
 	full_name
   end

@@ -12,7 +12,6 @@ class BasicModel < Qt::AbstractTableModel
 	@dataMapperCollection = dataMapperCollection 
 	@klass = @dataMapperCollection.model
 	
-	#@columnNames = @klass.properties.collect {|p| [p.name, p.disp_name]}
 	@items = @dataMapperCollection.all.to_a
   end
   
@@ -21,16 +20,17 @@ class BasicModel < Qt::AbstractTableModel
   end
 	
 	def sort_by_name(name, sortOrder)
+	  
 		coll = @dataMapperCollection.all(:order => [name])
 		coll = coll.reverse if sortOrder == Qt::DescendingOrder
+		emit layoutAboutToBeChanged
 		@items = coll.to_a
+		emit layoutChanged
 	end
 	
 	def sort(column, sortOrder)
-		emit layoutAboutToBeChanged
-		colName = column_names[column][0]
-		sort_by_name(colName, sortOrder)
-		emit layoutChanged
+		colName = column_names[column][0]		
+		sort_by_name(colName, sortOrder)		
 	end
   
   def rowCount(parent = nil)
@@ -43,8 +43,15 @@ class BasicModel < Qt::AbstractTableModel
   end
   
   def data(index, role = Qt::DisplayRole)
-	return Qt::Variant.new if (not index.valid? or role != Qt::DisplayRole)	
-	Qt::Variant.new(valueFromIndex(index)) if Qt::DisplayRole
+	return Qt::Variant.new if (not index.valid? )
+	case role
+	when Qt::DisplayRole
+	  Qt::Variant.new(valueFromIndex(index))
+	when Qt::BackgroundRole
+	  Qt::Variant.new((index.row.even? and Qt::transparent) || Qt::lightGray)
+	else 
+	  Qt::Variant.new
+	end
   end
   
   def columnHeader(section)

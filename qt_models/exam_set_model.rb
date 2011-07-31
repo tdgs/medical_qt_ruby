@@ -12,7 +12,17 @@ class ExamSetModel < BasicModel
 		                [:doctor_name, 'Ιατρός']]  
   end
 	
-	alias :super_sort, :sort
+	alias :basic_sort :sort
 	
+	def sort(column, sortOrder)
+	  colName= column_names[column][0]
+	  if colName == :id or colName == :date
+		sort_by_name(colName, sortOrder)
+	  elsif colName == :patient_name
+		sort_by_name(ExamSet.patient.surname, sortOrder)
+	  elsif colName == :doctor_name
+		sort_by_name(ExamSet.doctor.surname, sortOrder)
+	  end
+	end
 	
 end 

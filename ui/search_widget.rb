@@ -4,7 +4,9 @@ require_relative 'my_date_widget'
 
 
 class SearchWidget < Qt::Widget
+  
 	slots "searchExamSet()", "searchDoctor()", "searchPatient()"
+	signals "edit_request(QVariant&)"
 	def initialize(parent = nil)
 		super(parent)
 		@ui = Ui::SearchForm.new
@@ -23,11 +25,14 @@ class SearchWidget < Qt::Widget
 		                                            [:address, @ui.doctorAddress],
 		                                            [:phone, @ui.doctorPhone],
 		                                            [:email, @ui. doctorEmail]])
-		
 		Qt::Object.connect(@ui.patientTable, SIGNAL("edit_request(QVariant&)"), 
-		                   self.parent, SLOT("edit_item(QVariant&)"))
-		
-		                                            
+		                   self, SIGNAL("edit_request(QVariant&)"))
+		Qt::Object.connect(@ui.examSetTable, SIGNAL("edit_request(QVariant&)"), 
+		                   self, SIGNAL("edit_request(QVariant&)"))
+	end
+	
+	def edit_request(variant)
+	  emit edit_request(variant)
 	end
 	
 	def searchPatient

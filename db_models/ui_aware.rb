@@ -2,13 +2,8 @@
 module UiAware
   def self.included(base)
 	base.class_eval do
-	  @@editWidget = nil
-	  def self.editWidget
-		@@editWidget 
-	  end
-	  
-	  def self.editWidget=(widget)
-		@@editWidget = widget
+	  class << self 
+		attr_accessor :editWidget
 	  end
 	  
 	  def newEditWidget(parent)

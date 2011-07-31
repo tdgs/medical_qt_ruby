@@ -3,6 +3,7 @@ require 'data_mapper'
 require 'dm-is-tree'
 require_relative 'ui_aware'
 
+
 class ExamFieldGroup
   include DataMapper::Resource
   property :id, DataMapper::Property::Serial
@@ -26,6 +27,7 @@ class ExamField
 	self.exam_values(:exam_set => exam_set).first || ExamValue.new(:exam_field => self, :exam_set => exam_set)
   end
   
+
 end
 
 
@@ -61,3 +63,11 @@ class ExamSet
 		self.doctor.full_name
 	end
 end
+
+require_relative '../lib/class_factory'
+class ExamField
+  def ui_widget(parent = nil)
+	ClassFactory.str_to_klass(self.widget).new
+  end
+end
+
