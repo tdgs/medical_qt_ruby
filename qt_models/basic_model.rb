@@ -50,8 +50,6 @@ class BasicModel < Qt::AbstractTableModel
 	case role
 	when Qt::DisplayRole
 	  Qt::Variant.new(valueFromIndex(index))
-	when Qt::BackgroundRole
-	  Qt::Variant.new((index.row.even? and Qt::transparent) || Qt::lightGray)
 	else 
 	  Qt::Variant.new
 	end
