@@ -12,9 +12,14 @@ class BasicModel < Qt::AbstractTableModel
 	@klass = @dataMapperCollection.model
 	@items = @dataMapperCollection.all.to_a
   end
+	
+	def collect_columnNames
+		@klass.properties.collect {|p| [p.name, p.disp_name]}
+	end
+		
   
   def column_names
-    @columnNames ||= @klass.properties.collect {|p| [p.name, p.disp_name]}
+    @columnNames ||= collect_columnNames
   end
 	
   def sort_by_name(name, sortOrder)

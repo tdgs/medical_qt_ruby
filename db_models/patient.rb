@@ -12,6 +12,12 @@ require_relative 'ui_aware'
    include UiAware
    has n, :doctors, :through => :exam_sets
    has n, :exam_sets
+	 
+	 
+	 def date_last_visit
+		 e = self.exam_sets.first(:order => :date.desc)
+		 (e and e.date) || " "
+	 end
    
  end
  
