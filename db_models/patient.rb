@@ -10,8 +10,8 @@ require_relative 'ui_aware'
  class Patient
    include Person
    include UiAware
-   has n, :doctors, :through => :exam_sets
-   has n, :exam_sets
+   has n, :doctors, :through => :exam_sets, :constraint => :skip
+   has n, :exam_sets, :constraint => :destroy
 	 
 	 
 	 def date_last_visit

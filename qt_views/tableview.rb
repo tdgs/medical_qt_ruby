@@ -22,7 +22,6 @@ class BasicTable < Qt::TableView
     @removeAction = Qt::Action.new('Διαγραφή', self)
     self.addAction(@removeAction)
 
-    @deleteMessage = ""
 
     
 	self.connect(SIGNAL('activated(const QModelIndex&)'), self, :edit_item)
@@ -48,12 +47,31 @@ class BasicTable < Qt::TableView
   end
 
   def item_remove(checked)
-      indices = 
+      indexes = self.selectionModel.selectedRows(0)
+      models = indexes.collect {|idx| self.model.itemFromIndex(idx)}
+      question = Qt::MessageBox.new
+      question.text = self.deleteMessage
+      question.standardButtons = Qt::MessageBox::Ok | Qt::MessageBox::Cancel
+      if question.exec 
+          box = Qt::MessageBox.new
+          if self.model.remove_items models
+              box.text = 'Τα στοιχεία Διαγράφησαν'
+          else
+              box.text = 'Υπήρξε ένα πρόβλημα με τη διαγραφή'
+          end
+          box.exec
+      end
+      
+  end
+
+  def selected_items
+
   end
 
 end
 
 class PatientTable < BasicTable
+    @deleteMessage = 'Θα διαγραφούν οι επιλεγμένοι ασθενείς, καθώς και οι επισκέψεις τους. Είστε σίγουροι;'
 end
 
 class ExamSetTable < BasicTable

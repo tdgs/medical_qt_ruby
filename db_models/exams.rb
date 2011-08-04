@@ -52,7 +52,7 @@ class ExamSet
   property :date, DataMapper::Property::Date, :disp_name => 'Ημερομηνία'
   belongs_to :patient
   belongs_to :doctor
-  has n, :exam_values
+  has n, :exam_values, :constraint => :destroy
   has n, :exam_fields, :through => :exam_values
 	
 	def patient_name

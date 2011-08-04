@@ -81,7 +81,17 @@ class BasicModel < Qt::AbstractTableModel
 		item = itemFromIndex(index)
 		item.send(column_names[index.column][0])
   end
-  
+
+  def remove_items(items)	
+    emit layoutAboutToBeChanged
+    ret = items.inject(true) {|b, i| b and i.destroy}
+	@items = @dataMapperCollection.to_a
+	emit layoutChanged
+    return ret
+  end
+
+
+
 
 
 end 
