@@ -51,7 +51,7 @@ class ExamSet
   property :id, DataMapper::Property::Serial
   property :date, DataMapper::Property::Date, :disp_name => 'Ημερομηνία'
   belongs_to :patient
-  belongs_to :doctor
+  belongs_to :doctor, :required => false
   has n, :exam_values, :constraint => :destroy
   has n, :exam_fields, :through => :exam_values
 	
@@ -60,7 +60,8 @@ class ExamSet
 	end
 	
 	def doctor_name
-		self.doctor.full_name
+        d = self.doctor
+        (not d.nil? and d.full_name) || ""
 	end
 end
 

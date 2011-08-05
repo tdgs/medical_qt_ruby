@@ -6,7 +6,7 @@ require_relative '../lib/db_model_widget'
 
 
 class EditPatient < Qt::Widget
-  slots "save()"
+  slots "save()", "new_exam_set()"
   include DataBaseModelWidget
 	
   def initialize(parent = nil, patient)
@@ -21,4 +21,9 @@ class EditPatient < Qt::Widget
 	def load_relationships
 	  @ui.examSetTable.model = ExamSetModel.new(self, @item.exam_sets.all)
 	end
+
+    def new_exam_set
+        exam_set = ExamSet.new(:patient => @item, :date => Date.today)
+        $mainWindow.edit_item(exam_set.to_variant)
+    end
 end

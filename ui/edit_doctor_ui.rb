@@ -1,8 +1,8 @@
 =begin
 ** Form generated from reading ui file 'edit_doctor.ui'
 **
-** Created: Κυρ 31. Ιουλ 17:12:53 2011
-**      by: Qt User Interface Compiler version 4.6.3
+** Created: Fri Aug 5 12:02:38 2011
+**      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
@@ -108,7 +108,7 @@ class Ui_DoctorForm
 
     def retranslateUi(doctorForm)
     doctorForm.windowTitle = Qt::Application.translate("DoctorForm", "\316\232\316\261\317\201\317\204\316\255\316\273\316\261 \316\231\316\261\317\204\317\201\316\277\317\205", nil, Qt::Application::UnicodeUTF8)
-    @groupBox_2.title = Qt::Application.translate("DoctorForm", "\316\233\316\257\317\203\317\204\316\261 \316\221\317\203\316\270\316\265\316\275\317\216\316\275", nil, Qt::Application::UnicodeUTF8)
+    @groupBox_2.title = Qt::Application.translate("DoctorForm", "\316\243\317\204\316\277\316\271\317\207\316\265\316\257\316\261 \316\231\316\261\317\204\317\201\316\277\317\215", nil, Qt::Application::UnicodeUTF8)
     @label.text = Qt::Application.translate("DoctorForm", "\316\214\316\275\316\277\316\274\316\261:", nil, Qt::Application::UnicodeUTF8)
     @label_2.text = Qt::Application.translate("DoctorForm", "\316\225\317\200\317\216\316\275\317\205\316\274\316\277:", nil, Qt::Application::UnicodeUTF8)
     @label_3.text = Qt::Application.translate("DoctorForm", "\316\224\316\271\316\265\317\215\316\270\317\205\316\275\317\203\316\267:", nil, Qt::Application::UnicodeUTF8)

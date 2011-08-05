@@ -5,7 +5,7 @@ require_relative 'search_widget'
 require_relative '../db_models'
 
 class MainWindow < Qt::MainWindow
-  slots 'edit_item(QVariant&)'
+  slots 'edit_item(QVariant&)', 'new_patient()', 'new_doctor()', 'search()'
   attr_reader :current_item
   def initialize(parent = nil)
 	super(parent)
@@ -14,8 +14,6 @@ class MainWindow < Qt::MainWindow
   def setup_ui
 	@ui = Ui::MainWindow.new
 	@ui.setup_ui(self)
-	@ui.new_patient.connect :triggered, self, :new_patient
-	@ui.searchPatient.connect :triggered, self, :search_patient
 	initialize_stack
   end
   
@@ -24,7 +22,11 @@ class MainWindow < Qt::MainWindow
   def new_patient
 	edit(Patient.new)
   end
-  
+
+  def new_doctor
+      edit(Doctor.new)
+  end
+ 
   def edit_item(variant)
 	edit(variant.value)
   end
@@ -35,7 +37,7 @@ class MainWindow < Qt::MainWindow
 	@stack.currentIndex = curIndex
   end
   
-  def search_patient
+  def search
 	@stack.currentIndex = 0
   end 
   

@@ -88,17 +88,16 @@ end
 
 
 
-class EditExams < Qt::Widget
+class EditExamSet < Qt::Widget
   include DataBaseModelWidget
+  attr_accessor :exam_set
   
-  def initialize(parent = nil, exam_set)
+  def initialize(parent = nil)
 	super(parent)
 	@edit_widgets = Array.new
-	@item = @exam_set
 	@attributes = []
 	@scrollArea = Qt::ScrollArea.new(self)
 	
-	setupUI(exam_set)
   end
   
   def setupUI(exam_set)
@@ -113,12 +112,7 @@ class EditExams < Qt::Widget
 	@layout.addWidget @scrollArea
 	#puts "HELLO: #{@edit_widgets.count}"
 	
-	@buttons = Qt::DialogButtonBox.new(self)
-	@buttons.standardButtons = Qt::DialogButtonBox::Cancel|Qt::DialogButtonBox::Save
-	@layout.addWidget(@buttons)
 	
-	@buttons.connect :accepted, self, :save
-    Qt::Object.connect(@buttons, SIGNAL('rejected()'), self, SLOT('reject()'))
 	Qt::MetaObject.connectSlotsByName(self)	
   end
   
