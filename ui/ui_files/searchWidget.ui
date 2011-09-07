@@ -21,7 +21,7 @@
      </property>
      <widget class="QWidget" name="patientTab">
       <attribute name="title">
-       <string>Μαθητές</string>
+       <string>Ασθενείς</string>
       </attribute>
       <attribute name="toolTip">
        <string>Αναζήτηση Ασθενών</string>

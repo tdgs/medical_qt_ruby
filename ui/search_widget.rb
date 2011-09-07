@@ -65,7 +65,7 @@ class SearchOptionHash < Hash
 				options[k.send(:gte)] = value[0] unless value[0].nil?
 				options[k.send(:lte)] = value[1] unless value[1].nil?
 			else
-				options[k.send(:like)] = "%#{value}%" unless value.nil?
+				options[k.send(:like)] = "%#{value}%" unless value.nil? or value.empty?
 			end
 		end
 		return options

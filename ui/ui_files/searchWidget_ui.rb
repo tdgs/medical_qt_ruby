@@ -1,7 +1,7 @@
 =begin
 ** Form generated from reading ui file 'searchWidget.ui'
 **
-** Created: Sun Jul 31 15:44:32 2011
+** Created: Wed Sep 7 18:20:00 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -189,7 +189,7 @@ class Ui_SearchForm
 
     @gridLayout.addWidget(@patientTable, 2, 0, 1, 1)
 
-    @tabWidget.addTab(@patientTab, Qt::Application.translate("SearchForm", "\316\234\316\261\316\270\316\267\317\204\316\255\317\202", nil, Qt::Application::UnicodeUTF8))
+    @tabWidget.addTab(@patientTab, Qt::Application.translate("SearchForm", "\316\221\317\203\316\270\316\265\316\275\316\265\316\257\317\202", nil, Qt::Application::UnicodeUTF8))
     @examSetTab = Qt::Widget.new()
     @examSetTab.objectName = "examSetTab"
     @verticalLayout_2 = Qt::VBoxLayout.new(@examSetTab)
@@ -412,7 +412,7 @@ class Ui_SearchForm
     @checkBox.text = ''
     @label_6.text = Qt::Application.translate("SearchForm", "e-mail:", nil, Qt::Application::UnicodeUTF8)
     @pushButton.text = Qt::Application.translate("SearchForm", "\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
-    @tabWidget.setTabText(@tabWidget.indexOf(@patientTab), Qt::Application.translate("SearchForm", "\316\234\316\261\316\270\316\267\317\204\316\255\317\202", nil, Qt::Application::UnicodeUTF8))
+    @tabWidget.setTabText(@tabWidget.indexOf(@patientTab), Qt::Application.translate("SearchForm", "\316\221\317\203\316\270\316\265\316\275\316\265\316\257\317\202", nil, Qt::Application::UnicodeUTF8))
     @tabWidget.setTabToolTip(@tabWidget.indexOf(@patientTab), Qt::Application.translate("SearchForm", "\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267 \316\221\317\203\316\270\316\265\316\275\317\216\316\275", nil, Qt::Application::UnicodeUTF8))
     @label_7.text = Qt::Application.translate("SearchForm", "\316\225\317\200\317\216\316\275\317\205\316\274\316\277 \316\221\317\203\316\270\316\265\316\275\316\256:", nil, Qt::Application::UnicodeUTF8)
     @label_8.text = Qt::Application.translate("SearchForm", "\316\225\317\200\317\216\316\275\317\205\316\274\316\277 \316\231\316\261\317\204\317\201\316\277\317\215:", nil, Qt::Application::UnicodeUTF8)
