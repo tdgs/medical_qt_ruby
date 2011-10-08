@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="images">
+    <file>Calendar.png</file>
+    <file>Delete.png</file>
+    <file>Edit.png</file>
+    <file>Export.png</file>
+    <file>New.png</file>
+    <file>Save.png</file>
+    <file>PrinterSettings.png</file>
+    <file>Search.png</file>
+    <file>DoctorMale.png</file>
+    <file>PatientMale.png</file>
+  </qresource>
+</RCC>

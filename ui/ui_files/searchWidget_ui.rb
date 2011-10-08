@@ -1,7 +1,7 @@
 =begin
 ** Form generated from reading ui file 'searchWidget.ui'
 **
-** Created: Fri Oct 7 18:44:28 2011
+** Created: Sat Oct 8 14:21:48 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
