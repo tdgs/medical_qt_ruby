@@ -24,7 +24,7 @@ require_relative 'db_models/exams'
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-require_relative 'db_models/exam_init_data'
+#require_relative 'db_models/exam_init_data'
 
 
 

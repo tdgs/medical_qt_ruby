@@ -1,7 +1,7 @@
 =begin
-** Form generated from reading ui file 'mainWindow.ui'
+** Form generated from reading ui file 'main_window.ui'
 **
-** Created: Fri Aug 5 11:57:42 2011
+** Created: Fri Oct 7 19:28:39 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -25,12 +25,22 @@ class Ui_MainWindow
     mainWindow.dockOptions = Qt::MainWindow::AllowNestedDocks|Qt::MainWindow::AllowTabbedDocks|Qt::MainWindow::AnimatedDocks|Qt::MainWindow::ForceTabbedDocks
     @new_patient = Qt::Action.new(mainWindow)
     @new_patient.objectName = "new_patient"
+    icon = Qt::Icon.new
+    icon.addPixmap(Qt::Pixmap.new(":/images/PatientMale.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @new_patient.icon = icon
     @search = Qt::Action.new(mainWindow)
     @search.objectName = "search"
+    icon1 = Qt::Icon.new
+    icon1.addPixmap(Qt::Pixmap.new(":/images/Search.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @search.icon = icon1
     @new_doctor = Qt::Action.new(mainWindow)
     @new_doctor.objectName = "new_doctor"
+    icon2 = Qt::Icon.new
+    icon2.addPixmap(Qt::Pixmap.new(":/images/DoctorMale.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @new_doctor.icon = icon2
     @statistics = Qt::Action.new(mainWindow)
     @statistics.objectName = "statistics"
+    @statistics.visible = false
     @centralwidget = Qt::Widget.new(mainWindow)
     @centralwidget.objectName = "centralwidget"
     @gridLayout_2 = Qt::GridLayout.new(@centralwidget)
@@ -41,6 +51,8 @@ class Ui_MainWindow
     mainWindow.statusBar = @statusbar
     @toolBar = Qt::ToolBar.new(mainWindow)
     @toolBar.objectName = "toolBar"
+    @toolBar.movable = false
+    @toolBar.toolButtonStyle = Qt::ToolButtonTextUnderIcon
     mainWindow.addToolBar(Qt::TopToolBarArea, @toolBar)
 
     @toolBar.addAction(@new_patient)

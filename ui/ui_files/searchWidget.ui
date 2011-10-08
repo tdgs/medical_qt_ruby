@@ -6,31 +6,69 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>896</width>
-    <height>630</height>
+    <width>1252</width>
+    <height>749</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0">
+   <item row="0" column="1">
     <widget class="QTabWidget" name="tabWidget">
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="usesScrollButtons">
+      <bool>true</bool>
+     </property>
+     <property name="documentMode">
+      <bool>false</bool>
+     </property>
+     <property name="tabsClosable">
+      <bool>false</bool>
+     </property>
+     <property name="movable">
+      <bool>false</bool>
+     </property>
      <widget class="QWidget" name="patientTab">
+      <attribute name="icon">
+       <iconset resource="../../resources/icons.qrc">
+        <normaloff>:/images/PatientMale.png</normaloff>:/images/PatientMale.png</iconset>
+      </attribute>
       <attribute name="title">
-       <string>Μαθητές</string>
+       <string>Ασθενείς</string>
       </attribute>
       <attribute name="toolTip">
        <string>Αναζήτηση Ασθενών</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="2">
+        <widget class="PatientTable" name="patientTable">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="showDropIndicator" stdset="0">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="0">
         <widget class="QFrame" name="patient_info">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -48,18 +86,38 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QFormLayout" name="formLayout">
+          <property name="fieldGrowthPolicy">
+           <enum>QFormLayout::ExpandingFieldsGrow</enum>
+          </property>
           <item row="0" column="0">
            <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Όνομα:</string>
             </property>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="patientName"/>
+           <widget class="QLineEdit" name="patientName">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_3">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Επώνυμο:</string>
             </property>
@@ -67,6 +125,12 @@
           </item>
           <item row="1" column="1">
            <widget class="QLineEdit" name="patientSurname">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -74,26 +138,55 @@
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="label_4">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Διεύθυνση:</string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QLineEdit" name="patientAddress"/>
+           <widget class="QLineEdit" name="patientAddress">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_5">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Τηλέφωνο:</string>
             </property>
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QLineEdit" name="patientPhone"/>
+           <widget class="QLineEdit" name="patientPhone">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
           </item>
           <item row="4" column="0">
            <widget class="QLabel" name="label_9">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Ημερ. Γέν:</string>
             </property>
@@ -114,6 +207,12 @@
                <property name="enabled">
                 <bool>false</bool>
                </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="calendarPopup">
                 <bool>true</bool>
                </property>
@@ -124,37 +223,225 @@
           </item>
           <item row="5" column="0">
            <widget class="QLabel" name="label_6">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>e-mail:</string>
             </property>
            </widget>
           </item>
           <item row="5" column="1">
-           <widget class="QLineEdit" name="patientEmail"/>
+           <widget class="QLineEdit" name="patientEmail">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QPushButton" name="pushButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Αναζήτηση</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../resources/icons.qrc">
+              <normaloff>:/images/Search.png</normaloff>:/images/Search.png</iconset>
+            </property>
+            <property name="default">
+             <bool>true</bool>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="pushButton">
-         <property name="text">
-          <string>Αναζήτηση</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="PatientTable" name="patientTable">
+      </layout>
+     </widget>
+     <widget class="QWidget" name="doctorTab">
+      <attribute name="icon">
+       <iconset resource="../../resources/icons.qrc">
+        <normaloff>:/images/DoctorMale.png</normaloff>:/images/DoctorMale.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>Ιατροί</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="2">
+        <widget class="DoctorTable" name="doctorTable">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
         </widget>
        </item>
+       <item row="0" column="1">
+        <widget class="QFrame" name="patient_info_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>400</width>
+           <height>200</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QFormLayout" name="formLayout_3">
+          <property name="fieldGrowthPolicy">
+           <enum>QFormLayout::ExpandingFieldsGrow</enum>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_14">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Όνομα:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="doctorName">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_15">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Επώνυμο:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="doctorSurname">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_16">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Διεύθυνση:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="doctorAddress">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_17">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Τηλέφωνο:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="doctorPhone">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_19">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>e-mail:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QLineEdit" name="doctorEmail">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1">
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="text">
+             <string>Αναζήτηση</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../resources/icons.qrc">
+              <normaloff>:/images/Search.png</normaloff>:/images/Search.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="examSetTab">
+      <attribute name="icon">
+       <iconset resource="../../resources/icons.qrc">
+        <normaloff>:/images/Calendar.png</normaloff>:/images/Calendar.png</iconset>
+      </attribute>
       <attribute name="title">
        <string>Επισκέψεις</string>
       </attribute>
@@ -295,100 +582,6 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="doctorTab">
-      <attribute name="title">
-       <string>Ιατροί</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QFrame" name="patient_info_3">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>400</width>
-           <height>200</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QFormLayout" name="formLayout_3">
-          <property name="fieldGrowthPolicy">
-           <enum>QFormLayout::ExpandingFieldsGrow</enum>
-          </property>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_14">
-            <property name="text">
-             <string>Όνομα:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="doctorName"/>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_15">
-            <property name="text">
-             <string>Επώνυμο:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="doctorSurname"/>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_16">
-            <property name="text">
-             <string>Διεύθυνση:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLineEdit" name="doctorAddress"/>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="label_17">
-            <property name="text">
-             <string>Τηλέφωνο:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QLineEdit" name="doctorPhone"/>
-          </item>
-          <item row="8" column="0">
-           <widget class="QLabel" name="label_19">
-            <property name="text">
-             <string>e-mail:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="1">
-           <widget class="QLineEdit" name="doctorEmail"/>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>Αναζήτηση</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="DoctorTable" name="doctorTable"/>
-       </item>
-      </layout>
-     </widget>
     </widget>
    </item>
   </layout>
@@ -429,7 +622,9 @@
    <header>mydatewidget.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../../resources/icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>checkBox</sender>
@@ -454,12 +649,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>139</x>
-     <y>112</y>
+     <x>147</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
-     <x>186</x>
-     <y>113</y>
+     <x>236</x>
+     <y>137</y>
     </hint>
    </hints>
   </connection>
@@ -470,8 +665,8 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>149</x>
-     <y>147</y>
+     <x>147</x>
+     <y>171</y>
     </hint>
     <hint type="destinationlabel">
      <x>203</x>
@@ -502,8 +697,8 @@
    <slot>searchPatient()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>93</x>
-     <y>260</y>
+     <x>173</x>
+     <y>251</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
@@ -518,8 +713,8 @@
    <slot>searchDoctor()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>77</x>
-     <y>337</y>
+     <x>157</x>
+     <y>231</y>
     </hint>
     <hint type="destinationlabel">
      <x>1</x>
@@ -534,8 +729,8 @@
    <slot>searchPatient()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>131</x>
-     <y>51</y>
+     <x>211</x>
+     <y>79</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -550,11 +745,11 @@
    <slot>searchPatient()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>139</x>
-     <y>78</y>
+     <x>219</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-2</x>
+     <x>0</x>
      <y>163</y>
     </hint>
    </hints>
@@ -602,7 +797,7 @@
      <y>141</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-2</x>
+     <x>0</x>
      <y>237</y>
     </hint>
    </hints>

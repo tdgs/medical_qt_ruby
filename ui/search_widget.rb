@@ -1,3 +1,4 @@
+# encoding: utf-8
 require_relative 'ui_files/searchWidget_ui'
 require_relative '../qt_views/views'
 require_relative 'my_date_widget'
@@ -25,20 +26,30 @@ class SearchWidget < Qt::Widget
 		                                            [:address, @ui.doctorAddress],
 		                                            [:phone, @ui.doctorPhone],
 		                                            [:email, @ui.doctorEmail]])
+    Qt::Object.connect(self, SIGNAL('edit_request(QVariant&)'), $mainWindow, SLOT('edit_item(QVariant&)'))
 		
 	end
 	
-	def edit_request(variant)
-	  emit edit_request(variant)
-	end
-	
+  def ask_if_new(attributes, model)
+    msgbox = Qt::MessageBox.new
+    msgbox.text = 'Δεν βρέθηκε κανένα αποτέλεσμα. Θέλετε να δημιουργήσετε νέα καρτέλα;'
+    msgbox.standardButtons = Qt::MessageBox::Ok | Qt::MessageBox::Cancel
+    puts model.inspect
+    puts attributes.inspect
+    if msgbox.exec == Qt::MessageBox::Ok
+      emit edit_request(model.new(attributes).to_variant)
+    end
+  end
+
 	def searchPatient
 		options = @patientOptionsHash.to_search_hash
-		puts options
+    results = Patient.all(options)
+    if results.empty?
+      ask_if_new(@patientOptionsHash.to_attributes, Patient)
+    end
 		@ui.patientTable.model =  PatientModel.new(self, Patient.all(options))
 	end
-	
-	
+
 	def searchExamSet
 		options = @examSetOptionHash.to_search_hash
 		puts options
@@ -70,7 +81,17 @@ class SearchOptionHash < Hash
 		end
 		return options
 	end
+
+  def to_attributes
+    attrs = Hash.new
+    self.each do |k, v|
+      value = v.value
+      attrs[k] = value unless value.is_a? Array
+    end
+    return attrs
+  end
 end
+
 
 
 

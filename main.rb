@@ -1,7 +1,8 @@
 require_relative 'db_models'
 require_relative 'ui/main_window.rb'
-
+require_relative 'resources/resources.rb'
 require_relative 'ui'
+
 
 lang = Qt::Locale::Greek
 country = Qt::Locale::Greece

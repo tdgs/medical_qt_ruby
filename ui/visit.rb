@@ -1,6 +1,6 @@
 require 'Qt'
 require_relative './my_date_widget'
-require_relative './visit_ui.rb'
+require_relative './ui_files/visit_ui'
 require_relative './edit_exam'
 require_relative 'combo'
 

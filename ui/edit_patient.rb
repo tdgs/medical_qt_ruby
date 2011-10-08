@@ -1,6 +1,6 @@
 # encoding: utf-8
 require_relative 'my_date_widget/'
-require_relative 'edit_patient_ui'
+require_relative 'ui_files/edit_patient_ui'
 require_relative '../qt_models/exam_set_model'
 require_relative '../lib/db_model_widget'
 
