@@ -1,7 +1,7 @@
 =begin
 ** Form generated from reading ui file 'edit_patient.ui'
 **
-** Created: Sat Oct 8 14:27:03 2011
+** Created: Sat Oct 8 18:44:10 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!

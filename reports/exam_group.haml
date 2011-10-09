@@ -1,0 +1,16 @@
+%p= group.name
+%ul
+  - group.children.each do |child|
+    %li= render_group(child)
+  - unless group.exam_fields.empty?
+    %table.exam_values
+      %tr
+        - nr_col.times do 
+          %th Εξετάση
+          %th Αποτέλεσμα
+      - group.exam_fields.each_slice(nr_col) do |a|
+        %tr{:class => cycle('even', 'odd')}
+          - a.each do |field|
+            %td.exam_field= field.name
+            %td.exam_value= field.value(exam_set).value
+

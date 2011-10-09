@@ -21,3 +21,7 @@ end
 task :console  do
   sh "irb -r ./db_models"
 end
+
+task :test_report do
+  sh "ruby reports/test.rb"
+end
