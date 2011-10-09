@@ -19,6 +19,12 @@ class MyCombo < Qt::ComboBox
         @coll.first(:id => id)
     end
 
+    def set_item(item_index)
+      combo_index = self.findData(Qt::Variant.new(item_index))
+      puts "COMBO_INDEX: #{combo_index}"
+      self.currentIndex = combo_index
+    end
+
     def load_from_db
         self.clear
         @coll.all.each {|item| self.addItem(item.send(@method), Qt::Variant.new(item.id))}

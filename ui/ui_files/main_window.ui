@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>590</width>
+    <height>617</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,7 +38,7 @@
    </attribute>
    <addaction name="new_patient"/>
    <addaction name="new_doctor"/>
-   <addaction name="search"/>
+   <addaction name="action"/>
    <addaction name="statistics"/>
   </widget>
   <action name="new_patient">
@@ -50,16 +50,16 @@
     <string>Νέος Ασθενής</string>
    </property>
   </action>
-  <action name="search">
+  <action name="action">
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
      <normaloff>:/images/Search.png</normaloff>:/images/Search.png</iconset>
    </property>
    <property name="text">
-    <string>Αναζήτηση</string>
+    <string>Επιλογές Αναζήτησης</string>
    </property>
    <property name="toolTip">
-    <string>Αναζήτηση</string>
+    <string>Επιλογές Αναζήτησης</string>
    </property>
   </action>
   <action name="new_doctor">
@@ -117,7 +117,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>search</sender>
+   <sender>action</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>search()</slot>
