@@ -1,6 +1,4 @@
-body {
-  width: 800px;
-}
+body {  width: 800px;}
 
 table {
   border-collapse: collapse;
@@ -14,11 +12,7 @@ table td {
   border-width: 1px;
 }
 
-
-
-tr.odd  {
-  background-color: #E8E8E8 ;
-}
+tr.odd  { background-color: #E8E8E8 ;}
 
 th {
   font: bold;
@@ -26,20 +20,13 @@ th {
   border-width: 1px;
 }
 
-.exam_field {
-  font-style: italic;
-}
+.exam_field {  font-style: italic;}
 
-
-div#report_title {
-  text-align:center;
-}
+div#report_title {  text-align:center;}
 
 div#report_title img {
   width: 200px;
   height: 200px;
 }
 
-.title {
-  font-weight: bold;
-}
+.title {  font-weight: bold;}

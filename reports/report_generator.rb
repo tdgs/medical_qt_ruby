@@ -3,7 +3,7 @@ require 'haml'
 
 class ReportGenerator
   attr_accessor :exam_set, :engine, :nr_col
-  def initialize(exam_set, template_path, group_template_path)
+  def initialize(exam_set, template_path = 'reports/exam_set.haml', group_template_path = 'reports/exam_group.haml')
     @exam_set = exam_set
     @template = File.read(template_path)
     @group_template = File.read(group_template_path)
@@ -13,10 +13,12 @@ class ReportGenerator
     @alt = false
   end
 
-  def render(filename)
-    File.open(filename, "w") do |f|
-      f.write @engine.render(self)
+  def render(file)
+    output = @engine.render(self)
+    unless file.nil?
+      file.write output
     end
+    return output
   end
 
   def render_group(group)

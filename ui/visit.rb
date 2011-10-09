@@ -3,6 +3,9 @@ require_relative './my_date_widget'
 require_relative './ui_files/visit_ui'
 require_relative './edit_exam'
 require_relative 'combo'
+require_relative '../reports/report_generator'
+require 'tempfile'
+require 'launchy'
 
 class EditVisit < Qt::Widget
     slots "save()", "print()", "patient_info()"
@@ -38,7 +41,10 @@ class EditVisit < Qt::Widget
     end
 
     def print
-      puts "print"
+      g = ReportGenerator.new(@item)
+      file = Tempfile.new(['tdgs_medical_visit', '.html'])
+      g.render(file)
+      Launchy.open(file.path)
     end
 
 

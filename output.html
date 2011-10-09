@@ -2,7 +2,40 @@
 <html>
   <head>
     <title>Αποτελέσματα Εξετάσεων</title>
-    <link href='reports/style.css' rel='stylesheet' type='text/css' />
+    <style media='screen' type='text/css'>
+      body {  width: 800px;}
+      
+      table {
+        border-collapse: collapse;
+        border-style: solid;
+        border-width: 1px;
+      }
+      
+      table td {
+        border-collapse: collapse;
+        border-style: solid;
+        border-width: 1px;
+      }
+      
+      tr.odd  { background-color: #E8E8E8 ;}
+      
+      th {
+        font: bold;
+        border-style: solid;
+        border-width: 1px;
+      }
+      
+      .exam_field {  font-style: italic;}
+      
+      div#report_title {  text-align:center;}
+      
+      div#report_title img {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .title {  font-weight: bold;}
+    </style>
   </head>
   <body>
     <div id='report_title'>
@@ -29,7 +62,7 @@
         </tr>
         <tr class='even'>
           <td class='title'>Ονοματεπώνυμο Ιατρού:</td>
-          <td class='data'>ασδ ααασδδ;12;αςσδσαδ</td>
+          <td class='data'>ασψδασδ ζζαζδασδ</td>
         </tr>
       </table>
     </div>
@@ -182,7 +215,7 @@
                   </tr>
                   <tr class='even'>
                     <td class='exam_field'>Πολυμορφοπύρηνα Λευκά</td>
-                    <td class='exam_value'></td>
+                    <td class='exam_value'>123</td>
                   </tr>
                   <tr class='odd'>
                     <td class='exam_field'>Λεμφοκύτταρα</td>

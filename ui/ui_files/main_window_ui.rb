@@ -1,7 +1,7 @@
 =begin
 ** Form generated from reading ui file 'main_window.ui'
 **
-** Created: Sun Oct 9 20:36:31 2011
+** Created: Sun Oct 9 21:28:39 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -21,7 +21,7 @@ class Ui_MainWindow
     if mainWindow.objectName.nil?
         mainWindow.objectName = "mainWindow"
     end
-    mainWindow.resize(800, 600)
+    mainWindow.resize(590, 617)
     mainWindow.dockOptions = Qt::MainWindow::AllowNestedDocks|Qt::MainWindow::AllowTabbedDocks|Qt::MainWindow::AnimatedDocks|Qt::MainWindow::ForceTabbedDocks
     @new_patient = Qt::Action.new(mainWindow)
     @new_patient.objectName = "new_patient"
