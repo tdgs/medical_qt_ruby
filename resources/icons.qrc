@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>import.png</file>
     <file>Calendar.png</file>
     <file>Delete.png</file>
     <file>Edit.png</file>

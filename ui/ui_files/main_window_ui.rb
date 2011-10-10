@@ -1,7 +1,7 @@
 =begin
 ** Form generated from reading ui file 'main_window.ui'
 **
-** Created: Fri Oct 7 19:28:39 2011
+** Created: Mon Oct 10 21:19:01 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -9,9 +9,11 @@
 
 class Ui_MainWindow
     attr_reader :new_patient
-    attr_reader :search
+    attr_reader :action
     attr_reader :new_doctor
     attr_reader :statistics
+    attr_reader :actionBackup
+    attr_reader :actionRestoreBackup
     attr_reader :centralwidget
     attr_reader :gridLayout_2
     attr_reader :statusbar
@@ -21,18 +23,18 @@ class Ui_MainWindow
     if mainWindow.objectName.nil?
         mainWindow.objectName = "mainWindow"
     end
-    mainWindow.resize(800, 600)
+    mainWindow.resize(590, 617)
     mainWindow.dockOptions = Qt::MainWindow::AllowNestedDocks|Qt::MainWindow::AllowTabbedDocks|Qt::MainWindow::AnimatedDocks|Qt::MainWindow::ForceTabbedDocks
     @new_patient = Qt::Action.new(mainWindow)
     @new_patient.objectName = "new_patient"
     icon = Qt::Icon.new
     icon.addPixmap(Qt::Pixmap.new(":/images/PatientMale.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @new_patient.icon = icon
-    @search = Qt::Action.new(mainWindow)
-    @search.objectName = "search"
+    @action = Qt::Action.new(mainWindow)
+    @action.objectName = "action"
     icon1 = Qt::Icon.new
     icon1.addPixmap(Qt::Pixmap.new(":/images/Search.png"), Qt::Icon::Normal, Qt::Icon::Off)
-    @search.icon = icon1
+    @action.icon = icon1
     @new_doctor = Qt::Action.new(mainWindow)
     @new_doctor.objectName = "new_doctor"
     icon2 = Qt::Icon.new
@@ -41,6 +43,16 @@ class Ui_MainWindow
     @statistics = Qt::Action.new(mainWindow)
     @statistics.objectName = "statistics"
     @statistics.visible = false
+    @actionBackup = Qt::Action.new(mainWindow)
+    @actionBackup.objectName = "actionBackup"
+    icon3 = Qt::Icon.new
+    icon3.addPixmap(Qt::Pixmap.new(":/images/Export.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @actionBackup.icon = icon3
+    @actionRestoreBackup = Qt::Action.new(mainWindow)
+    @actionRestoreBackup.objectName = "actionRestoreBackup"
+    icon4 = Qt::Icon.new
+    icon4.addPixmap(Qt::Pixmap.new(":/images/import.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @actionRestoreBackup.icon = icon4
     @centralwidget = Qt::Widget.new(mainWindow)
     @centralwidget.objectName = "centralwidget"
     @gridLayout_2 = Qt::GridLayout.new(@centralwidget)
@@ -57,13 +69,19 @@ class Ui_MainWindow
 
     @toolBar.addAction(@new_patient)
     @toolBar.addAction(@new_doctor)
-    @toolBar.addAction(@search)
+    @toolBar.addSeparator()
+    @toolBar.addAction(@action)
     @toolBar.addAction(@statistics)
+    @toolBar.addSeparator()
+    @toolBar.addAction(@actionBackup)
+    @toolBar.addAction(@actionRestoreBackup)
 
     retranslateUi(mainWindow)
     Qt::Object.connect(@new_doctor, SIGNAL('triggered()'), mainWindow, SLOT('new_doctor()'))
     Qt::Object.connect(@new_patient, SIGNAL('triggered()'), mainWindow, SLOT('new_patient()'))
-    Qt::Object.connect(@search, SIGNAL('triggered()'), mainWindow, SLOT('search()'))
+    Qt::Object.connect(@action, SIGNAL('triggered()'), mainWindow, SLOT('search()'))
+    Qt::Object.connect(@actionBackup, SIGNAL('triggered()'), mainWindow, SLOT('backup_action()'))
+    Qt::Object.connect(@actionRestoreBackup, SIGNAL('triggered()'), mainWindow, SLOT('restore_action()'))
 
     Qt::MetaObject.connectSlotsByName(mainWindow)
     end # setupUi
@@ -75,10 +93,13 @@ class Ui_MainWindow
     def retranslateUi(mainWindow)
     mainWindow.windowTitle = Qt::Application.translate("MainWindow", "MainWindow", nil, Qt::Application::UnicodeUTF8)
     @new_patient.text = Qt::Application.translate("MainWindow", "\316\235\316\255\316\277\317\202 \316\221\317\203\316\270\316\265\316\275\316\256\317\202", nil, Qt::Application::UnicodeUTF8)
-    @search.text = Qt::Application.translate("MainWindow", "\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
-    @search.toolTip = Qt::Application.translate("MainWindow", "\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
+    @action.text = Qt::Application.translate("MainWindow", "\316\225\317\200\316\271\316\273\316\277\316\263\316\255\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202", nil, Qt::Application::UnicodeUTF8)
+    @action.toolTip = Qt::Application.translate("MainWindow", "\316\225\317\200\316\271\316\273\316\277\316\263\316\255\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202", nil, Qt::Application::UnicodeUTF8)
     @new_doctor.text = Qt::Application.translate("MainWindow", "\316\235\316\255\316\277\317\202 \316\231\316\261\317\204\317\201\317\214\317\202", nil, Qt::Application::UnicodeUTF8)
     @statistics.text = Qt::Application.translate("MainWindow", "\316\243\317\204\316\261\317\204\316\271\317\203\317\204\316\271\316\272\316\254", nil, Qt::Application::UnicodeUTF8)
+    @actionBackup.text = Qt::Application.translate("MainWindow", "Backup", nil, Qt::Application::UnicodeUTF8)
+    @actionBackup.toolTip = Qt::Application.translate("MainWindow", "\316\224\316\267\316\274\316\271\316\277\317\205\317\201\316\263\316\257\316\261 \316\221\316\275\317\204\316\271\316\263\317\201\316\254\317\206\316\277\317\205 \316\221\317\203\317\206\316\261\316\273\316\265\316\257\316\261\317\202", nil, Qt::Application::UnicodeUTF8)
+    @actionRestoreBackup.text = Qt::Application.translate("MainWindow", "\316\225\317\200\316\261\316\275\316\261\317\206\316\277\317\201\316\254", nil, Qt::Application::UnicodeUTF8)
     @toolBar.windowTitle = Qt::Application.translate("MainWindow", "toolBar", nil, Qt::Application::UnicodeUTF8)
     end # retranslateUi
 

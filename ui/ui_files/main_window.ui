@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>590</width>
+    <height>617</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,8 +38,12 @@
    </attribute>
    <addaction name="new_patient"/>
    <addaction name="new_doctor"/>
-   <addaction name="search"/>
+   <addaction name="separator"/>
+   <addaction name="action"/>
    <addaction name="statistics"/>
+   <addaction name="separator"/>
+   <addaction name="actionBackup"/>
+   <addaction name="actionRestoreBackup"/>
   </widget>
   <action name="new_patient">
    <property name="icon">
@@ -50,16 +54,16 @@
     <string>Νέος Ασθενής</string>
    </property>
   </action>
-  <action name="search">
+  <action name="action">
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
      <normaloff>:/images/Search.png</normaloff>:/images/Search.png</iconset>
    </property>
    <property name="text">
-    <string>Αναζήτηση</string>
+    <string>Επιλογές Αναζήτησης</string>
    </property>
    <property name="toolTip">
-    <string>Αναζήτηση</string>
+    <string>Επιλογές Αναζήτησης</string>
    </property>
   </action>
   <action name="new_doctor">
@@ -77,6 +81,27 @@
    </property>
    <property name="visible">
     <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionBackup">
+   <property name="icon">
+    <iconset resource="../../resources/icons.qrc">
+     <normaloff>:/images/Export.png</normaloff>:/images/Export.png</iconset>
+   </property>
+   <property name="text">
+    <string>Backup</string>
+   </property>
+   <property name="toolTip">
+    <string>Δημιουργία Αντιγράφου Ασφαλείας</string>
+   </property>
+  </action>
+  <action name="actionRestoreBackup">
+   <property name="icon">
+    <iconset resource="../../resources/icons.qrc">
+     <normaloff>:/images/import.png</normaloff>:/images/import.png</iconset>
+   </property>
+   <property name="text">
+    <string>Επαναφορά</string>
    </property>
   </action>
  </widget>
@@ -117,7 +142,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>search</sender>
+   <sender>action</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>search()</slot>
@@ -132,10 +157,44 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionBackup</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>backup_action()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>294</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionRestoreBackup</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>restore_action()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>294</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>new_patient()</slot>
   <slot>new_doctor()</slot>
   <slot>search()</slot>
+  <slot>backup_action()</slot>
+  <slot>restore_action()</slot>
  </slots>
 </ui>
