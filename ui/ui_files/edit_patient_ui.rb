@@ -1,7 +1,7 @@
 =begin
 ** Form generated from reading ui file 'edit_patient.ui'
 **
-** Created: Sat Oct 8 14:27:03 2011
+** Created: Sun Oct 9 20:22:23 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -10,11 +10,13 @@
 class Ui_PatientForm
     attr_reader :actionSavePatient
     attr_reader :actionNewExamSet
-    attr_reader :gridLayout_4
-    attr_reader :groupBox
-    attr_reader :gridLayout_5
-    attr_reader :examSetTable
+    attr_reader :gridLayout
+    attr_reader :label
+    attr_reader :groupBox_2
+    attr_reader :horizontalLayout
+    attr_reader :saveButton
     attr_reader :newExamSet
+    attr_reader :horizontalSpacer
     attr_reader :frame_2
     attr_reader :verticalLayout
     attr_reader :patient_info
@@ -31,11 +33,11 @@ class Ui_PatientForm
     attr_reader :birthDate
     attr_reader :label_6
     attr_reader :email
-    attr_reader :verticalSpacer
     attr_reader :label_8
     attr_reader :notes
-    attr_reader :saveButton
-    attr_reader :horizontalSpacer_3
+    attr_reader :groupBox
+    attr_reader :gridLayout_5
+    attr_reader :examSetTable
 
     def setupUi(patientForm)
     if patientForm.objectName.nil?
@@ -46,24 +48,39 @@ class Ui_PatientForm
     @actionSavePatient.objectName = "actionSavePatient"
     @actionNewExamSet = Qt::Action.new(patientForm)
     @actionNewExamSet.objectName = "actionNewExamSet"
-    @gridLayout_4 = Qt::GridLayout.new(patientForm)
-    @gridLayout_4.objectName = "gridLayout_4"
-    @groupBox = Qt::GroupBox.new(patientForm)
-    @groupBox.objectName = "groupBox"
-    @gridLayout_5 = Qt::GridLayout.new(@groupBox)
-    @gridLayout_5.objectName = "gridLayout_5"
-    @examSetTable = ExamSetTable.new(@groupBox)
-    @examSetTable.objectName = "examSetTable"
+    @gridLayout = Qt::GridLayout.new(patientForm)
+    @gridLayout.objectName = "gridLayout"
+    @label = Qt::Label.new(patientForm)
+    @label.objectName = "label"
 
-    @gridLayout_5.addWidget(@examSetTable, 0, 0, 1, 1)
+    @gridLayout.addWidget(@label, 0, 0, 1, 2)
 
-    @newExamSet = Qt::PushButton.new(@groupBox)
+    @groupBox_2 = Qt::GroupBox.new(patientForm)
+    @groupBox_2.objectName = "groupBox_2"
+    @horizontalLayout = Qt::HBoxLayout.new(@groupBox_2)
+    @horizontalLayout.objectName = "horizontalLayout"
+    @saveButton = Qt::PushButton.new(@groupBox_2)
+    @saveButton.objectName = "saveButton"
+    icon = Qt::Icon.new
+    icon.addPixmap(Qt::Pixmap.new(":/images/Save.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @saveButton.icon = icon
+
+    @horizontalLayout.addWidget(@saveButton)
+
+    @newExamSet = Qt::PushButton.new(@groupBox_2)
     @newExamSet.objectName = "newExamSet"
+    icon1 = Qt::Icon.new
+    icon1.addPixmap(Qt::Pixmap.new(":/images/Calendar.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @newExamSet.icon = icon1
 
-    @gridLayout_5.addWidget(@newExamSet, 1, 0, 1, 1)
+    @horizontalLayout.addWidget(@newExamSet)
+
+    @horizontalSpacer = Qt::SpacerItem.new(40, 20, Qt::SizePolicy::Expanding, Qt::SizePolicy::Minimum)
+
+    @horizontalLayout.addItem(@horizontalSpacer)
 
 
-    @gridLayout_4.addWidget(@groupBox, 0, 2, 2, 1)
+    @gridLayout.addWidget(@groupBox_2, 1, 0, 1, 1)
 
     @frame_2 = Qt::Frame.new(patientForm)
     @frame_2.objectName = "frame_2"
@@ -91,6 +108,9 @@ class Ui_PatientForm
     @formLayout.fieldGrowthPolicy = Qt::FormLayout::ExpandingFieldsGrow
     @label_2 = Qt::Label.new(@patient_info)
     @label_2.objectName = "label_2"
+    @font = Qt::Font.new
+    @font.pointSize = 12
+    @label_2.font = @font
 
     @formLayout.setWidget(0, Qt::FormLayout::LabelRole, @label_2)
 
@@ -101,6 +121,7 @@ class Ui_PatientForm
 
     @label_3 = Qt::Label.new(@patient_info)
     @label_3.objectName = "label_3"
+    @label_3.font = @font
 
     @formLayout.setWidget(2, Qt::FormLayout::LabelRole, @label_3)
 
@@ -111,6 +132,7 @@ class Ui_PatientForm
 
     @label_4 = Qt::Label.new(@patient_info)
     @label_4.objectName = "label_4"
+    @label_4.font = @font
 
     @formLayout.setWidget(4, Qt::FormLayout::LabelRole, @label_4)
 
@@ -121,6 +143,7 @@ class Ui_PatientForm
 
     @label_5 = Qt::Label.new(@patient_info)
     @label_5.objectName = "label_5"
+    @label_5.font = @font
 
     @formLayout.setWidget(6, Qt::FormLayout::LabelRole, @label_5)
 
@@ -131,6 +154,7 @@ class Ui_PatientForm
 
     @label_9 = Qt::Label.new(@patient_info)
     @label_9.objectName = "label_9"
+    @label_9.font = @font
 
     @formLayout.setWidget(8, Qt::FormLayout::LabelRole, @label_9)
 
@@ -143,6 +167,7 @@ class Ui_PatientForm
 
     @label_6 = Qt::Label.new(@patient_info)
     @label_6.objectName = "label_6"
+    @label_6.font = @font
 
     @formLayout.setWidget(9, Qt::FormLayout::LabelRole, @label_6)
 
@@ -154,12 +179,9 @@ class Ui_PatientForm
 
     @verticalLayout.addWidget(@patient_info)
 
-    @verticalSpacer = Qt::SpacerItem.new(20, 40, Qt::SizePolicy::Minimum, Qt::SizePolicy::Fixed)
-
-    @verticalLayout.addItem(@verticalSpacer)
-
     @label_8 = Qt::Label.new(@frame_2)
     @label_8.objectName = "label_8"
+    @label_8.font = @font
 
     @verticalLayout.addWidget(@label_8)
 
@@ -170,20 +192,28 @@ class Ui_PatientForm
     @sizePolicy2.setVerticalStretch(0)
     @sizePolicy2.heightForWidth = @notes.sizePolicy.hasHeightForWidth
     @notes.sizePolicy = @sizePolicy2
+    @notes.styleSheet = "background-color: rgb(195, 195, 195);"
 
     @verticalLayout.addWidget(@notes)
 
 
-    @gridLayout_4.addWidget(@frame_2, 1, 0, 1, 1)
+    @gridLayout.addWidget(@frame_2, 2, 0, 1, 1)
 
-    @saveButton = Qt::PushButton.new(patientForm)
-    @saveButton.objectName = "saveButton"
+    @groupBox = Qt::GroupBox.new(patientForm)
+    @groupBox.objectName = "groupBox"
+    @font1 = Qt::Font.new
+    @font1.pointSize = 9
+    @groupBox.font = @font1
+    @gridLayout_5 = Qt::GridLayout.new(@groupBox)
+    @gridLayout_5.objectName = "gridLayout_5"
+    @examSetTable = ExamSetTable.new(@groupBox)
+    @examSetTable.objectName = "examSetTable"
+    @examSetTable.styleSheet = "background-color: rgb(220, 220, 220);"
 
-    @gridLayout_4.addWidget(@saveButton, 2, 0, 1, 1)
+    @gridLayout_5.addWidget(@examSetTable, 1, 0, 1, 1)
 
-    @horizontalSpacer_3 = Qt::SpacerItem.new(40, 20, Qt::SizePolicy::Minimum, Qt::SizePolicy::Minimum)
 
-    @gridLayout_4.addItem(@horizontalSpacer_3, 1, 1, 1, 1)
+    @gridLayout.addWidget(@groupBox, 1, 1, 2, 1)
 
 
     retranslateUi(patientForm)
@@ -201,8 +231,16 @@ class Ui_PatientForm
     patientForm.windowTitle = Qt::Application.translate("PatientForm", "Form", nil, Qt::Application::UnicodeUTF8)
     @actionSavePatient.text = Qt::Application.translate("PatientForm", "\316\221\317\200\316\277\316\270\316\256\316\272\316\265\317\205\317\203\316\267 \316\221\317\203\316\270\316\265\316\275\316\256", nil, Qt::Application::UnicodeUTF8)
     @actionNewExamSet.text = Qt::Application.translate("PatientForm", "\316\235\316\255\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267", nil, Qt::Application::UnicodeUTF8)
-    @groupBox.title = Qt::Application.translate("PatientForm", "\316\225\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202", nil, Qt::Application::UnicodeUTF8)
-    @newExamSet.text = Qt::Application.translate("PatientForm", "\316\224\316\267\316\274\316\271\316\277\317\205\317\201\316\263\316\271\316\261", nil, Qt::Application::UnicodeUTF8)
+    @label.text = Qt::Application.translate("PatientForm", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n" \
+"p, li { white-space: pre-wrap; }\n" \
+"</style></head><body style=\" font-family:'Ubuntu'; font-size:9pt; font-weight:400; font-style:normal;\">\n" \
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:600;\">\316\243\317\204\316\277\316\271\317\207\316\265\316\257\316\261 \316\221\317\203\316\270\316\265\316\275\316\277\317\215\317\202</span></p></body></html>", nil, Qt::Application::UnicodeUTF8)
+    @groupBox_2.title = ''
+    @saveButton.toolTip = Qt::Application.translate("PatientForm", "\316\221\317\200\316\277\316\270\316\256\316\272\316\265\317\205\317\203\316\267 \316\221\316\273\316\273\316\261\316\263\317\216\316\275", nil, Qt::Application::UnicodeUTF8)
+    @saveButton.text = Qt::Application.translate("PatientForm", "\316\221\317\200\316\277\316\270\316\256\316\272\316\265\317\205\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
+    @newExamSet.toolTip = Qt::Application.translate("PatientForm", "\316\232\316\261\317\204\316\261\317\207\317\216\317\201\316\267\317\203\316\267 \316\235\316\255\316\261\317\202 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267\317\202...", nil, Qt::Application::UnicodeUTF8)
+    @newExamSet.text = Qt::Application.translate("PatientForm", "\316\235\316\255\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267", nil, Qt::Application::UnicodeUTF8)
     @label_2.text = Qt::Application.translate("PatientForm", "\316\214\316\275\316\277\316\274\316\261:", nil, Qt::Application::UnicodeUTF8)
     @label_3.text = Qt::Application.translate("PatientForm", "\316\225\317\200\317\216\316\275\317\205\316\274\316\277:", nil, Qt::Application::UnicodeUTF8)
     @label_4.text = Qt::Application.translate("PatientForm", "\316\224\316\271\316\265\317\215\316\270\317\205\316\275\317\203\316\267:", nil, Qt::Application::UnicodeUTF8)
@@ -210,7 +248,9 @@ class Ui_PatientForm
     @label_9.text = Qt::Application.translate("PatientForm", "\316\227\316\274\316\265\317\201. \316\223\316\255\316\275:", nil, Qt::Application::UnicodeUTF8)
     @label_6.text = Qt::Application.translate("PatientForm", "e-mail:", nil, Qt::Application::UnicodeUTF8)
     @label_8.text = Qt::Application.translate("PatientForm", "\316\243\316\267\316\274\316\265\316\271\317\216\317\203\316\265\316\271\317\202/\316\243\317\207\317\214\316\273\316\271\316\261", nil, Qt::Application::UnicodeUTF8)
-    @saveButton.text = Qt::Application.translate("PatientForm", "\316\221\317\200\316\277\316\270\316\256\316\272\316\265\317\205\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
+    @notes.toolTip = Qt::Application.translate("PatientForm", "\316\243\316\267\316\274\316\265\316\271\317\216\317\203\316\265\316\271\317\202 \316\272\316\261\316\271 \317\203\317\207\317\214\316\273\316\271\316\261 \316\263\316\271\316\261 \316\261\317\205\317\204\317\214\316\275 \317\204\316\277\316\275 \316\221\317\203\316\270\316\265\316\275\316\256", nil, Qt::Application::UnicodeUTF8)
+    @groupBox.title = Qt::Application.translate("PatientForm", "\316\225\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202", nil, Qt::Application::UnicodeUTF8)
+    @examSetTable.toolTip = Qt::Application.translate("PatientForm", "\316\233\316\257\317\203\317\204\316\261 \316\274\316\265 \317\204\316\271\317\202 \316\265\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202 \317\204\316\277\317\205 \316\221\317\203\316\270\316\265\316\275\316\256 \317\203\317\204\316\277 \316\231\316\261\317\204\317\201\316\265\316\257\316\277", nil, Qt::Application::UnicodeUTF8)
     end # retranslateUi
 
     def retranslate_ui(patientForm)

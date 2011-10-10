@@ -1,0 +1,32 @@
+body {  width: 800px;}
+
+table {
+  border-collapse: collapse;
+  border-style: solid;
+  border-width: 1px;
+}
+
+table td {
+  border-collapse: collapse;
+  border-style: solid;
+  border-width: 1px;
+}
+
+tr.odd  { background-color: #E8E8E8 ;}
+
+th {
+  font: bold;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.exam_field {  font-style: italic;}
+
+div#report_title {  text-align:center;}
+
+div#report_title img {
+  width: 200px;
+  height: 200px;
+}
+
+.title {  font-weight: bold;}

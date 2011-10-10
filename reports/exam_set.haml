@@ -1,0 +1,64 @@
+!!!
+
+%html
+  %head 
+    %title Αποτελέσματα Εξετάσεων
+    %style{:type => "text/css", :media => "screen"}
+      :plain
+        body {  width: 800px;}
+
+        table {
+          border-collapse: collapse;
+          border-style: solid;
+          border-width: 1px;
+        }
+
+        table td {
+          border-collapse: collapse;
+          border-style: solid;
+          border-width: 1px;
+        }
+        
+        tr.odd  { background-color: #E8E8E8 ;}
+        
+        th {
+          font: bold;
+          border-style: solid;
+          border-width: 1px;
+        }
+        
+        .exam_field {  font-style: italic;}
+        
+        div#report_title {  text-align:center;}
+        
+        div#report_title img {
+          width: 200px;
+          height: 200px;
+        }
+        
+        .title {  font-weight: bold;}
+  %body{:onload => 'window.print()'}
+    #report_title
+      %h1
+        %img{:class => 'logo', :src => 'resources/medical-symbol.jpg'}
+        %h2 Μικροβιολογικό Ιατρείο 
+        %h3 Αποτελέσματα Εξετάσεων
+    %hr
+    #patient_data
+      %table.patient_data
+        %tr.odd
+          %td.title Ονοματεπώνυμο:
+          %td.data= exam_set.patient.full_name
+        %tr.even
+          %td.title Ηλικία:
+          %td.data= exam_set.patient.age
+        %tr.odd
+          %td.title Ημερ. Εξέτασης
+          %td.data= exam_set.date
+        %tr.even
+          %td.title Ονοματεπώνυμο Ιατρού:
+          %td.data= exam_set.doctor_name
+    %br
+    #exam_set_data
+      = render_group(ExamFieldGroup.root)
+  

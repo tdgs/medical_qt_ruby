@@ -3,10 +3,15 @@ require_relative './my_date_widget'
 require_relative './ui_files/visit_ui'
 require_relative './edit_exam'
 require_relative 'combo'
+require_relative '../reports/report_generator'
+require 'tempfile'
+require 'launchy'
 
 class EditVisit < Qt::Widget
-    slots "save()"
+    slots "save()", "print()", "patient_info()"
+    signals "edit_request(QVariant&)"
     include DataBaseModelWidget
+
     def initialize(parent = nil, exam_set)
         super(parent)
         @item = exam_set
@@ -14,15 +19,15 @@ class EditVisit < Qt::Widget
         @ui.setup_ui(self)
         @ui.editExamSet.setupUI(exam_set)
         @attributes = []
+        Qt::Object.connect(self, SIGNAL('edit_request(QVariant&)'), $mainWindow, SLOT('edit_item(QVariant&)'))
     end
 
     def load_from_db
         @ui.patientFullName.text = @item.patient_name
-#        @ui.doctorFullName.text = @item.doctor_name
         @ui.dateEdit.text = @item.date
         @ui.editExamSet.item = @item
         @ui.editExamSet.load_from_db
-        @ui.doctorCombo.load_from_db
+ #       @ui.doctorCombo.set_item(@item.doctor.id)
     end
 
     def save_to_db
@@ -34,4 +39,17 @@ class EditVisit < Qt::Widget
         @ui.editExamSet.save_to_db
         @item.save
     end
+
+    def print
+      g = ReportGenerator.new(@item)
+      file = Tempfile.new(['tdgs_medical_visit', '.html'])
+      g.render(file)
+      Launchy.open(file.path)
+    end
+
+
+    def patient_info
+      emit edit_request(@item.patient.to_variant)
+    end
+
 end

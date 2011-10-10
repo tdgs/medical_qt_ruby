@@ -1,7 +1,7 @@
 =begin
 ** Form generated from reading ui file 'main_window.ui'
 **
-** Created: Mon Oct 10 21:19:01 2011
+** Created: Mon Oct 10 23:49:49 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -51,7 +51,7 @@ class Ui_MainWindow
     @actionRestoreBackup = Qt::Action.new(mainWindow)
     @actionRestoreBackup.objectName = "actionRestoreBackup"
     icon4 = Qt::Icon.new
-    icon4.addPixmap(Qt::Pixmap.new(":/images/import.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    icon4.addPixmap(Qt::Pixmap.new(":/images/Import.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @actionRestoreBackup.icon = icon4
     @centralwidget = Qt::Widget.new(mainWindow)
     @centralwidget.objectName = "centralwidget"

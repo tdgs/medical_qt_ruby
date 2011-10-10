@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>medical-symbol.jpg</file>
     <file>import.png</file>
     <file>Calendar.png</file>
     <file>Delete.png</file>
