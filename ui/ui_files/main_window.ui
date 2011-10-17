@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>590</width>
+    <width>1092</width>
     <height>617</height>
    </rect>
   </property>
@@ -20,7 +20,7 @@
    <layout class="QGridLayout" name="gridLayout_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QToolBar" name="toolBar">
+  <widget class="QToolBar" name="mainToolBar">
    <property name="windowTitle">
     <string>toolBar</string>
    </property>
@@ -36,16 +36,37 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="patient_main"/>
+   <addaction name="doctor_main"/>
+   <addaction name="exams_main"/>
+   <addaction name="separator"/>
    <addaction name="new_patient"/>
    <addaction name="new_doctor"/>
+   <addaction name="new_visit"/>
    <addaction name="separator"/>
-   <addaction name="action"/>
    <addaction name="statistics"/>
-   <addaction name="separator"/>
    <addaction name="actionBackup"/>
    <addaction name="actionRestoreBackup"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QToolBar" name="childToolbar">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>true</bool>
+   </attribute>
   </widget>
   <action name="new_patient">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
      <normaloff>:/images/PatientMale.png</normaloff>:/images/PatientMale.png</iconset>
@@ -55,6 +76,9 @@
    </property>
   </action>
   <action name="action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
      <normaloff>:/images/Search.png</normaloff>:/images/Search.png</iconset>
@@ -67,6 +91,9 @@
    </property>
   </action>
   <action name="new_doctor">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
      <normaloff>:/images/DoctorMale.png</normaloff>:/images/DoctorMale.png</iconset>
@@ -76,6 +103,9 @@
    </property>
   </action>
   <action name="statistics">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Στατιστικά</string>
    </property>
@@ -84,6 +114,9 @@
    </property>
   </action>
   <action name="actionBackup">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
      <normaloff>:/images/Export.png</normaloff>:/images/Export.png</iconset>
@@ -96,12 +129,44 @@
    </property>
   </action>
   <action name="actionRestoreBackup">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
      <normaloff>:/images/import.png</normaloff>:/images/import.png</iconset>
    </property>
    <property name="text">
     <string>Επαναφορά</string>
+   </property>
+  </action>
+  <action name="patient_main">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Ασθενείς</string>
+   </property>
+  </action>
+  <action name="doctor_main">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Ιατροί</string>
+   </property>
+  </action>
+  <action name="exams_main">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Επισκέψεις</string>
+   </property>
+  </action>
+  <action name="new_visit">
+   <property name="text">
+    <string>Νέα Επίσκεψη</string>
    </property>
   </action>
  </widget>
@@ -130,22 +195,6 @@
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>new_patient()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>action</sender>
-   <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -189,6 +238,70 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>mainToolBar</sender>
+   <signal>actionTriggered(QAction*)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>action_triggered(QAction*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>301</x>
+     <y>22</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>545</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>patient_main</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_patient_screen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>545</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>doctor_main</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_doctor_screen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>545</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exams_main</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_exams_screen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>545</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>new_patient()</slot>
@@ -196,5 +309,9 @@
   <slot>search()</slot>
   <slot>backup_action()</slot>
   <slot>restore_action()</slot>
+  <slot>action_triggered(QAction*)</slot>
+  <slot>main_patient_screen()</slot>
+  <slot>main_doctor_screen()</slot>
+  <slot>main_exams_screen()</slot>
  </slots>
 </ui>

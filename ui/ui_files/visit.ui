@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>991</width>
-    <height>674</height>
+    <width>866</width>
+    <height>451</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="1">
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
     <widget class="QLabel" name="label_4">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -28,86 +28,15 @@
       </font>
      </property>
      <property name="text">
-      <string>Καρτέλα Επίσκεψης</string>
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:14pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Καρτέλα Επίσκεψης&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="title">
-      <string/>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="text">
-         <string>Καρτέλα Ασθενή...</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../resources/icons.qrc">
-          <normaloff>:/images/PatientMale.png</normaloff>:/images/PatientMale.png</iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="text">
-         <string>Εκτύπωση</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../resources/icons.qrc">
-          <normaloff>:/images/PrinterSettings.png</normaloff>:/images/PrinterSettings.png</iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>Αποθήκευση</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../resources/icons.qrc">
-          <normaloff>:/images/Save.png</normaloff>:/images/Save.png</iconset>
-        </property>
-        <property name="default">
-         <bool>true</bool>
-        </property>
-        <property name="flat">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="2" column="0">
     <widget class="QGroupBox" name="groupBox">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
@@ -132,9 +61,6 @@
       <bool>false</bool>
      </property>
      <layout class="QFormLayout" name="formLayout">
-      <property name="fieldGrowthPolicy">
-       <enum>QFormLayout::ExpandingFieldsGrow</enum>
-      </property>
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
@@ -142,35 +68,14 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="patientFullName">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
+      <item row="2" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string>Παραπέμπων Ιατρός:</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Ημερομηνία Επίσκεψης:</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="1">
-       <widget class="MyDateWidget" name="dateEdit">
-        <property name="calendarPopup">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
        <widget class="DoctorCombo" name="doctorCombo">
         <property name="editable">
          <bool>true</bool>
@@ -180,19 +85,95 @@
         </property>
        </widget>
       </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Ημερομηνία Επίσκεψης:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="MyDateWidget" name="dateEdit">
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="patientFullName">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
-   <item row="3" column="0" colspan="3">
+   <item row="2" column="0">
     <widget class="EditExamSet" name="editExamSet" native="true">
      <property name="font">
       <font>
        <pointsize>10</pointsize>
       </font>
      </property>
+     <zorder>groupBox</zorder>
     </widget>
    </item>
   </layout>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="../../resources/icons.qrc">
+     <normaloff>:/images/Save.png</normaloff>:/images/Save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Αποθήκευση</string>
+   </property>
+   <property name="toolTip">
+    <string>Αποθήκευση Στοιχείων</string>
+   </property>
+  </action>
+  <action name="actionPatient">
+   <property name="icon">
+    <iconset resource="../../resources/icons.qrc">
+     <normaloff>:/images/PatientMale.png</normaloff>:/images/PatientMale.png</iconset>
+   </property>
+   <property name="text">
+    <string>Καρτέλα Ασθενή</string>
+   </property>
+   <property name="toolTip">
+    <string>Επιστροφή σην Καρτέλα του Ασθενή</string>
+   </property>
+  </action>
+  <action name="actionDoctor">
+   <property name="icon">
+    <iconset resource="../../resources/icons.qrc">
+     <normaloff>:/images/DoctorMale.png</normaloff>:/images/DoctorMale.png</iconset>
+   </property>
+   <property name="text">
+    <string>Καρτέλα Ιατρού</string>
+   </property>
+   <property name="toolTip">
+    <string>Επιστροφή στην Καρτέλα του Ιατρού</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="icon">
+    <iconset resource="../../resources/icons.qrc">
+     <normaloff>:/images/PrinterSettings.png</normaloff>:/images/PrinterSettings.png</iconset>
+   </property>
+   <property name="text">
+    <string>Εκτύπωση</string>
+   </property>
+   <property name="toolTip">
+    <string>Εκτύπωση της Επίσκεψης</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -215,56 +196,7 @@
  <resources>
   <include location="../../resources/icons.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>EditVisit</receiver>
-   <slot>save()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>127</x>
-     <y>578</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>203</x>
-     <y>-7</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_2</sender>
-   <signal>clicked()</signal>
-   <receiver>EditVisit</receiver>
-   <slot>print()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>61</x>
-     <y>612</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>167</x>
-     <y>3</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_3</sender>
-   <signal>clicked()</signal>
-   <receiver>EditVisit</receiver>
-   <slot>patient_info()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>643</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>256</x>
-     <y>-7</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>save()</slot>
   <slot>print()</slot>

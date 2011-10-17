@@ -3,9 +3,13 @@ require_relative '../qt_models'
 require 'Qt4'
 require_relative '../lib/ruby_variant.rb'
 
+
 class BasicTable < Qt::TableView
-  attr_reader :deleteMessage
-  slots "edit_item(const QModelIndex&)", "new_item()", "item_remove(bool)"
+  class << self; attr_accessor :deleteMessage, :deleteActionText; end
+  @deleteMessage = 'generic message'
+  @deleteActionText = 'generic text'
+
+  slots "edit_item(const QModelIndex&)", "new_item()", "item_remove(bool)", "new_model(QVariant&)"
   signals "edit_request(QVariant&)"
   def initialize(parent = nil, model = nil)
     super(parent)
@@ -19,7 +23,11 @@ class BasicTable < Qt::TableView
     self.selectionMode = Qt::AbstractItemView::ExtendedSelection
     self.alternatingRowColors = true
 
-    @removeAction = Qt::Action.new('Διαγραφή', self)
+    @removeAction = Qt::Action.new(self.class.deleteActionText, self)
+    icon = Qt::Icon.new
+    icon.addPixmap(Qt::Pixmap.new(":/images/Delete.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @removeAction.icon = icon
+
     self.addAction(@removeAction)
 
 
@@ -36,9 +44,9 @@ class BasicTable < Qt::TableView
     emit edit_request(item.to_variant)
   end
 
-  def sizeHint
-    Qt::Size.new(800,600)
-  end
+#  def sizeHint
+#    Qt::Size.new(800,600)
+#  end
 
   def contextMenuEvent(event)
     menu = Qt::Menu.new(self)
@@ -50,9 +58,9 @@ class BasicTable < Qt::TableView
     indexes = self.selectionModel.selectedRows(0)
     models = indexes.collect {|idx| self.model.itemFromIndex(idx)}
     question = Qt::MessageBox.new
-    question.text = self.deleteMessage
+    question.text = self.class.deleteMessage
     question.standardButtons = Qt::MessageBox::Ok | Qt::MessageBox::Cancel
-    if question.exec 
+    if question.exec == Qt::MessageBox::Ok
       box = Qt::MessageBox.new
       if self.model.remove_items models
         box.text = 'Τα στοιχεία Διαγράφησαν'
@@ -71,13 +79,18 @@ class BasicTable < Qt::TableView
 end
 
 class PatientTable < BasicTable
-  @deleteMessage = 'Θα διαγραφούν οι επιλεγμένοι ασθενείς, καθώς και οι επισκέψεις τους. Είστε σίγουροι;'
+    @deleteMessage = 'Θα διαγραφούν οι επιλεγμένοι ασθενείς, καθώς και οι επισκέψεις τους. Είστε σίγουροι;'
+    @deleteActionText = 'Διαγραφη Επιλεγμένων Ασθενών'
 end
 
 class ExamSetTable < BasicTable
+  @deleteMessage = 'Θα διαγραφούν οι επιλεγμένες επισκέψεις. Είστε σίγουροι;'
+  @deleteActionText = 'Διαγραφή Επιλεγμένων Επισκέψεων'
 end
 
 class DoctorTable < BasicTable
+  @deleteMessage = 'Θα διαγραφούν οι επιλεγμένοι ιατροί. Είστε σίγουροι;'
+  @deleteActionText = 'Διαγραφή Επιλεγμένων Ιατρών'
 end
 
 
