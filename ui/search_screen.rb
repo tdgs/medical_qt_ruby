@@ -11,6 +11,7 @@ module SearchScreen
   def self.included(base)
     base.class_eval do 
       slots 'search()', 'show_all()'
+      signals 'edit_request(QVariant&)'
       attr_accessor :optionsHash
       attr_accessor :model, :klass
       attr_accessor :resultsTable

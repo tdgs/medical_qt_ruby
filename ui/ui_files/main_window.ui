@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1092</width>
-    <height>617</height>
+    <width>1205</width>
+    <height>813</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="accessibleName">
+   <string/>
   </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks|QMainWindow::ForceTabbedDocks</set>
@@ -39,15 +42,15 @@
    <addaction name="patient_main"/>
    <addaction name="doctor_main"/>
    <addaction name="exams_main"/>
+   <addaction name="statistics"/>
    <addaction name="separator"/>
    <addaction name="new_patient"/>
    <addaction name="new_doctor"/>
-   <addaction name="new_visit"/>
    <addaction name="separator"/>
-   <addaction name="statistics"/>
    <addaction name="actionBackup"/>
    <addaction name="actionRestoreBackup"/>
    <addaction name="separator"/>
+   <addaction name="actionAbout"/>
   </widget>
   <widget class="QToolBar" name="childToolbar">
    <property name="windowTitle">
@@ -63,13 +66,61 @@
     <bool>true</bool>
    </attribute>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1205</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Ασθενείς</string>
+    </property>
+    <addaction name="patient_main"/>
+    <addaction name="new_patient"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Ιατροί</string>
+    </property>
+    <addaction name="doctor_main"/>
+    <addaction name="new_doctor"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>Επισκέψεις</string>
+    </property>
+    <addaction name="exams_main"/>
+    <addaction name="new_visit"/>
+   </widget>
+   <widget class="QMenu" name="menuBackup">
+    <property name="title">
+     <string>Backup</string>
+    </property>
+    <addaction name="actionBackup"/>
+    <addaction name="actionRestoreBackup"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>Βοήθεια</string>
+    </property>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+   <addaction name="menuBackup"/>
+   <addaction name="menu_4"/>
+  </widget>
   <action name="new_patient">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
-     <normaloff>:/images/PatientMale.png</normaloff>:/images/PatientMale.png</iconset>
+     <normaloff>:/images/list-add-user.png</normaloff>:/images/list-add-user.png</iconset>
    </property>
    <property name="text">
     <string>Νέος Ασθενής</string>
@@ -96,7 +147,7 @@
    </property>
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
-     <normaloff>:/images/DoctorMale.png</normaloff>:/images/DoctorMale.png</iconset>
+     <normaloff>:/images/list-resource-add.png</normaloff>:/images/list-resource-add.png</iconset>
    </property>
    <property name="text">
     <string>Νέος Ιατρός</string>
@@ -144,6 +195,10 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="../../resources/icons.qrc">
+     <normaloff>:/images/user-identity.png</normaloff>:/images/user-identity.png</iconset>
+   </property>
    <property name="text">
     <string>Ασθενείς</string>
    </property>
@@ -151,6 +206,10 @@
   <action name="doctor_main">
    <property name="checkable">
     <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../resources/icons.qrc">
+     <normaloff>:/images/meeting-participant.png</normaloff>:/images/meeting-participant.png</iconset>
    </property>
    <property name="text">
     <string>Ιατροί</string>
@@ -160,13 +219,30 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="../../resources/icons.qrc">
+     <normaloff>:/images/view-calendar-day.png</normaloff>:/images/view-calendar-day.png</iconset>
+   </property>
    <property name="text">
     <string>Επισκέψεις</string>
    </property>
   </action>
   <action name="new_visit">
+   <property name="icon">
+    <iconset resource="../../resources/icons.qrc">
+     <normaloff>:/images/appointment-new.png</normaloff>:/images/appointment-new.png</iconset>
+   </property>
    <property name="text">
     <string>Νέα Επίσκεψη</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="../../resources/icons.qrc">
+     <normaloff>:/images/medical-symbol.jpg</normaloff>:/images/medical-symbol.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>Πληροφορίες Προγράμματος...</string>
    </property>
   </action>
  </widget>

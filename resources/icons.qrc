@@ -1,16 +1,21 @@
 <RCC>
   <qresource prefix="images">
-    <file>medical-symbol.jpg</file>
-    <file>import.png</file>
-    <file>Calendar.png</file>
-    <file>Delete.png</file>
-    <file>Edit.png</file>
+    <file>appointment-new.png</file>
+    <file>DoctorMale.png</file>
+    <file>document-print.png</file>
+    <file>document-save.png</file>
+    <file>edit-delete.png</file>
     <file>Export.png</file>
+    <file>import.png</file>
+    <file>list-add-user.png</file>
+    <file>list-resource-add.png</file>
+    <file>medical-symbol.jpg</file>
+    <file>meeting-participant.png</file>
     <file>New.png</file>
     <file>Save.png</file>
-    <file>PrinterSettings.png</file>
     <file>Search.png</file>
-    <file>DoctorMale.png</file>
-    <file>PatientMale.png</file>
+    <file>user-group-delete.png</file>
+    <file>user-identity.png</file>
+    <file>view-calendar-day.png</file>
   </qresource>
 </RCC>

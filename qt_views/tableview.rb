@@ -25,8 +25,9 @@ class BasicTable < Qt::TableView
 
     @removeAction = Qt::Action.new(self.class.deleteActionText, self)
     icon = Qt::Icon.new
-    icon.addPixmap(Qt::Pixmap.new(":/images/Delete.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    icon.addPixmap(Qt::Pixmap.new(":/images/user-group-delete.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @removeAction.icon = icon
+    @removeAction.enabled = false
 
     self.addAction(@removeAction)
 
@@ -36,7 +37,15 @@ class BasicTable < Qt::TableView
     Qt::Object.connect(@removeAction, SIGNAL('triggered(bool)'), self, SLOT('item_remove(bool)'))
     Qt::Object.connect(self, SIGNAL('edit_request(QVariant&)'), $mainWindow, SLOT('edit_item(QVariant&)'))
 
+  end
 
+  def selectionChanged(selected, deselected)
+    if selected.count == 0
+      @removeAction.enabled = false
+    else
+      @removeAction.enabled = true
+    end
+    super(selected, deselected)
   end
 
   def edit_item(index)

@@ -92,6 +92,25 @@ p, li { white-space: pre-wrap; }
            </property>
           </widget>
          </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="surname">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
          <item row="1" column="0">
           <widget class="QLabel" name="label_2">
            <property name="font">
@@ -161,70 +180,7 @@ p, li { white-space: pre-wrap; }
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="label_9">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Ημερ. Γέν:</string>
-           </property>
-          </widget>
-         </item>
          <item row="4" column="1">
-          <widget class="QWidget" name="widget" native="true">
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <item>
-             <widget class="QCheckBox" name="checkBox">
-              <property name="text">
-               <string/>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="MyDateWidget" name="birthDate">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="calendarPopup">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="5" column="0">
-          <widget class="QLabel" name="label_6">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>e-mail:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
-          <widget class="QLineEdit" name="email">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1">
           <spacer name="verticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -237,26 +193,7 @@ p, li { white-space: pre-wrap; }
            </property>
           </spacer>
          </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="surname">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="0">
+         <item row="5" column="0">
           <widget class="QPushButton" name="pushButton_2">
            <property name="text">
             <string>Αναζήτηση</string>
@@ -267,7 +204,7 @@ p, li { white-space: pre-wrap; }
            </property>
           </widget>
          </item>
-         <item row="7" column="1">
+         <item row="5" column="1">
           <widget class="QPushButton" name="pushButton">
            <property name="text">
             <string>Εμφάνιση Όλων</string>
@@ -284,11 +221,6 @@ p, li { white-space: pre-wrap; }
  </widget>
  <customwidgets>
   <customwidget>
-   <class>MyDateWidget</class>
-   <extends>QDateEdit</extends>
-   <header>mydatewidget.h</header>
-  </customwidget>
-  <customwidget>
    <class>PatientTable</class>
    <extends>QTableView</extends>
    <header>patienttable.h</header>
@@ -297,6 +229,15 @@ p, li { white-space: pre-wrap; }
    </slots>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>surname</tabstop>
+  <tabstop>name</tabstop>
+  <tabstop>address</tabstop>
+  <tabstop>phone</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>resultsTable</tabstop>
+ </tabstops>
  <resources>
   <include location="../../resources/icons.qrc"/>
  </resources>
@@ -382,22 +323,6 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>email</sender>
-   <signal>returnPressed()</signal>
-   <receiver>pushButton_2</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>136</x>
-     <y>222</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>122</x>
-     <y>294</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton</sender>
    <signal>clicked()</signal>
    <receiver>surname</receiver>
@@ -458,54 +383,6 @@ p, li { white-space: pre-wrap; }
     <hint type="destinationlabel">
      <x>231</x>
      <y>164</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>email</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>172</x>
-     <y>297</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>178</x>
-     <y>231</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBox</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>birthDate</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>145</x>
-     <y>192</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>177</x>
-     <y>193</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>checkBox</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>205</x>
-     <y>298</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>151</x>
-     <y>197</y>
     </hint>
    </hints>
   </connection>

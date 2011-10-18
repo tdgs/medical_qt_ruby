@@ -1,5 +1,5 @@
-file "resources.rb" => ['resources/icons.qrc'] do 
-  sh "rbrcc resources/icons.qrc -o resources.rb"
+file "resources/resources.rb" => ['resources/icons.qrc'] do 
+  sh "rbrcc resources/icons.qrc -o resources/resources.rb"
 end
 
 
@@ -12,7 +12,7 @@ end
 SRC = FileList['ui/ui_files/*.ui']
 DST = SRC.sub('.ui', '_ui.rb')
 
-task :default => ["resources.rb"] + DST
+task :default => ["resources/resources.rb"] + DST
 
 task :run => [:default] do
   sh "ruby main.rb"

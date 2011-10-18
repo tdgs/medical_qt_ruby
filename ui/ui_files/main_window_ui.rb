@@ -1,7 +1,7 @@
 =begin
 ** Form generated from reading ui file 'main_window.ui'
 **
-** Created: Mon Oct 17 18:17:12 2011
+** Created: Tue Oct 18 13:48:07 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -18,23 +18,30 @@ class Ui_MainWindow
     attr_reader :doctor_main
     attr_reader :exams_main
     attr_reader :new_visit
+    attr_reader :actionAbout
     attr_reader :centralwidget
     attr_reader :gridLayout_2
     attr_reader :statusbar
     attr_reader :mainToolBar
     attr_reader :childToolbar
+    attr_reader :menuBar
+    attr_reader :menu
+    attr_reader :menu_2
+    attr_reader :menu_3
+    attr_reader :menuBackup
+    attr_reader :menu_4
 
     def setupUi(mainWindow)
     if mainWindow.objectName.nil?
         mainWindow.objectName = "mainWindow"
     end
-    mainWindow.resize(1092, 617)
+    mainWindow.resize(1205, 813)
     mainWindow.dockOptions = Qt::MainWindow::AllowNestedDocks|Qt::MainWindow::AllowTabbedDocks|Qt::MainWindow::AnimatedDocks|Qt::MainWindow::ForceTabbedDocks
     @new_patient = Qt::Action.new(mainWindow)
     @new_patient.objectName = "new_patient"
     @new_patient.checkable = true
     icon = Qt::Icon.new
-    icon.addPixmap(Qt::Pixmap.new(":/images/PatientMale.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    icon.addPixmap(Qt::Pixmap.new(":/images/list-add-user.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @new_patient.icon = icon
     @action = Qt::Action.new(mainWindow)
     @action.objectName = "action"
@@ -46,7 +53,7 @@ class Ui_MainWindow
     @new_doctor.objectName = "new_doctor"
     @new_doctor.checkable = true
     icon2 = Qt::Icon.new
-    icon2.addPixmap(Qt::Pixmap.new(":/images/DoctorMale.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    icon2.addPixmap(Qt::Pixmap.new(":/images/list-resource-add.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @new_doctor.icon = icon2
     @statistics = Qt::Action.new(mainWindow)
     @statistics.objectName = "statistics"
@@ -67,14 +74,31 @@ class Ui_MainWindow
     @patient_main = Qt::Action.new(mainWindow)
     @patient_main.objectName = "patient_main"
     @patient_main.checkable = true
+    icon5 = Qt::Icon.new
+    icon5.addPixmap(Qt::Pixmap.new(":/images/user-identity.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @patient_main.icon = icon5
     @doctor_main = Qt::Action.new(mainWindow)
     @doctor_main.objectName = "doctor_main"
     @doctor_main.checkable = true
+    icon6 = Qt::Icon.new
+    icon6.addPixmap(Qt::Pixmap.new(":/images/meeting-participant.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @doctor_main.icon = icon6
     @exams_main = Qt::Action.new(mainWindow)
     @exams_main.objectName = "exams_main"
     @exams_main.checkable = true
+    icon7 = Qt::Icon.new
+    icon7.addPixmap(Qt::Pixmap.new(":/images/view-calendar-day.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @exams_main.icon = icon7
     @new_visit = Qt::Action.new(mainWindow)
     @new_visit.objectName = "new_visit"
+    icon8 = Qt::Icon.new
+    icon8.addPixmap(Qt::Pixmap.new(":/images/appointment-new.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @new_visit.icon = icon8
+    @actionAbout = Qt::Action.new(mainWindow)
+    @actionAbout.objectName = "actionAbout"
+    icon9 = Qt::Icon.new
+    icon9.addPixmap(Qt::Pixmap.new(":/images/medical-symbol.jpg"), Qt::Icon::Normal, Qt::Icon::Off)
+    @actionAbout.icon = icon9
     @centralwidget = Qt::Widget.new(mainWindow)
     @centralwidget.objectName = "centralwidget"
     @gridLayout_2 = Qt::GridLayout.new(@centralwidget)
@@ -93,19 +117,46 @@ class Ui_MainWindow
     @childToolbar.toolButtonStyle = Qt::ToolButtonTextUnderIcon
     mainWindow.addToolBar(Qt::TopToolBarArea, @childToolbar)
     mainWindow.insertToolBarBreak(@childToolbar)
+    @menuBar = Qt::MenuBar.new(mainWindow)
+    @menuBar.objectName = "menuBar"
+    @menuBar.geometry = Qt::Rect.new(0, 0, 1205, 21)
+    @menu = Qt::Menu.new(@menuBar)
+    @menu.objectName = "menu"
+    @menu_2 = Qt::Menu.new(@menuBar)
+    @menu_2.objectName = "menu_2"
+    @menu_3 = Qt::Menu.new(@menuBar)
+    @menu_3.objectName = "menu_3"
+    @menuBackup = Qt::Menu.new(@menuBar)
+    @menuBackup.objectName = "menuBackup"
+    @menu_4 = Qt::Menu.new(@menuBar)
+    @menu_4.objectName = "menu_4"
+    mainWindow.setMenuBar(@menuBar)
 
     @mainToolBar.addAction(@patient_main)
     @mainToolBar.addAction(@doctor_main)
     @mainToolBar.addAction(@exams_main)
+    @mainToolBar.addAction(@statistics)
     @mainToolBar.addSeparator()
     @mainToolBar.addAction(@new_patient)
     @mainToolBar.addAction(@new_doctor)
-    @mainToolBar.addAction(@new_visit)
     @mainToolBar.addSeparator()
-    @mainToolBar.addAction(@statistics)
     @mainToolBar.addAction(@actionBackup)
     @mainToolBar.addAction(@actionRestoreBackup)
     @mainToolBar.addSeparator()
+    @mainToolBar.addAction(@actionAbout)
+    @menuBar.addAction(@menu.menuAction())
+    @menuBar.addAction(@menu_2.menuAction())
+    @menuBar.addAction(@menu_3.menuAction())
+    @menuBar.addAction(@menuBackup.menuAction())
+    @menuBar.addAction(@menu_4.menuAction())
+    @menu.addAction(@patient_main)
+    @menu.addAction(@new_patient)
+    @menu_2.addAction(@doctor_main)
+    @menu_2.addAction(@new_doctor)
+    @menu_3.addAction(@exams_main)
+    @menu_3.addAction(@new_visit)
+    @menuBackup.addAction(@actionBackup)
+    @menuBackup.addAction(@actionRestoreBackup)
 
     retranslateUi(mainWindow)
     Qt::Object.connect(@new_doctor, SIGNAL('triggered()'), mainWindow, SLOT('new_doctor()'))
@@ -126,6 +177,7 @@ class Ui_MainWindow
 
     def retranslateUi(mainWindow)
     mainWindow.windowTitle = Qt::Application.translate("MainWindow", "MainWindow", nil, Qt::Application::UnicodeUTF8)
+    mainWindow.accessibleName = ''
     @new_patient.text = Qt::Application.translate("MainWindow", "\316\235\316\255\316\277\317\202 \316\221\317\203\316\270\316\265\316\275\316\256\317\202", nil, Qt::Application::UnicodeUTF8)
     @action.text = Qt::Application.translate("MainWindow", "\316\225\317\200\316\271\316\273\316\277\316\263\316\255\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202", nil, Qt::Application::UnicodeUTF8)
     @action.toolTip = Qt::Application.translate("MainWindow", "\316\225\317\200\316\271\316\273\316\277\316\263\316\255\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202", nil, Qt::Application::UnicodeUTF8)
@@ -138,8 +190,14 @@ class Ui_MainWindow
     @doctor_main.text = Qt::Application.translate("MainWindow", "\316\231\316\261\317\204\317\201\316\277\316\257", nil, Qt::Application::UnicodeUTF8)
     @exams_main.text = Qt::Application.translate("MainWindow", "\316\225\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202", nil, Qt::Application::UnicodeUTF8)
     @new_visit.text = Qt::Application.translate("MainWindow", "\316\235\316\255\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267", nil, Qt::Application::UnicodeUTF8)
+    @actionAbout.text = Qt::Application.translate("MainWindow", "\316\240\316\273\316\267\317\201\316\277\317\206\316\277\317\201\316\257\316\265\317\202 \316\240\317\201\316\277\316\263\317\201\316\254\316\274\316\274\316\261\317\204\316\277\317\202...", nil, Qt::Application::UnicodeUTF8)
     @mainToolBar.windowTitle = Qt::Application.translate("MainWindow", "toolBar", nil, Qt::Application::UnicodeUTF8)
     @childToolbar.windowTitle = Qt::Application.translate("MainWindow", "toolBar_2", nil, Qt::Application::UnicodeUTF8)
+    @menu.title = Qt::Application.translate("MainWindow", "\316\221\317\203\316\270\316\265\316\275\316\265\316\257\317\202", nil, Qt::Application::UnicodeUTF8)
+    @menu_2.title = Qt::Application.translate("MainWindow", "\316\231\316\261\317\204\317\201\316\277\316\257", nil, Qt::Application::UnicodeUTF8)
+    @menu_3.title = Qt::Application.translate("MainWindow", "\316\225\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202", nil, Qt::Application::UnicodeUTF8)
+    @menuBackup.title = Qt::Application.translate("MainWindow", "Backup", nil, Qt::Application::UnicodeUTF8)
+    @menu_4.title = Qt::Application.translate("MainWindow", "\316\222\316\277\316\256\316\270\316\265\316\271\316\261", nil, Qt::Application::UnicodeUTF8)
     end # retranslateUi
 
     def retranslate_ui(mainWindow)

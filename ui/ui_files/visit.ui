@@ -122,14 +122,13 @@ p, li { white-space: pre-wrap; }
        <pointsize>10</pointsize>
       </font>
      </property>
-     <zorder>groupBox</zorder>
     </widget>
    </item>
   </layout>
   <action name="actionSave">
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
-     <normaloff>:/images/Save.png</normaloff>:/images/Save.png</iconset>
+     <normaloff>:/images/document-save.png</normaloff>:/images/document-save.png</iconset>
    </property>
    <property name="text">
     <string>Αποθήκευση</string>
@@ -141,7 +140,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionPatient">
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
-     <normaloff>:/images/PatientMale.png</normaloff>:/images/PatientMale.png</iconset>
+     <normaloff>:/images/user-identity.png</normaloff>:/images/user-identity.png</iconset>
    </property>
    <property name="text">
     <string>Καρτέλα Ασθενή</string>
@@ -153,7 +152,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionDoctor">
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
-     <normaloff>:/images/DoctorMale.png</normaloff>:/images/DoctorMale.png</iconset>
+     <normaloff>:/images/meeting-participant.png</normaloff>:/images/meeting-participant.png</iconset>
    </property>
    <property name="text">
     <string>Καρτέλα Ιατρού</string>
@@ -165,7 +164,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionPrint">
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
-     <normaloff>:/images/PrinterSettings.png</normaloff>:/images/PrinterSettings.png</iconset>
+     <normaloff>:/images/document-print.png</normaloff>:/images/document-print.png</iconset>
    </property>
    <property name="text">
     <string>Εκτύπωση</string>
@@ -193,10 +192,64 @@ p, li { white-space: pre-wrap; }
    <header>doctorcombo.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>patientFullName</tabstop>
+  <tabstop>doctorCombo</tabstop>
+  <tabstop>dateEdit</tabstop>
+ </tabstops>
  <resources>
   <include location="../../resources/icons.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionPatient</sender>
+   <signal>triggered()</signal>
+   <receiver>EditVisit</receiver>
+   <slot>patient_info()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionPrint</sender>
+   <signal>triggered()</signal>
+   <receiver>EditVisit</receiver>
+   <slot>print()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSave</sender>
+   <signal>triggered()</signal>
+   <receiver>EditVisit</receiver>
+   <slot>save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
   <slot>save()</slot>
   <slot>print()</slot>

@@ -1,7 +1,7 @@
 =begin
 ** Form generated from reading ui file 'visit.ui'
 **
-** Created: Mon Oct 17 23:59:49 2011
+** Created: Tue Oct 18 14:34:47 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -32,22 +32,22 @@ class Ui_EditVisit
     @actionSave = Qt::Action.new(editVisit)
     @actionSave.objectName = "actionSave"
     icon = Qt::Icon.new
-    icon.addPixmap(Qt::Pixmap.new(":/images/Save.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    icon.addPixmap(Qt::Pixmap.new(":/images/document-save.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @actionSave.icon = icon
     @actionPatient = Qt::Action.new(editVisit)
     @actionPatient.objectName = "actionPatient"
     icon1 = Qt::Icon.new
-    icon1.addPixmap(Qt::Pixmap.new(":/images/PatientMale.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    icon1.addPixmap(Qt::Pixmap.new(":/images/user-identity.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @actionPatient.icon = icon1
     @actionDoctor = Qt::Action.new(editVisit)
     @actionDoctor.objectName = "actionDoctor"
     icon2 = Qt::Icon.new
-    icon2.addPixmap(Qt::Pixmap.new(":/images/DoctorMale.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    icon2.addPixmap(Qt::Pixmap.new(":/images/meeting-participant.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @actionDoctor.icon = icon2
     @actionPrint = Qt::Action.new(editVisit)
     @actionPrint.objectName = "actionPrint"
     icon3 = Qt::Icon.new
-    icon3.addPixmap(Qt::Pixmap.new(":/images/PrinterSettings.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    icon3.addPixmap(Qt::Pixmap.new(":/images/document-print.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @actionPrint.icon = icon3
     @gridLayout = Qt::GridLayout.new(editVisit)
     @gridLayout.objectName = "gridLayout"
@@ -127,12 +127,16 @@ class Ui_EditVisit
     @font2 = Qt::Font.new
     @font2.pointSize = 10
     @editExamSet.font = @font2
-    groupBox.raise()
 
     @gridLayout.addWidget(@editExamSet, 2, 0, 1, 1)
 
+    Qt::Widget.setTabOrder(@patientFullName, @doctorCombo)
+    Qt::Widget.setTabOrder(@doctorCombo, @dateEdit)
 
     retranslateUi(editVisit)
+    Qt::Object.connect(@actionPatient, SIGNAL('triggered()'), editVisit, SLOT('patient_info()'))
+    Qt::Object.connect(@actionPrint, SIGNAL('triggered()'), editVisit, SLOT('print()'))
+    Qt::Object.connect(@actionSave, SIGNAL('triggered()'), editVisit, SLOT('save()'))
 
     Qt::MetaObject.connectSlotsByName(editVisit)
     end # setupUi
