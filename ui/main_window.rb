@@ -39,16 +39,21 @@ class MainWindow < Qt::MainWindow
     @stack.currentIndex = curIndex
   end
 
+  def show_main_screen(index)
+    @stack.currentIndex = index
+    @stack.currentWidget.show_all 
+  end
+
   def main_patient_screen
-    @stack.currentIndex = @mainPatientIndex
+    show_main_screen  @mainPatientIndex
   end
 
   def main_doctor_screen
-    @stack.currentIndex = @mainDoctorIndex
+    show_main_screen @mainDoctorIndex
   end
 
   def main_exams_screen
-    @stack.currentIndex = @mainExamsIndex
+    show_main_screen @mainExamsIndex
   end
 
 
