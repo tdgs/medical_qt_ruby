@@ -28,10 +28,7 @@ class BasicModel < Qt::AbstractTableModel
   end
 
   def do_sort(name)
-    coll = @dataMapperCollection.all
-    if @modelProperties.collect{|p| p[0]}.include? name
-      coll = coll.all(:order => [name])
-    end
+      coll = @dataMapperCollection.all(:order => [name])
   end
   
   def sort_by_name(name, sortOrder)

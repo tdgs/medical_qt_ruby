@@ -6,7 +6,7 @@ end
 rule(/\_ui\.rb$/ => [
       proc {|tn| tn.sub(/\_ui\.rb$/, '.ui')}
 ]) do |t|
-  sh "rbuic4 #{t.source} -o #{t.name}"
+  sh "(echo '# encoding: utf-8' && rbuic4  -tr my_translate #{t.source}) > #{t.name}"
 end
 
 SRC = FileList['ui/ui_files/*.ui']

@@ -2,11 +2,15 @@
 require 'Qt'
 
 class MyTextEdit < Qt::TextEdit
+  def initialize(parent = nil)
+    super(parent)
+    self.acceptRichText = false
+  end
 	def text
-		self.html
+		self.plainText
 	end
 	def text=(val)
-		self.html = val.to_s
+		self.plainText = val.to_s
 	end
 end
 

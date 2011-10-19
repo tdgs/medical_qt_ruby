@@ -1,8 +1,9 @@
+# encoding: utf-8
 =begin
 ** Form generated from reading ui file 'main_window.ui'
 **
-** Created: Tue Oct 18 13:48:07 2011
-**      by: Qt User Interface Compiler version 4.7.2
+** Created: Wed Oct 19 13:31:11 2011
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
@@ -176,28 +177,28 @@ class Ui_MainWindow
     end
 
     def retranslateUi(mainWindow)
-    mainWindow.windowTitle = Qt::Application.translate("MainWindow", "MainWindow", nil, Qt::Application::UnicodeUTF8)
+    mainWindow.windowTitle = my_translate("MainWindow", nil)
     mainWindow.accessibleName = ''
-    @new_patient.text = Qt::Application.translate("MainWindow", "\316\235\316\255\316\277\317\202 \316\221\317\203\316\270\316\265\316\275\316\256\317\202", nil, Qt::Application::UnicodeUTF8)
-    @action.text = Qt::Application.translate("MainWindow", "\316\225\317\200\316\271\316\273\316\277\316\263\316\255\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202", nil, Qt::Application::UnicodeUTF8)
-    @action.toolTip = Qt::Application.translate("MainWindow", "\316\225\317\200\316\271\316\273\316\277\316\263\316\255\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202", nil, Qt::Application::UnicodeUTF8)
-    @new_doctor.text = Qt::Application.translate("MainWindow", "\316\235\316\255\316\277\317\202 \316\231\316\261\317\204\317\201\317\214\317\202", nil, Qt::Application::UnicodeUTF8)
-    @statistics.text = Qt::Application.translate("MainWindow", "\316\243\317\204\316\261\317\204\316\271\317\203\317\204\316\271\316\272\316\254", nil, Qt::Application::UnicodeUTF8)
-    @actionBackup.text = Qt::Application.translate("MainWindow", "Backup", nil, Qt::Application::UnicodeUTF8)
-    @actionBackup.toolTip = Qt::Application.translate("MainWindow", "\316\224\316\267\316\274\316\271\316\277\317\205\317\201\316\263\316\257\316\261 \316\221\316\275\317\204\316\271\316\263\317\201\316\254\317\206\316\277\317\205 \316\221\317\203\317\206\316\261\316\273\316\265\316\257\316\261\317\202", nil, Qt::Application::UnicodeUTF8)
-    @actionRestoreBackup.text = Qt::Application.translate("MainWindow", "\316\225\317\200\316\261\316\275\316\261\317\206\316\277\317\201\316\254", nil, Qt::Application::UnicodeUTF8)
-    @patient_main.text = Qt::Application.translate("MainWindow", "\316\221\317\203\316\270\316\265\316\275\316\265\316\257\317\202", nil, Qt::Application::UnicodeUTF8)
-    @doctor_main.text = Qt::Application.translate("MainWindow", "\316\231\316\261\317\204\317\201\316\277\316\257", nil, Qt::Application::UnicodeUTF8)
-    @exams_main.text = Qt::Application.translate("MainWindow", "\316\225\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202", nil, Qt::Application::UnicodeUTF8)
-    @new_visit.text = Qt::Application.translate("MainWindow", "\316\235\316\255\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267", nil, Qt::Application::UnicodeUTF8)
-    @actionAbout.text = Qt::Application.translate("MainWindow", "\316\240\316\273\316\267\317\201\316\277\317\206\316\277\317\201\316\257\316\265\317\202 \316\240\317\201\316\277\316\263\317\201\316\254\316\274\316\274\316\261\317\204\316\277\317\202...", nil, Qt::Application::UnicodeUTF8)
-    @mainToolBar.windowTitle = Qt::Application.translate("MainWindow", "toolBar", nil, Qt::Application::UnicodeUTF8)
-    @childToolbar.windowTitle = Qt::Application.translate("MainWindow", "toolBar_2", nil, Qt::Application::UnicodeUTF8)
-    @menu.title = Qt::Application.translate("MainWindow", "\316\221\317\203\316\270\316\265\316\275\316\265\316\257\317\202", nil, Qt::Application::UnicodeUTF8)
-    @menu_2.title = Qt::Application.translate("MainWindow", "\316\231\316\261\317\204\317\201\316\277\316\257", nil, Qt::Application::UnicodeUTF8)
-    @menu_3.title = Qt::Application.translate("MainWindow", "\316\225\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202", nil, Qt::Application::UnicodeUTF8)
-    @menuBackup.title = Qt::Application.translate("MainWindow", "Backup", nil, Qt::Application::UnicodeUTF8)
-    @menu_4.title = Qt::Application.translate("MainWindow", "\316\222\316\277\316\256\316\270\316\265\316\271\316\261", nil, Qt::Application::UnicodeUTF8)
+    @new_patient.text = my_translate("\316\235\316\255\316\277\317\202 \316\221\317\203\316\270\316\265\316\275\316\256\317\202", nil)
+    @action.text = my_translate("\316\225\317\200\316\271\316\273\316\277\316\263\316\255\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202", nil)
+    @action.toolTip = my_translate("\316\225\317\200\316\271\316\273\316\277\316\263\316\255\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202", nil)
+    @new_doctor.text = my_translate("\316\235\316\255\316\277\317\202 \316\231\316\261\317\204\317\201\317\214\317\202", nil)
+    @statistics.text = my_translate("\316\243\317\204\316\261\317\204\316\271\317\203\317\204\316\271\316\272\316\254", nil)
+    @actionBackup.text = my_translate("Backup", nil)
+    @actionBackup.toolTip = my_translate("\316\224\316\267\316\274\316\271\316\277\317\205\317\201\316\263\316\257\316\261 \316\221\316\275\317\204\316\271\316\263\317\201\316\254\317\206\316\277\317\205 \316\221\317\203\317\206\316\261\316\273\316\265\316\257\316\261\317\202", nil)
+    @actionRestoreBackup.text = my_translate("\316\225\317\200\316\261\316\275\316\261\317\206\316\277\317\201\316\254", nil)
+    @patient_main.text = my_translate("\316\221\317\203\316\270\316\265\316\275\316\265\316\257\317\202", nil)
+    @doctor_main.text = my_translate("\316\231\316\261\317\204\317\201\316\277\316\257", nil)
+    @exams_main.text = my_translate("\316\225\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202", nil)
+    @new_visit.text = my_translate("\316\235\316\255\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267", nil)
+    @actionAbout.text = my_translate("\316\240\316\273\316\267\317\201\316\277\317\206\316\277\317\201\316\257\316\265\317\202 \316\240\317\201\316\277\316\263\317\201\316\254\316\274\316\274\316\261\317\204\316\277\317\202...", nil)
+    @mainToolBar.windowTitle = my_translate("toolBar", nil)
+    @childToolbar.windowTitle = my_translate("toolBar_2", nil)
+    @menu.title = my_translate("\316\221\317\203\316\270\316\265\316\275\316\265\316\257\317\202", nil)
+    @menu_2.title = my_translate("\316\231\316\261\317\204\317\201\316\277\316\257", nil)
+    @menu_3.title = my_translate("\316\225\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202", nil)
+    @menuBackup.title = my_translate("Backup", nil)
+    @menu_4.title = my_translate("\316\222\316\277\316\256\316\270\316\265\316\271\316\261", nil)
     end # retranslateUi
 
     def retranslate_ui(mainWindow)

@@ -149,18 +149,6 @@ p, li { white-space: pre-wrap; }
     <string>Επιστροφή σην Καρτέλα του Ασθενή</string>
    </property>
   </action>
-  <action name="actionDoctor">
-   <property name="icon">
-    <iconset resource="../../resources/icons.qrc">
-     <normaloff>:/images/meeting-participant.png</normaloff>:/images/meeting-participant.png</iconset>
-   </property>
-   <property name="text">
-    <string>Καρτέλα Ιατρού</string>
-   </property>
-   <property name="toolTip">
-    <string>Επιστροφή στην Καρτέλα του Ιατρού</string>
-   </property>
-  </action>
   <action name="actionPrint">
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">

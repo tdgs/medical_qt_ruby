@@ -1,8 +1,9 @@
+# encoding: utf-8
 =begin
 ** Form generated from reading ui file 'search_patient.ui'
 **
-** Created: Mon Oct 17 13:16:14 2011
-**      by: Qt User Interface Compiler version 4.7.2
+** Created: Wed Oct 19 13:31:10 2011
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
@@ -214,20 +215,20 @@ class Ui_Frame
     end
 
     def retranslateUi(frame)
-    frame.windowTitle = Qt::Application.translate("Frame", "Frame", nil, Qt::Application::UnicodeUTF8)
-    @patientTable.toolTip = Qt::Application.translate("Frame", "\316\225\316\264\317\216 \317\206\316\261\316\257\316\275\316\277\316\275\317\204\316\261\316\271 \317\204\316\261 \316\261\317\200\316\277\317\204\316\265\316\273\316\255\317\203\316\274\316\261\317\204\316\261 \317\204\316\267\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202 \317\203\316\261\317\202.", nil, Qt::Application::UnicodeUTF8)
-    @groupBox_2.title = Qt::Application.translate("Frame", "\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
-    @label_3.text = Qt::Application.translate("Frame", "\316\225\317\200\317\216\316\275\317\205\316\274\316\277:", nil, Qt::Application::UnicodeUTF8)
-    @label_2.text = Qt::Application.translate("Frame", "\316\214\316\275\316\277\316\274\316\261:", nil, Qt::Application::UnicodeUTF8)
+    frame.windowTitle = my_translate("Frame", nil)
+    @patientTable.toolTip = my_translate("\316\225\316\264\317\216 \317\206\316\261\316\257\316\275\316\277\316\275\317\204\316\261\316\271 \317\204\316\261 \316\261\317\200\316\277\317\204\316\265\316\273\316\255\317\203\316\274\316\261\317\204\316\261 \317\204\316\267\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202 \317\203\316\261\317\202.", nil)
+    @groupBox_2.title = my_translate("\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil)
+    @label_3.text = my_translate("\316\225\317\200\317\216\316\275\317\205\316\274\316\277:", nil)
+    @label_2.text = my_translate("\316\214\316\275\316\277\316\274\316\261:", nil)
     @patientName.text = ''
-    @label_4.text = Qt::Application.translate("Frame", "\316\224\316\271\316\265\317\215\316\270\317\205\316\275\317\203\316\267:", nil, Qt::Application::UnicodeUTF8)
-    @label_5.text = Qt::Application.translate("Frame", "\316\244\316\267\316\273\316\255\317\206\317\211\316\275\316\277:", nil, Qt::Application::UnicodeUTF8)
-    @label_9.text = Qt::Application.translate("Frame", "\316\227\316\274\316\265\317\201. \316\223\316\255\316\275:", nil, Qt::Application::UnicodeUTF8)
+    @label_4.text = my_translate("\316\224\316\271\316\265\317\215\316\270\317\205\316\275\317\203\316\267:", nil)
+    @label_5.text = my_translate("\316\244\316\267\316\273\316\255\317\206\317\211\316\275\316\277:", nil)
+    @label_9.text = my_translate("\316\227\316\274\316\265\317\201. \316\223\316\255\316\275:", nil)
     @checkBox.text = ''
-    @label_6.text = Qt::Application.translate("Frame", "e-mail:", nil, Qt::Application::UnicodeUTF8)
+    @label_6.text = my_translate("e-mail:", nil)
     @patientSurname.text = ''
     @pushButton_2.text = ''
-    @pushButton.text = Qt::Application.translate("Frame", "\316\240\317\201\316\277\317\207. \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
+    @pushButton.text = my_translate("\316\240\317\201\316\277\317\207. \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil)
     end # retranslateUi
 
     def retranslate_ui(frame)

@@ -15,7 +15,7 @@ class DataMapper::Property
   
 end  
 
-#DataMapper::Logger.new($stdout, :debug)
+DataMapper::Logger.new($stdout, :debug)
 DataBaseFileName = 'medical.db'
 DataMapper::setup(:default, "sqlite:#{DataBaseFileName}")
 

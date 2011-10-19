@@ -44,8 +44,8 @@ class EditVisit < Qt::Widget
       g = ReportGenerator.new(@item)
       file = Tempfile.new(['tdgs_medical_visit', '.html'])
       g.render(file)
-      Launchy.open(file.path)
       file.close
+      Launchy.open(file.path)
     end
 
 

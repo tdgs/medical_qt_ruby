@@ -1,8 +1,9 @@
+# encoding: utf-8
 =begin
 ** Form generated from reading ui file 'person_main.ui'
 **
-** Created: Tue Oct 18 14:38:37 2011
-**      by: Qt User Interface Compiler version 4.7.2
+** Created: Wed Oct 19 13:31:12 2011
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
@@ -182,22 +183,22 @@ class Ui_PersonFrame
     end
 
     def retranslateUi(personFrame)
-    personFrame.windowTitle = Qt::Application.translate("PersonFrame", "Frame", nil, Qt::Application::UnicodeUTF8)
-    @resultsTable.toolTip = Qt::Application.translate("PersonFrame", "\316\225\316\264\317\216 \317\206\316\261\316\257\316\275\316\277\316\275\317\204\316\261\316\271 \317\204\316\261 \316\261\317\200\316\277\317\204\316\265\316\273\316\255\317\203\316\274\316\261\317\204\316\261 \317\204\316\267\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202 \317\203\316\261\317\202.", nil, Qt::Application::UnicodeUTF8)
-    @titleLabel.text = Qt::Application.translate("PersonFrame", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
+    personFrame.windowTitle = my_translate("Frame", nil)
+    @resultsTable.toolTip = my_translate("\316\225\316\264\317\216 \317\206\316\261\316\257\316\275\316\277\316\275\317\204\316\261\316\271 \317\204\316\261 \316\261\317\200\316\277\317\204\316\265\316\273\316\255\317\203\316\274\316\261\317\204\316\261 \317\204\316\267\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202 \317\203\316\261\317\202.", nil)
+    @titleLabel.text = my_translate("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n" \
 "p, li { white-space: pre-wrap; }\n" \
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:9pt; font-weight:400; font-style:normal;\">\n" \
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt;\">\316\221\317\203\316\270\316\265\316\275\316\265\316\257\317\202</span></p></body></html>", nil, Qt::Application::UnicodeUTF8)
-    @groupBox_2.title = Qt::Application.translate("PersonFrame", "\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
-    @label_3.text = Qt::Application.translate("PersonFrame", "\316\225\317\200\317\216\316\275\317\205\316\274\316\277:", nil, Qt::Application::UnicodeUTF8)
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt;\">\316\221\317\203\316\270\316\265\316\275\316\265\316\257\317\202</span></p></body></html>", nil)
+    @groupBox_2.title = my_translate("\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil)
+    @label_3.text = my_translate("\316\225\317\200\317\216\316\275\317\205\316\274\316\277:", nil)
     @surname.text = ''
-    @label_2.text = Qt::Application.translate("PersonFrame", "\316\214\316\275\316\277\316\274\316\261:", nil, Qt::Application::UnicodeUTF8)
+    @label_2.text = my_translate("\316\214\316\275\316\277\316\274\316\261:", nil)
     @name.text = ''
-    @label_4.text = Qt::Application.translate("PersonFrame", "\316\224\316\271\316\265\317\215\316\270\317\205\316\275\317\203\316\267:", nil, Qt::Application::UnicodeUTF8)
-    @label_5.text = Qt::Application.translate("PersonFrame", "\316\244\316\267\316\273\316\255\317\206\317\211\316\275\316\277:", nil, Qt::Application::UnicodeUTF8)
-    @pushButton_2.text = Qt::Application.translate("PersonFrame", "\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
-    @pushButton.text = Qt::Application.translate("PersonFrame", "\316\225\316\274\317\206\316\254\316\275\316\271\317\203\316\267 \316\214\316\273\317\211\316\275", nil, Qt::Application::UnicodeUTF8)
+    @label_4.text = my_translate("\316\224\316\271\316\265\317\215\316\270\317\205\316\275\317\203\316\267:", nil)
+    @label_5.text = my_translate("\316\244\316\267\316\273\316\255\317\206\317\211\316\275\316\277:", nil)
+    @pushButton_2.text = my_translate("\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil)
+    @pushButton.text = my_translate("\316\225\316\274\317\206\316\254\316\275\316\271\317\203\316\267 \316\214\316\273\317\211\316\275", nil)
     end # retranslateUi
 
     def retranslate_ui(personFrame)

@@ -8,7 +8,6 @@ module FieldManagement
   def get_widget(field)
     w = field.ui_widget(self)
     exam_value = ExamValue.new(:exam_field => field)
-    puts "GET_WIDGET: #{exam_value}"
     w.text = exam_value.value
     @edit_widgets  << [w, exam_value]
     return w
@@ -29,7 +28,7 @@ module FieldManagement
     return label
   end
 
-  
+
 end
 
 class FieldGroupBox < Qt::GroupBox
@@ -93,17 +92,24 @@ class EditExamSet < Qt::TabWidget
 
   def initialize(parent = nil)
     super(parent)
-    @edit_widgets = Array.new
     @attributes = []
-
-
   end
 
   def setupUI(exam_set)
     @exam_set = exam_set
+    @edit_widgets = []
     @layout = Qt::VBoxLayout.new(self)
 
     root = ExamFieldGroup.root
+
+    @fieldScrollArea = Qt::ScrollArea.new(self)
+    @fieldLayout = Qt::FormLayout.new(@fieldScrollArea)
+    root.exam_fields.each do |field|
+      w = get_widget(field)
+      addField(field.name, w)
+    end
+    puts "EDIT WIDGET COUNT: #{@edit_widgets.count}"
+    self.addTab(@fieldScrollArea, 'Γενικά')
     root.children.each do |child|
       scrollArea = Qt::ScrollArea.new(self)
       scrollArea.widgetResizable = true
@@ -113,13 +119,6 @@ class EditExamSet < Qt::TabWidget
       self.addTab(scrollArea, child.name)
     end
 
-    @fieldScrollArea = Qt::ScrollArea.new(self)
-    @fieldLayout = Qt::FormLayout.new(@fieldScrollArea)
-    root.exam_fields.each do |field|
-      w = get_widget(field)
-      addField(field.name, w)
-    end
-    self.addTab(@fieldScrollArea, 'Γενικά')
 
     Qt::MetaObject.connectSlotsByName(self)	
   end

@@ -1,8 +1,9 @@
+# encoding: utf-8
 =begin
 ** Form generated from reading ui file 'edit_patient.ui'
 **
-** Created: Tue Oct 18 13:33:54 2011
-**      by: Qt User Interface Compiler version 4.7.2
+** Created: Wed Oct 19 14:18:52 2011
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
@@ -209,29 +210,34 @@ class Ui_PatientForm
     end
 
     def retranslateUi(patientForm)
-    patientForm.windowTitle = Qt::Application.translate("PatientForm", "Form", nil, Qt::Application::UnicodeUTF8)
-    @actionSavePatient.text = Qt::Application.translate("PatientForm", "\316\221\317\200\316\277\316\270\316\256\316\272\316\265\317\205\317\203\316\267 \316\221\317\203\316\270\316\265\316\275\316\256", nil, Qt::Application::UnicodeUTF8)
-    @actionNewExamSet.text = Qt::Application.translate("PatientForm", "\316\235\316\255\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267", nil, Qt::Application::UnicodeUTF8)
-    @label.text = Qt::Application.translate("PatientForm", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
+    patientForm.windowTitle = my_translate("Form", nil)
+    @actionSavePatient.text = my_translate("\316\221\317\200\316\277\316\270\316\256\316\272\316\265\317\205\317\203\316\267 \316\221\317\203\316\270\316\265\316\275\316\256", nil)
+    @actionNewExamSet.text = my_translate("\316\235\316\255\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267", nil)
+    @label.text = my_translate("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n" \
 "p, li { white-space: pre-wrap; }\n" \
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:9pt; font-weight:400; font-style:normal;\">\n" \
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:600;\">\316\232\316\261\317\201\317\204\316\255\316\273\316\261 \316\221\317\203\316\270\316\265\316\275\316\277\317\215\317\202</span></p></body></html>", nil, Qt::Application::UnicodeUTF8)
-    @label_2.text = Qt::Application.translate("PatientForm", "\316\214\316\275\316\277\316\274\316\261:", nil, Qt::Application::UnicodeUTF8)
-    @label_3.text = Qt::Application.translate("PatientForm", "\316\225\317\200\317\216\316\275\317\205\316\274\316\277:", nil, Qt::Application::UnicodeUTF8)
-    @label_4.text = Qt::Application.translate("PatientForm", "\316\224\316\271\316\265\317\215\316\270\317\205\316\275\317\203\316\267:", nil, Qt::Application::UnicodeUTF8)
-    @label_5.text = Qt::Application.translate("PatientForm", "\316\244\316\267\316\273\316\255\317\206\317\211\316\275\316\277:", nil, Qt::Application::UnicodeUTF8)
-    @label_9.text = Qt::Application.translate("PatientForm", "\316\227\316\274\316\265\317\201. \316\223\316\255\316\275:", nil, Qt::Application::UnicodeUTF8)
-    @label_6.text = Qt::Application.translate("PatientForm", "e-mail:", nil, Qt::Application::UnicodeUTF8)
-    @label_8.text = Qt::Application.translate("PatientForm", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:600;\">\316\232\316\261\317\201\317\204\316\255\316\273\316\261 \316\221\317\203\316\270\316\265\316\275\316\277\317\215\317\202</span></p></body></html>", nil)
+    @label_2.text = my_translate("\316\214\316\275\316\277\316\274\316\261:", nil)
+    @label_3.text = my_translate("\316\225\317\200\317\216\316\275\317\205\316\274\316\277:", nil)
+    @label_4.text = my_translate("\316\224\316\271\316\265\317\215\316\270\317\205\316\275\317\203\316\267:", nil)
+    @label_5.text = my_translate("\316\244\316\267\316\273\316\255\317\206\317\211\316\275\316\277:", nil)
+    @label_9.text = my_translate("\316\227\316\274\316\265\317\201. \316\223\316\255\316\275:", nil)
+    @label_6.text = my_translate("e-mail:", nil)
+    @label_8.text = my_translate("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n" \
 "p, li { white-space: pre-wrap; }\n" \
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:12pt; font-weight:400; font-style:normal;\">\n" \
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">\316\243\316\267\316\274\316\265\316\271\317\216\317\203\316\265\316\271\317\202/\316\243\317\207\317\214\316\273\316\271\316\261</span></p></body></html>", nil, Qt::Application::UnicodeUTF8)
-    @notes.toolTip = Qt::Application.translate("PatientForm", "\316\243\316\267\316\274\316\265\316\271\317\216\317\203\316\265\316\271\317\202 \316\272\316\261\316\271 \317\203\317\207\317\214\316\273\316\271\316\261 \316\263\316\271\316\261 \316\261\317\205\317\204\317\214\316\275 \317\204\316\277\316\275 \316\221\317\203\316\270\316\265\316\275\316\256", nil, Qt::Application::UnicodeUTF8)
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">\316\243\316\267\316\274\316\265\316\271\317\216\317\203\316\265\316\271\317\202/\316\243\317\207\317\214\316\273\316\271\316\261</span></p></body></html>", nil)
+    @notes.toolTip = my_translate("\316\243\316\267\316\274\316\265\316\271\317\216\317\203\316\265\316\271\317\202 \316\272\316\261\316\271 \317\203\317\207\317\214\316\273\316\271\316\261 \316\263\316\271\316\261 \316\261\317\205\317\204\317\214\316\275 \317\204\316\277\316\275 \316\221\317\203\316\270\316\265\316\275\316\256", nil)
+    @notes.html = my_translate("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n" \
+"p, li { white-space: pre-wrap; }\n" \
+"</style></head><body style=\" font-family:'Ubuntu'; font-size:9pt; font-weight:400; font-style:normal;\">\n" \
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p></body></html>", nil)
     @groupBox.title = ''
-    @examSetTable.toolTip = Qt::Application.translate("PatientForm", "\316\233\316\257\317\203\317\204\316\261 \316\274\316\265 \317\204\316\271\317\202 \316\265\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202 \317\204\316\277\317\205 \316\221\317\203\316\270\316\265\316\275\316\256 \317\203\317\204\316\277 \316\231\316\261\317\204\317\201\316\265\316\257\316\277", nil, Qt::Application::UnicodeUTF8)
-    @label_7.text = Qt::Application.translate("PatientForm", "<center><h1>\316\225\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202</h1></center>", nil, Qt::Application::UnicodeUTF8)
+    @examSetTable.toolTip = my_translate("\316\233\316\257\317\203\317\204\316\261 \316\274\316\265 \317\204\316\271\317\202 \316\265\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202 \317\204\316\277\317\205 \316\221\317\203\316\270\316\265\316\275\316\256 \317\203\317\204\316\277 \316\231\316\261\317\204\317\201\316\265\316\257\316\277", nil)
+    @label_7.text = my_translate("<center><h1>\316\225\317\200\316\271\317\203\316\272\316\255\317\210\316\265\316\271\317\202</h1></center>", nil)
     end # retranslateUi
 
     def retranslate_ui(patientForm)

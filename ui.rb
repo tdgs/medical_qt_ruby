@@ -1,4 +1,7 @@
 
+def my_translate(string, n)
+  string
+end
 
 require_relative 'ui/edit_patient'
 require_relative 'ui/edit_exam'

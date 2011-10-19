@@ -1,8 +1,9 @@
+# encoding: utf-8
 =begin
 ** Form generated from reading ui file 'visit.ui'
 **
-** Created: Tue Oct 18 14:34:47 2011
-**      by: Qt User Interface Compiler version 4.7.2
+** Created: Wed Oct 19 14:28:39 2011
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
@@ -10,7 +11,6 @@
 class Ui_EditVisit
     attr_reader :actionSave
     attr_reader :actionPatient
-    attr_reader :actionDoctor
     attr_reader :actionPrint
     attr_reader :gridLayout
     attr_reader :label_4
@@ -39,16 +39,11 @@ class Ui_EditVisit
     icon1 = Qt::Icon.new
     icon1.addPixmap(Qt::Pixmap.new(":/images/user-identity.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @actionPatient.icon = icon1
-    @actionDoctor = Qt::Action.new(editVisit)
-    @actionDoctor.objectName = "actionDoctor"
-    icon2 = Qt::Icon.new
-    icon2.addPixmap(Qt::Pixmap.new(":/images/meeting-participant.png"), Qt::Icon::Normal, Qt::Icon::Off)
-    @actionDoctor.icon = icon2
     @actionPrint = Qt::Action.new(editVisit)
     @actionPrint.objectName = "actionPrint"
-    icon3 = Qt::Icon.new
-    icon3.addPixmap(Qt::Pixmap.new(":/images/document-print.png"), Qt::Icon::Normal, Qt::Icon::Off)
-    @actionPrint.icon = icon3
+    icon2 = Qt::Icon.new
+    icon2.addPixmap(Qt::Pixmap.new(":/images/document-print.png"), Qt::Icon::Normal, Qt::Icon::Off)
+    @actionPrint.icon = icon2
     @gridLayout = Qt::GridLayout.new(editVisit)
     @gridLayout.objectName = "gridLayout"
     @label_4 = Qt::Label.new(editVisit)
@@ -146,24 +141,22 @@ class Ui_EditVisit
     end
 
     def retranslateUi(editVisit)
-    editVisit.windowTitle = Qt::Application.translate("EditVisit", "Form", nil, Qt::Application::UnicodeUTF8)
-    @actionSave.text = Qt::Application.translate("EditVisit", "\316\221\317\200\316\277\316\270\316\256\316\272\316\265\317\205\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
-    @actionSave.toolTip = Qt::Application.translate("EditVisit", "\316\221\317\200\316\277\316\270\316\256\316\272\316\265\317\205\317\203\316\267 \316\243\317\204\316\277\316\271\317\207\316\265\316\257\317\211\316\275", nil, Qt::Application::UnicodeUTF8)
-    @actionPatient.text = Qt::Application.translate("EditVisit", "\316\232\316\261\317\201\317\204\316\255\316\273\316\261 \316\221\317\203\316\270\316\265\316\275\316\256", nil, Qt::Application::UnicodeUTF8)
-    @actionPatient.toolTip = Qt::Application.translate("EditVisit", "\316\225\317\200\316\271\317\203\317\204\317\201\316\277\317\206\316\256 \317\203\316\267\316\275 \316\232\316\261\317\201\317\204\316\255\316\273\316\261 \317\204\316\277\317\205 \316\221\317\203\316\270\316\265\316\275\316\256", nil, Qt::Application::UnicodeUTF8)
-    @actionDoctor.text = Qt::Application.translate("EditVisit", "\316\232\316\261\317\201\317\204\316\255\316\273\316\261 \316\231\316\261\317\204\317\201\316\277\317\215", nil, Qt::Application::UnicodeUTF8)
-    @actionDoctor.toolTip = Qt::Application.translate("EditVisit", "\316\225\317\200\316\271\317\203\317\204\317\201\316\277\317\206\316\256 \317\203\317\204\316\267\316\275 \316\232\316\261\317\201\317\204\316\255\316\273\316\261 \317\204\316\277\317\205 \316\231\316\261\317\204\317\201\316\277\317\215", nil, Qt::Application::UnicodeUTF8)
-    @actionPrint.text = Qt::Application.translate("EditVisit", "\316\225\316\272\317\204\317\215\317\200\317\211\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
-    @actionPrint.toolTip = Qt::Application.translate("EditVisit", "\316\225\316\272\317\204\317\215\317\200\317\211\317\203\316\267 \317\204\316\267\317\202 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267\317\202", nil, Qt::Application::UnicodeUTF8)
-    @label_4.text = Qt::Application.translate("EditVisit", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
+    editVisit.windowTitle = my_translate("Form", nil)
+    @actionSave.text = my_translate("\316\221\317\200\316\277\316\270\316\256\316\272\316\265\317\205\317\203\316\267", nil)
+    @actionSave.toolTip = my_translate("\316\221\317\200\316\277\316\270\316\256\316\272\316\265\317\205\317\203\316\267 \316\243\317\204\316\277\316\271\317\207\316\265\316\257\317\211\316\275", nil)
+    @actionPatient.text = my_translate("\316\232\316\261\317\201\317\204\316\255\316\273\316\261 \316\221\317\203\316\270\316\265\316\275\316\256", nil)
+    @actionPatient.toolTip = my_translate("\316\225\317\200\316\271\317\203\317\204\317\201\316\277\317\206\316\256 \317\203\316\267\316\275 \316\232\316\261\317\201\317\204\316\255\316\273\316\261 \317\204\316\277\317\205 \316\221\317\203\316\270\316\265\316\275\316\256", nil)
+    @actionPrint.text = my_translate("\316\225\316\272\317\204\317\215\317\200\317\211\317\203\316\267", nil)
+    @actionPrint.toolTip = my_translate("\316\225\316\272\317\204\317\215\317\200\317\211\317\203\316\267 \317\204\316\267\317\202 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267\317\202", nil)
+    @label_4.text = my_translate("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n" \
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n" \
 "p, li { white-space: pre-wrap; }\n" \
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:14pt; font-weight:400; font-style:normal;\">\n" \
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\316\232\316\261\317\201\317\204\316\255\316\273\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267\317\202</p></body></html>", nil, Qt::Application::UnicodeUTF8)
-    @groupBox.title = Qt::Application.translate("EditVisit", "\316\243\317\204\316\277\316\271\317\207\316\265\316\257\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267\317\202", nil, Qt::Application::UnicodeUTF8)
-    @label.text = Qt::Application.translate("EditVisit", "\316\221\317\203\316\270\316\265\316\275\316\256\317\202:", nil, Qt::Application::UnicodeUTF8)
-    @label_2.text = Qt::Application.translate("EditVisit", "\316\240\316\261\317\201\316\261\317\200\316\255\316\274\317\200\317\211\316\275 \316\231\316\261\317\204\317\201\317\214\317\202:", nil, Qt::Application::UnicodeUTF8)
-    @label_3.text = Qt::Application.translate("EditVisit", "\316\227\316\274\316\265\317\201\316\277\316\274\316\267\316\275\316\257\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267\317\202:", nil, Qt::Application::UnicodeUTF8)
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">\316\232\316\261\317\201\317\204\316\255\316\273\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267\317\202</p></body></html>", nil)
+    @groupBox.title = my_translate("\316\243\317\204\316\277\316\271\317\207\316\265\316\257\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267\317\202", nil)
+    @label.text = my_translate("\316\221\317\203\316\270\316\265\316\275\316\256\317\202:", nil)
+    @label_2.text = my_translate("\316\240\316\261\317\201\316\261\317\200\316\255\316\274\317\200\317\211\316\275 \316\231\316\261\317\204\317\201\317\214\317\202:", nil)
+    @label_3.text = my_translate("\316\227\316\274\316\265\317\201\316\277\316\274\316\267\316\275\316\257\316\261 \316\225\317\200\316\257\317\203\316\272\316\265\317\210\316\267\317\202:", nil)
     end # retranslateUi
 
     def retranslate_ui(editVisit)

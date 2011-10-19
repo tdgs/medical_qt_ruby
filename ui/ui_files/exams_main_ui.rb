@@ -1,8 +1,9 @@
+# encoding: utf-8
 =begin
 ** Form generated from reading ui file 'exams_main.ui'
 **
-** Created: Mon Oct 17 17:49:59 2011
-**      by: Qt User Interface Compiler version 4.7.2
+** Created: Wed Oct 19 13:31:12 2011
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
@@ -202,20 +203,20 @@ class Ui_ExamsFrame
     end
 
     def retranslateUi(examsFrame)
-    examsFrame.windowTitle = Qt::Application.translate("ExamsFrame", "Frame", nil, Qt::Application::UnicodeUTF8)
-    @groupBox_2.title = Qt::Application.translate("ExamsFrame", "\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
-    @pushButton_2.text = Qt::Application.translate("ExamsFrame", "\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil, Qt::Application::UnicodeUTF8)
-    @pushButton.text = Qt::Application.translate("ExamsFrame", "\316\225\316\274\317\206\316\254\316\275\316\271\317\203\316\267 \316\214\316\273\317\211\316\275", nil, Qt::Application::UnicodeUTF8)
-    @label_7.text = Qt::Application.translate("ExamsFrame", "\316\225\317\200\317\216\316\275\317\205\316\274\316\277 \316\221\317\203\316\270\316\265\316\275\316\256:", nil, Qt::Application::UnicodeUTF8)
-    @examSetPatient.toolTip = Qt::Application.translate("ExamsFrame", "\316\244\316\277 \317\214\316\275\316\277\316\274\316\261 \317\204\316\277\317\205 \316\261\317\203\316\270\316\265\316\275\316\256 \317\200\316\277\317\205 \316\261\316\275\316\261\316\266\316\267\317\204\316\265\316\257\317\204\316\265", nil, Qt::Application::UnicodeUTF8)
-    @label_8.text = Qt::Application.translate("ExamsFrame", "\316\225\317\200\317\216\316\275\317\205\316\274\316\277 \316\231\316\261\317\204\317\201\316\277\317\215:", nil, Qt::Application::UnicodeUTF8)
-    @examSetDoctor.toolTip = Qt::Application.translate("ExamsFrame", "\316\244\316\277 \316\265\317\200\317\216\316\275\317\205\316\274\316\277 \317\204\316\277\317\205 \316\231\316\261\317\204\317\201\316\277\317\215 \317\200\316\277\317\205 \317\200\316\261\317\201\316\255\317\200\316\265\316\274\317\210\316\265 \317\204\316\277 \316\261\317\203\316\270\316\265\316\275\316\256", nil, Qt::Application::UnicodeUTF8)
-    @label_12.text = Qt::Application.translate("ExamsFrame", "\316\221\317\200\317\214:", nil, Qt::Application::UnicodeUTF8)
+    examsFrame.windowTitle = my_translate("Frame", nil)
+    @groupBox_2.title = my_translate("\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil)
+    @pushButton_2.text = my_translate("\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil)
+    @pushButton.text = my_translate("\316\225\316\274\317\206\316\254\316\275\316\271\317\203\316\267 \316\214\316\273\317\211\316\275", nil)
+    @label_7.text = my_translate("\316\225\317\200\317\216\316\275\317\205\316\274\316\277 \316\221\317\203\316\270\316\265\316\275\316\256:", nil)
+    @examSetPatient.toolTip = my_translate("\316\244\316\277 \317\214\316\275\316\277\316\274\316\261 \317\204\316\277\317\205 \316\261\317\203\316\270\316\265\316\275\316\256 \317\200\316\277\317\205 \316\261\316\275\316\261\316\266\316\267\317\204\316\265\316\257\317\204\316\265", nil)
+    @label_8.text = my_translate("\316\225\317\200\317\216\316\275\317\205\316\274\316\277 \316\231\316\261\317\204\317\201\316\277\317\215:", nil)
+    @examSetDoctor.toolTip = my_translate("\316\244\316\277 \316\265\317\200\317\216\316\275\317\205\316\274\316\277 \317\204\316\277\317\205 \316\231\316\261\317\204\317\201\316\277\317\215 \317\200\316\277\317\205 \317\200\316\261\317\201\316\255\317\200\316\265\316\274\317\210\316\265 \317\204\316\277 \316\261\317\203\316\270\316\265\316\275\316\256", nil)
+    @label_12.text = my_translate("\316\221\317\200\317\214:", nil)
     @checkBox_2.text = ''
-    @label.text = Qt::Application.translate("ExamsFrame", "\316\234\316\255\317\207\317\201\316\271:", nil, Qt::Application::UnicodeUTF8)
+    @label.text = my_translate("\316\234\316\255\317\207\317\201\316\271:", nil)
     @checkBox_3.text = ''
-    @titleLabel.text = Qt::Application.translate("ExamsFrame", "<center><h1>\316\225\316\276\316\265\317\204\316\254\317\203\316\265\316\271\317\202</h1></center>", nil, Qt::Application::UnicodeUTF8)
-    @resultsTable.toolTip = Qt::Application.translate("ExamsFrame", "\316\225\316\264\317\216 \317\206\316\261\316\257\316\275\316\277\316\275\317\204\316\261\316\271 \317\204\316\261 \316\261\317\200\316\277\317\204\316\265\316\273\316\255\317\203\316\274\316\261\317\204\316\261 \317\204\316\267\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202 \317\203\316\261\317\202.", nil, Qt::Application::UnicodeUTF8)
+    @titleLabel.text = my_translate("<center><h1>\316\225\316\276\316\265\317\204\316\254\317\203\316\265\316\271\317\202</h1></center>", nil)
+    @resultsTable.toolTip = my_translate("\316\225\316\264\317\216 \317\206\316\261\316\257\316\275\316\277\316\275\317\204\316\261\316\271 \317\204\316\261 \316\261\317\200\316\277\317\204\316\265\316\273\316\255\317\203\316\274\316\261\317\204\316\261 \317\204\316\267\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202 \317\203\316\261\317\202.", nil)
     end # retranslateUi
 
     def retranslate_ui(examsFrame)

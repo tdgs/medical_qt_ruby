@@ -1,8 +1,9 @@
+# encoding: utf-8
 =begin
 ** Form generated from reading ui file 'login.ui'
 **
-** Created: Fri Oct 7 18:44:27 2011
-**      by: Qt User Interface Compiler version 4.7.2
+** Created: Wed Oct 19 13:31:13 2011
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
@@ -71,10 +72,10 @@ class Ui_LoginDialog
     end
 
     def retranslateUi(loginDialog)
-    loginDialog.windowTitle = Qt::Application.translate("loginDialog", "\316\240\317\201\317\214\316\263\317\201\316\261\316\274\316\274\316\261 \316\224\316\271\316\261\317\207\316\265\316\257\317\201\316\271\317\203\316\267\317\202", nil, Qt::Application::UnicodeUTF8)
-    @groupBox.title = Qt::Application.translate("loginDialog", "\316\240\316\271\317\203\317\204\316\277\317\200\316\277\316\257\316\267\317\203\316\267 \316\247\317\201\316\256\317\203\317\204\316\267", nil, Qt::Application::UnicodeUTF8)
-    @label_2.text = Qt::Application.translate("loginDialog", "\316\214\316\275\316\277\316\274\316\261 \316\247\317\201\316\256\317\203\317\204\316\267:", nil, Qt::Application::UnicodeUTF8)
-    @label_3.text = Qt::Application.translate("loginDialog", "\316\232\317\211\316\264\316\271\316\272\317\214\317\202:", nil, Qt::Application::UnicodeUTF8)
+    loginDialog.windowTitle = my_translate("\316\240\317\201\317\214\316\263\317\201\316\261\316\274\316\274\316\261 \316\224\316\271\316\261\317\207\316\265\316\257\317\201\316\271\317\203\316\267\317\202", nil)
+    @groupBox.title = my_translate("\316\240\316\271\317\203\317\204\316\277\317\200\316\277\316\257\316\267\317\203\316\267 \316\247\317\201\316\256\317\203\317\204\316\267", nil)
+    @label_2.text = my_translate("\316\214\316\275\316\277\316\274\316\261 \316\247\317\201\316\256\317\203\317\204\316\267:", nil)
+    @label_3.text = my_translate("\316\232\317\211\316\264\316\271\316\272\317\214\317\202:", nil)
     end # retranslateUi
 
     def retranslate_ui(loginDialog)
