@@ -12,11 +12,14 @@ class BasicModel < Qt::AbstractTableModel
     @dataMapperCollection = dataMapperCollection 
     @klass = @dataMapperCollection.model
     @items = @dataMapperCollection.all.to_a
-    
+  end
+
+  def model_properties
+    @modelProperties ||= @klass.properties.collect {|p| [p.name, p.disp_name]}
   end
 
   def collect_columnNames
-    @klass.properties.collect {|p| [p.name, p.disp_name]}
+    model_properties.dup
   end
 
 
@@ -24,9 +27,15 @@ class BasicModel < Qt::AbstractTableModel
     @columnNames ||= collect_columnNames
   end
 
+  def do_sort(name)
+    coll = @dataMapperCollection.all
+    if @modelProperties.collect{|p| p[0]}.include? name
+      coll = coll.all(:order => [name])
+    end
+  end
+  
   def sort_by_name(name, sortOrder)
-
-    coll = @dataMapperCollection.all(:order => [name])
+    coll = do_sort(name)
     coll = coll.reverse if sortOrder == Qt::DescendingOrder
     emit layoutAboutToBeChanged
     @items = coll.to_a
@@ -81,7 +90,7 @@ class BasicModel < Qt::AbstractTableModel
 
   def valueFromIndex(index)
     item = itemFromIndex(index)
-    item.send(column_names[index.column][0])
+    item.send(column_names[index.column][0]) || " " 
   end
 
   def remove_items(items)	

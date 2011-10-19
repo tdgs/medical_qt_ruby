@@ -41,17 +41,17 @@ module SearchScreen
       end
 
       def setResultsTable
-        @ui.extend ChangeResultTable
-        layout = @ui.resultsTable.parent.layout
-        layout_index = layout.index_of(@ui.resultsTable)
-        row = Qt::Integer.new(0); col = Qt::Integer.new(0)
-        rowspan = Qt::Integer.new(0);colspan = Qt::Integer.new(0);
-        
-        layout.getItemPosition(layout_index,row, col, rowspan, colspan)
-        layout.removeWidget @ui.resultsTable
-        @ui.resultsTable.dispose
-        @ui.resultsTable = @resultsTableKlass.new(self)
-        layout.addWidget(@ui.resultsTable, row, col, rowspan,colspan)
+#        @ui.extend ChangeResultTable
+#        layout = @ui.resultsTable.parent.layout
+#        layout_index = layout.index_of(@ui.resultsTable)
+#        row = Qt::Integer.new(0); col = Qt::Integer.new(0)
+#        rowspan = Qt::Integer.new(0);colspan = Qt::Integer.new(0);
+#        
+#        layout.getItemPosition(layout_index,row, col, rowspan, colspan)
+#        layout.removeWidget @ui.resultsTable
+#        @ui.resultsTable.dispose
+#        @ui.resultsTable = @resultsTableKlass.new(self)
+#        layout.addWidget(@ui.resultsTable, row, col, rowspan,colspan)
       end
     end
   end

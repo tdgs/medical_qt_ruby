@@ -88,18 +88,18 @@ class BasicTable < Qt::TableView
 end
 
 class PatientTable < BasicTable
-    @deleteMessage = 'Θα διαγραφούν οι επιλεγμένοι ασθενείς, καθώς και οι επισκέψεις τους. Είστε σίγουροι;'
-    @deleteActionText = 'Διαγραφη Επιλεγμένων Ασθενών'
+  @deleteMessage = 'Θα διαγραφούν οι επιλεγμένες επισκέψεις. Είστε σίγουροι;'
+    @deleteActionText = 'Διαγραφη Επιλεγμένων'
 end
 
 class ExamSetTable < BasicTable
-  @deleteMessage = 'Θα διαγραφούν οι επιλεγμένες επισκέψεις. Είστε σίγουροι;'
-  @deleteActionText = 'Διαγραφή Επιλεγμένων Επισκέψεων'
+  @deleteMessage = 'Θα διαγραφούν τα επιλεγμένα στοιχεία. Είστε σίγουροι;'
+  @deleteActionText = 'Διαγραφή Επιλεγμένων'
 end
 
 class DoctorTable < BasicTable
-  @deleteMessage = 'Θα διαγραφούν οι επιλεγμένοι ιατροί. Είστε σίγουροι;'
-  @deleteActionText = 'Διαγραφή Επιλεγμένων Ιατρών'
+  @deleteMessage = 'Θα διαγραφούν τα επιλεγμένα στοιχεία. Είστε σίγουροι;'
+  @deleteActionText = 'Διαγραφή Επιλεγμένων'
 end
 
 
