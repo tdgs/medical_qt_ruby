@@ -98,10 +98,17 @@ class BasicModel < Qt::AbstractTableModel
     return ret
   end
 
+  def all_items
+    @items
+  end
 
-
-
-
+  def columnNamesHash
+    h = {}
+    self.column_names.each do |c|
+      h[c[0]] = c[1]
+    end
+    h
+  end
 end 
 
 

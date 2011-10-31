@@ -2,8 +2,8 @@
 =begin
 ** Form generated from reading ui file 'person_main.ui'
 **
-** Created: Wed Oct 19 13:31:12 2011
-**      by: Qt User Interface Compiler version 4.7.4
+** Created: Mon Oct 31 18:17:37 2011
+**      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
@@ -44,8 +44,9 @@ class Ui_PersonFrame
     @sizePolicy.setVerticalStretch(0)
     @sizePolicy.heightForWidth = @resultsTable.sizePolicy.hasHeightForWidth
     @resultsTable.sizePolicy = @sizePolicy
-    @resultsTable.styleSheet = "background-color: rgb(220, 220, 220);"
+    @resultsTable.styleSheet = ""
     @resultsTable.setProperty("showDropIndicator", Qt::Variant.new(false))
+    @resultsTable.sortingEnabled = true
 
     @gridLayout_2.addWidget(@resultsTable, 1, 1, 2, 1)
 

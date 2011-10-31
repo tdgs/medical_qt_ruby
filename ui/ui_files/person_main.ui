@@ -32,10 +32,13 @@
       <string>Εδώ φαίνονται τα αποτελέσματα της Αναζήτησης σας.</string>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(220, 220, 220);</string>
+      <string notr="true"/>
      </property>
      <property name="showDropIndicator" stdset="0">
       <bool>false</bool>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
      </property>
     </widget>
    </item>

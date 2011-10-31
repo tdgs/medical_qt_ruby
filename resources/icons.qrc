@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>excel-icon.jpg</file>
     <file>appointment-new.png</file>
     <file>DoctorMale.png</file>
     <file>document-print.png</file>

@@ -6,4 +6,4 @@ gem "dm-is-tree"
 gem "qtbindings"
 gem "haml"
 gem "launchy"
-
+gem "spreadsheet"

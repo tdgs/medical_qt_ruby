@@ -1,7 +1,9 @@
 # encoding: utf-8
 require_relative '../qt_models'
 require 'Qt4'
+require 'spreadsheet'
 require_relative '../lib/ruby_variant.rb'
+require_relative '../ui/excel_export'
 
 
 class BasicTable < Qt::TableView
@@ -9,7 +11,7 @@ class BasicTable < Qt::TableView
   @deleteMessage = 'generic message'
   @deleteActionText = 'generic text'
 
-  slots "edit_item(const QModelIndex&)", "new_item()", "item_remove(bool)", "new_model(QVariant&)"
+  slots "edit_item(const QModelIndex&)", "new_item()", "item_remove(bool)", "new_model(QVariant&)", "excel_export_dialog(bool)"
   signals "edit_request(QVariant&)"
   def initialize(parent = nil, model = nil)
     super(parent)
@@ -28,18 +30,27 @@ class BasicTable < Qt::TableView
     icon.addPixmap(Qt::Pixmap.new(":/images/user-group-delete.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @removeAction.icon = icon
     @removeAction.enabled = false
-
     self.addAction(@removeAction)
+
+    @excelAction = Qt::Action.new('Εξαγωγή σε Excel', self)
+    excelIcon = Qt::Icon.new
+    excelIcon.addPixmap(Qt::Pixmap.new(":/images/excel-icon.jpg"), Qt::Icon::Normal, Qt::Icon::Off)
+    @excelAction.icon = excelIcon
+    @excelAction.enabled = true
+    self.addAction(@excelAction)
 
 
 
     self.connect(SIGNAL('activated(const QModelIndex&)'), self, :edit_item)
     Qt::Object.connect(@removeAction, SIGNAL('triggered(bool)'), self, SLOT('item_remove(bool)'))
     Qt::Object.connect(self, SIGNAL('edit_request(QVariant&)'), $mainWindow, SLOT('edit_item(QVariant&)'))
+    Qt::Object.connect(@excelAction, SIGNAL('triggered(bool)'), self, SLOT('excel_export_dialog(bool)'))
 
+    @selected = []
   end
 
   def selectionChanged(selected, deselected)
+    @selected = selected
     if selected.count == 0
       @removeAction.enabled = false
     else
@@ -53,14 +64,22 @@ class BasicTable < Qt::TableView
     emit edit_request(item.to_variant)
   end
 
-#  def sizeHint
-#    Qt::Size.new(800,600)
-#  end
-
   def contextMenuEvent(event)
     menu = Qt::Menu.new(self)
     menu.addAction(@removeAction) if self.indexAt(event.pos).valid?
     menu.exec(event.globalPos) unless menu.isEmpty
+  end
+
+  def items_from_indexes(indexes)
+    indexes.collect {|idx| self.model.itemFromIndex(idx)}
+  end
+
+  def selected_items
+    items_from_indexes self.selectionModel.selectedRows(0)
+  end
+
+  def all_items
+    self.model.all_items
   end
 
   def item_remove(checked)
@@ -81,8 +100,34 @@ class BasicTable < Qt::TableView
 
   end
 
-  def selected_items
+  def excel_export_dialog(checked)
+    excelExport = ExcelExport.new(self)
+    excelExport.setup_ui(self)
+    excelExport.exec
+  end
 
+  def excel_export(filename, selection)
+    Spreadsheet.client_encoding = 'UTF-8'
+    book = Spreadsheet::Workbook.new
+    sheet1 = book.create_worksheet
+    items = selection ? self.selected_items : self.all_items
+    if items.nil? or items.empty?
+      return 'Δεν επιλέχθηκε κανένα στοιχείο!'
+    end
+
+    columnHash = self.model.columnNamesHash
+    # set title row
+    sheet1.row(0).replace columnHash.values
+
+    # write data
+    cr_row = 1
+    items.each do |item|
+      item_data = columnHash.keys.collect {|key| item.send(key)}
+      sheet1.row(cr_row).replace item_data
+    end
+
+    book.write filename
+    return nil
   end
 
 end
