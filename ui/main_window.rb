@@ -63,6 +63,7 @@ class MainWindow < Qt::MainWindow
     @current_action.setChecked(true)
   end
 
+
   def initialize_stack
     @stack = Qt::StackedWidget.new(self.centralWidget)
     @ui.gridLayout_2.addWidget(@stack, 0, 0, -1, -1)
@@ -70,6 +71,7 @@ class MainWindow < Qt::MainWindow
     # add patient main Widget
     @patientsMainWidget = PatientsMainWidget.new(@stack)
     @mainPatientIndex = @stack.addWidget(@patientsMainWidget)
+
     
     # add doctor main Widget
     @doctorsMainWidget = DoctorsMainWidget.new(@stack)
@@ -84,16 +86,20 @@ class MainWindow < Qt::MainWindow
       @widgetHash[klass] = @stack.addWidget klass.editWidget.new(@stack, klass.new)
     end
 
-    stack_changed(nil)
+    @actionListHash = Hash.new
+    @stack.count.times do |idx|
+      @actionListHash[idx] = @stack.widget(idx).findChildren(Qt::Action)
+    end
+
+    stack_changed(0)
   end
 
   def stack_changed(currentIndex)
     # get the actions of the widget
-    puts 'Hello from stack changed'
     currentWidget = @stack.currentWidget
     @ui.childToolbar.clear
-    actionList = currentWidget.findChildren(Qt::Action)
-    actionList.each do |a|
+    @actionListHash[currentIndex].each do |a|
+      puts "ADDING ACTION #{a.text}, parent: #{a.parent}"
       @ui.childToolbar.addAction(a)
     end
   end

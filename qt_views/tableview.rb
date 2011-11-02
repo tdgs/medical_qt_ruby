@@ -4,7 +4,7 @@ require 'Qt4'
 require 'spreadsheet'
 require_relative '../lib/ruby_variant.rb'
 require_relative '../ui/excel_export'
-
+require 'launchy'
 
 class BasicTable < Qt::TableView
   class << self; attr_accessor :deleteMessage, :deleteActionText; end
@@ -15,7 +15,6 @@ class BasicTable < Qt::TableView
   signals "edit_request(QVariant&)"
   def initialize(parent = nil, model = nil)
     super(parent)
-    puts "BasicTable: #{ $mainWindow.inspect}"
 
     setModel(model) if model
 
@@ -30,14 +29,14 @@ class BasicTable < Qt::TableView
     icon.addPixmap(Qt::Pixmap.new(":/images/user-group-delete.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @removeAction.icon = icon
     @removeAction.enabled = false
-    self.addAction(@removeAction)
+    self.addMenuAction(@removeAction)
 
     @excelAction = Qt::Action.new('Εξαγωγή σε Excel', self)
     excelIcon = Qt::Icon.new
     excelIcon.addPixmap(Qt::Pixmap.new(":/images/excel-icon.jpg"), Qt::Icon::Normal, Qt::Icon::Off)
     @excelAction.icon = excelIcon
     @excelAction.enabled = true
-    self.addAction(@excelAction)
+    self.addMenuAction(@excelAction)
 
 
 
@@ -68,6 +67,7 @@ class BasicTable < Qt::TableView
     menu = Qt::Menu.new(self)
     menu.addAction(@removeAction) if self.indexAt(event.pos).valid?
     menu.exec(event.globalPos) unless menu.isEmpty
+    menu.dispose
   end
 
   def items_from_indexes(indexes)
@@ -124,9 +124,11 @@ class BasicTable < Qt::TableView
     items.each do |item|
       item_data = columnHash.keys.collect {|key| item.send(key)}
       sheet1.row(cr_row).replace item_data
+      cr_row +=1
     end
 
     book.write filename
+    Launchy.open(filename)
     return nil
   end
 
