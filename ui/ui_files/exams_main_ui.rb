@@ -2,14 +2,16 @@
 =begin
 ** Form generated from reading ui file 'exams_main.ui'
 **
-** Created: Wed Oct 19 13:31:12 2011
-**      by: Qt User Interface Compiler version 4.7.4
+** Created: Fri Nov 4 11:17:50 2011
+**      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
 
 class Ui_ExamsFrame
     attr_reader :gridLayout_2
+    attr_reader :titleLabel
+    attr_reader :resultsTable
     attr_reader :groupBox_2
     attr_reader :gridLayout
     attr_reader :searchBox
@@ -33,8 +35,6 @@ class Ui_ExamsFrame
     attr_reader :horizontalLayout_3
     attr_reader :checkBox_3
     attr_reader :examSetToDate
-    attr_reader :titleLabel
-    attr_reader :resultsTable
 
     def setupUi(examsFrame)
     if examsFrame.objectName.nil?
@@ -45,23 +45,40 @@ class Ui_ExamsFrame
     examsFrame.frameShadow = Qt::Frame::Raised
     @gridLayout_2 = Qt::GridLayout.new(examsFrame)
     @gridLayout_2.objectName = "gridLayout_2"
-    @groupBox_2 = Qt::GroupBox.new(examsFrame)
-    @groupBox_2.objectName = "groupBox_2"
-    @sizePolicy = Qt::SizePolicy.new(Qt::SizePolicy::Maximum, Qt::SizePolicy::MinimumExpanding)
+    @titleLabel = Qt::Label.new(examsFrame)
+    @titleLabel.objectName = "titleLabel"
+
+    @gridLayout_2.addWidget(@titleLabel, 0, 0, 1, 2)
+
+    @resultsTable = PatientTable.new(examsFrame)
+    @resultsTable.objectName = "resultsTable"
+    @sizePolicy = Qt::SizePolicy.new(Qt::SizePolicy::MinimumExpanding, Qt::SizePolicy::Expanding)
     @sizePolicy.setHorizontalStretch(0)
     @sizePolicy.setVerticalStretch(0)
-    @sizePolicy.heightForWidth = @groupBox_2.sizePolicy.hasHeightForWidth
-    @groupBox_2.sizePolicy = @sizePolicy
+    @sizePolicy.heightForWidth = @resultsTable.sizePolicy.hasHeightForWidth
+    @resultsTable.sizePolicy = @sizePolicy
+    @resultsTable.styleSheet = "background-color: rgb(220, 220, 220);"
+    @resultsTable.setProperty("showDropIndicator", Qt::Variant.new(false))
+
+    @gridLayout_2.addWidget(@resultsTable, 1, 1, 2, 1)
+
+    @groupBox_2 = Qt::GroupBox.new(examsFrame)
+    @groupBox_2.objectName = "groupBox_2"
+    @sizePolicy1 = Qt::SizePolicy.new(Qt::SizePolicy::Maximum, Qt::SizePolicy::MinimumExpanding)
+    @sizePolicy1.setHorizontalStretch(0)
+    @sizePolicy1.setVerticalStretch(0)
+    @sizePolicy1.heightForWidth = @groupBox_2.sizePolicy.hasHeightForWidth
+    @groupBox_2.sizePolicy = @sizePolicy1
     @gridLayout = Qt::GridLayout.new(@groupBox_2)
     @gridLayout.objectName = "gridLayout"
     @searchBox = Qt::Widget.new(@groupBox_2)
     @searchBox.objectName = "searchBox"
     @searchBox.enabled = true
-    @sizePolicy1 = Qt::SizePolicy.new(Qt::SizePolicy::MinimumExpanding, Qt::SizePolicy::Preferred)
-    @sizePolicy1.setHorizontalStretch(0)
-    @sizePolicy1.setVerticalStretch(0)
-    @sizePolicy1.heightForWidth = @searchBox.sizePolicy.hasHeightForWidth
-    @searchBox.sizePolicy = @sizePolicy1
+    @sizePolicy2 = Qt::SizePolicy.new(Qt::SizePolicy::MinimumExpanding, Qt::SizePolicy::Preferred)
+    @sizePolicy2.setHorizontalStretch(0)
+    @sizePolicy2.setVerticalStretch(0)
+    @sizePolicy2.heightForWidth = @searchBox.sizePolicy.hasHeightForWidth
+    @searchBox.sizePolicy = @sizePolicy2
     @searchBox.styleSheet = ""
     @formLayout_2 = Qt::FormLayout.new(@searchBox)
     @formLayout_2.objectName = "formLayout_2"
@@ -165,35 +182,18 @@ class Ui_ExamsFrame
 
     @gridLayout_2.addWidget(@groupBox_2, 1, 0, 1, 1)
 
-    @titleLabel = Qt::Label.new(examsFrame)
-    @titleLabel.objectName = "titleLabel"
-
-    @gridLayout_2.addWidget(@titleLabel, 0, 0, 1, 2)
-
-    @resultsTable = PatientTable.new(examsFrame)
-    @resultsTable.objectName = "resultsTable"
-    @sizePolicy2 = Qt::SizePolicy.new(Qt::SizePolicy::MinimumExpanding, Qt::SizePolicy::Expanding)
-    @sizePolicy2.setHorizontalStretch(0)
-    @sizePolicy2.setVerticalStretch(0)
-    @sizePolicy2.heightForWidth = @resultsTable.sizePolicy.hasHeightForWidth
-    @resultsTable.sizePolicy = @sizePolicy2
-    @resultsTable.styleSheet = "background-color: rgb(220, 220, 220);"
-    @resultsTable.setProperty("showDropIndicator", Qt::Variant.new(false))
-
-    @gridLayout_2.addWidget(@resultsTable, 1, 1, 2, 1)
-
 
     retranslateUi(examsFrame)
     Qt::Object.connect(@pushButton_2, SIGNAL('clicked()'), examsFrame, SLOT('search()'))
+    Qt::Object.connect(@pushButton, SIGNAL('clicked()'), @examSetDoctor, SLOT('clear()'))
+    Qt::Object.connect(@examSetDoctor, SIGNAL('returnPressed()'), @pushButton_2, SLOT('click()'))
     Qt::Object.connect(@pushButton, SIGNAL('clicked()'), examsFrame, SLOT('show_all()'))
     Qt::Object.connect(@examSetPatient, SIGNAL('returnPressed()'), @pushButton_2, SLOT('click()'))
-    Qt::Object.connect(@examSetDoctor, SIGNAL('returnPressed()'), @pushButton_2, SLOT('click()'))
-    Qt::Object.connect(@pushButton, SIGNAL('clicked()'), @examSetPatient, SLOT('clear()'))
-    Qt::Object.connect(@pushButton, SIGNAL('clicked()'), @examSetDoctor, SLOT('clear()'))
+    Qt::Object.connect(@checkBox_3, SIGNAL('clicked(bool)'), @examSetToDate, SLOT('setEnabled(bool)'))
     Qt::Object.connect(@pushButton, SIGNAL('clicked(bool)'), @checkBox_2, SLOT('setChecked(bool)'))
     Qt::Object.connect(@pushButton, SIGNAL('clicked(bool)'), @checkBox_3, SLOT('setChecked(bool)'))
     Qt::Object.connect(@checkBox_2, SIGNAL('toggled(bool)'), @examSetFromDate, SLOT('setEnabled(bool)'))
-    Qt::Object.connect(@checkBox_3, SIGNAL('clicked(bool)'), @examSetToDate, SLOT('setEnabled(bool)'))
+    Qt::Object.connect(@pushButton, SIGNAL('clicked()'), @examSetPatient, SLOT('clear()'))
 
     Qt::MetaObject.connectSlotsByName(examsFrame)
     end # setupUi
@@ -204,6 +204,8 @@ class Ui_ExamsFrame
 
     def retranslateUi(examsFrame)
     examsFrame.windowTitle = my_translate("Frame", nil)
+    @titleLabel.text = my_translate("<center><h1>\316\225\316\276\316\265\317\204\316\254\317\203\316\265\316\271\317\202</h1></center>", nil)
+    @resultsTable.toolTip = my_translate("\316\225\316\264\317\216 \317\206\316\261\316\257\316\275\316\277\316\275\317\204\316\261\316\271 \317\204\316\261 \316\261\317\200\316\277\317\204\316\265\316\273\316\255\317\203\316\274\316\261\317\204\316\261 \317\204\316\267\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202 \317\203\316\261\317\202.", nil)
     @groupBox_2.title = my_translate("\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil)
     @pushButton_2.text = my_translate("\316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267", nil)
     @pushButton.text = my_translate("\316\225\316\274\317\206\316\254\316\275\316\271\317\203\316\267 \316\214\316\273\317\211\316\275", nil)
@@ -215,8 +217,6 @@ class Ui_ExamsFrame
     @checkBox_2.text = ''
     @label.text = my_translate("\316\234\316\255\317\207\317\201\316\271:", nil)
     @checkBox_3.text = ''
-    @titleLabel.text = my_translate("<center><h1>\316\225\316\276\316\265\317\204\316\254\317\203\316\265\316\271\317\202</h1></center>", nil)
-    @resultsTable.toolTip = my_translate("\316\225\316\264\317\216 \317\206\316\261\316\257\316\275\316\277\316\275\317\204\316\261\316\271 \317\204\316\261 \316\261\317\200\316\277\317\204\316\265\316\273\316\255\317\203\316\274\316\261\317\204\316\261 \317\204\316\267\317\202 \316\221\316\275\316\261\316\266\316\256\317\204\316\267\317\203\316\267\317\202 \317\203\316\261\317\202.", nil)
     end # retranslateUi
 
     def retranslate_ui(examsFrame)

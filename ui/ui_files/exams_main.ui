@@ -20,6 +20,32 @@
    <enum>QFrame::Raised</enum>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="titleLabel">
+     <property name="text">
+      <string>&lt;center&gt;&lt;h1&gt;Εξετάσεις&lt;/h1&gt;&lt;/center&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" rowspan="2">
+    <widget class="PatientTable" name="resultsTable">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="toolTip">
+      <string>Εδώ φαίνονται τα αποτελέσματα της Αναζήτησης σας.</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(220, 220, 220);</string>
+     </property>
+     <property name="showDropIndicator" stdset="0">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
    <item row="1" column="0">
     <widget class="QGroupBox" name="groupBox_2">
      <property name="sizePolicy">
@@ -184,32 +210,6 @@
      </layout>
     </widget>
    </item>
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="titleLabel">
-     <property name="text">
-      <string>&lt;center&gt;&lt;h1&gt;Εξετάσεις&lt;/h1&gt;&lt;/center&gt;</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1" rowspan="2">
-    <widget class="PatientTable" name="resultsTable">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="toolTip">
-      <string>Εδώ φαίνονται τα αποτελέσματα της Αναζήτησης σας.</string>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(220, 220, 220);</string>
-     </property>
-     <property name="showDropIndicator" stdset="0">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -250,6 +250,38 @@
   <connection>
    <sender>pushButton</sender>
    <signal>clicked()</signal>
+   <receiver>examSetDoctor</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>230</x>
+     <y>120</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>examSetDoctor</sender>
+   <signal>returnPressed()</signal>
+   <receiver>pushButton_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>148</x>
+     <y>114</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>115</x>
+     <y>271</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
    <receiver>ExamsFrame</receiver>
    <slot>show_all()</slot>
    <hints>
@@ -280,50 +312,18 @@
    </hints>
   </connection>
   <connection>
-   <sender>examSetDoctor</sender>
-   <signal>returnPressed()</signal>
-   <receiver>pushButton_2</receiver>
-   <slot>click()</slot>
+   <sender>checkBox_3</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>examSetToDate</receiver>
+   <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>148</x>
-     <y>114</y>
+     <x>137</x>
+     <y>179</y>
     </hint>
     <hint type="destinationlabel">
-     <x>115</x>
-     <y>271</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>examSetPatient</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>213</x>
-     <y>254</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>233</x>
-     <y>85</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>examSetDoctor</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>215</x>
-     <y>256</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>230</x>
-     <y>120</y>
+     <x>185</x>
+     <y>176</y>
     </hint>
    </hints>
   </connection>
@@ -376,18 +376,18 @@
    </hints>
   </connection>
   <connection>
-   <sender>checkBox_3</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>examSetToDate</receiver>
-   <slot>setEnabled(bool)</slot>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>examSetPatient</receiver>
+   <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>137</x>
-     <y>179</y>
+     <x>213</x>
+     <y>254</y>
     </hint>
     <hint type="destinationlabel">
-     <x>185</x>
-     <y>176</y>
+     <x>233</x>
+     <y>85</y>
     </hint>
    </hints>
   </connection>

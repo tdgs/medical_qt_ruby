@@ -4,9 +4,11 @@ require 'Qt4'
 require 'spreadsheet'
 require_relative '../lib/ruby_variant.rb'
 require_relative '../ui/excel_export'
+require_relative '../lib/excel'
 require 'launchy'
 
 class BasicTable < Qt::TableView
+  include ExcelExporter
   class << self; attr_accessor :deleteMessage, :deleteActionText; end
   @deleteMessage = 'generic message'
   @deleteActionText = 'generic text'
@@ -31,19 +33,13 @@ class BasicTable < Qt::TableView
     @removeAction.enabled = false
     self.addMenuAction(@removeAction)
 
-    @excelAction = Qt::Action.new('Εξαγωγή σε Excel', self)
-    excelIcon = Qt::Icon.new
-    excelIcon.addPixmap(Qt::Pixmap.new(":/images/excel-icon.jpg"), Qt::Icon::Normal, Qt::Icon::Off)
-    @excelAction.icon = excelIcon
-    @excelAction.enabled = true
-    self.addMenuAction(@excelAction)
+    enable_excel_action
 
 
 
     self.connect(SIGNAL('activated(const QModelIndex&)'), self, :edit_item)
     Qt::Object.connect(@removeAction, SIGNAL('triggered(bool)'), self, SLOT('item_remove(bool)'))
     Qt::Object.connect(self, SIGNAL('edit_request(QVariant&)'), $mainWindow, SLOT('edit_item(QVariant&)'))
-    Qt::Object.connect(@excelAction, SIGNAL('triggered(bool)'), self, SLOT('excel_export_dialog(bool)'))
 
     @selected = []
   end
@@ -98,25 +94,13 @@ class BasicTable < Qt::TableView
       box.exec
     end
 
+
   end
 
-  def excel_export_dialog(checked)
-    excelExport = ExcelExport.new(self)
-    excelExport.setup_ui(self)
-    excelExport.exec
-  end
-
-  def excel_export(filename, selection)
-    Spreadsheet.client_encoding = 'UTF-8'
-    book = Spreadsheet::Workbook.new
-    sheet1 = book.create_worksheet
-    items = selection ? self.selected_items : self.all_items
-    if items.nil? or items.empty?
-      return 'Δεν επιλέχθηκε κανένα στοιχείο!'
-    end
-
+  def write_excel(book, items)
     columnHash = self.model.columnNamesHash
     # set title row
+    sheet1 = book.create_worksheet
     sheet1.row(0).replace columnHash.values
 
     # write data
@@ -126,17 +110,13 @@ class BasicTable < Qt::TableView
       sheet1.row(cr_row).replace item_data
       cr_row +=1
     end
-
-    book.write filename
-    Launchy.open(filename)
-    return nil
   end
 
 end
 
 class PatientTable < BasicTable
   @deleteMessage = 'Θα διαγραφούν οι επιλεγμένες επισκέψεις. Είστε σίγουροι;'
-    @deleteActionText = 'Διαγραφη Επιλεγμένων'
+  @deleteActionText = 'Διαγραφη Επιλεγμένων'
 end
 
 class ExamSetTable < BasicTable
