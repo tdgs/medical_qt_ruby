@@ -7,8 +7,8 @@ class ExcelExport < Qt::Dialog
     super(parent)
   end
   
-  def setup_ui(tableview)
-    @tableview = tableview
+  def setup_ui(form)
+    @form = form
     @ui = Ui::ExcelExport.new(self)
     @ui.setup_ui(self)
     filename = "#{Dir.home}/export.xls"
@@ -21,7 +21,7 @@ class ExcelExport < Qt::Dialog
   end
 
   def accept
-    error = @tableview.excel_export(@ui.fileNameEdit.text, selection)
+    error = @form.excel_export(@ui.fileNameEdit.text)
     if error.nil?
       Qt::MessageBox.information(self, "Εξαγωγή σε Excel", "Η Εξαγωγή Ολοκληρώθηκε με επιτυχία!")
       super

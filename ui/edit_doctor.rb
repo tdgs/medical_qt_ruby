@@ -7,6 +7,7 @@ require_relative '../lib/db_model_widget'
 class EditDoctor < Qt::Widget
   slots "save()"
   include DataBaseModelWidget
+  include ExcelExporter
 	
   def initialize(parent = nil, doctor)
 		puts 'patientForm!!'
@@ -20,4 +21,5 @@ class EditDoctor < Qt::Widget
 	def load_relationships
 	  @ui.patientTable.model = PatientModel.new(self, @item.patients.all)
 	end
+
 end

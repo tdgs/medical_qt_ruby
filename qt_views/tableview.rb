@@ -97,7 +97,8 @@ class BasicTable < Qt::TableView
 
   end
 
-  def write_excel(book, items)
+  def write_excel(book)
+    items = all_items
     columnHash = self.model.columnNamesHash
     # set title row
     sheet1 = book.create_worksheet

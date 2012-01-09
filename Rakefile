@@ -19,7 +19,7 @@ task :run => [:default] do
 end
 
 task :console  do
-  sh "irb -r ./db_models"
+  sh "pry -r ./db_models"
 end
 
 task :test_report do

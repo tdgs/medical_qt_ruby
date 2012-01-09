@@ -63,6 +63,14 @@ class ExamSet
     d = self.doctor
     (not d.nil? and d.full_name) || ""
   end
+
+  def values
+    exam_values.inject({}) do |h, v|
+      h[v.exam_field.name] = v.value
+      h
+    end
+  end
+
 end
 
 require_relative '../lib/class_factory'
