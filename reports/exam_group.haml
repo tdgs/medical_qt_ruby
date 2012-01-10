@@ -2,12 +2,14 @@
 %ul
   - group.children.each do |child|
     %li= render_group(child)
+
+  %br
   - unless group.exam_fields.empty?
     %table.exam_values
       %tr
         - nr_col.times do 
           %th Εξετάση
-          %th Αποτέλεσμα
+          %th Τιμή
       - group.exam_fields.each_slice(nr_col) do |a|
         %tr{:class => cycle('even', 'odd')}
           - a.each do |field|
