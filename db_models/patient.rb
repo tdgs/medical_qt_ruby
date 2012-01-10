@@ -14,9 +14,13 @@ require_relative 'ui_aware'
    has n, :exam_sets, :constraint => :destroy
 	 
 	 
-	 def date_last_visit
+	 def get_date_of_last_visit
 		 e = self.exam_sets.first(:order => :date.desc)
-		 (e and e.date) || " "
+		 date = (e and e.date) || " "
+	 end
+
+	 def date_last_visit
+		 @date_last_visit ||= get_date_of_last_visit
 	 end
    
  end

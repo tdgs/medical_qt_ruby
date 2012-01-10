@@ -16,6 +16,7 @@ class ReportGenerator
   def render(file)
     output = @engine.render(self)
     unless file.nil?
+			puts "writing to #{file.path}"
       file.write output
     end
     return output
