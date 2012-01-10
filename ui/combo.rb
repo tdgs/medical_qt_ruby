@@ -42,3 +42,9 @@ class DoctorCombo < MyCombo
     end
 end
 
+class PatientCombo < MyCombo
+	def initialize(parent = nil)
+		super(parent, Patient.all, :full_name)
+	end
+end
+

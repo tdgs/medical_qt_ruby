@@ -18,6 +18,8 @@ class BasicTable < Qt::TableView
   def initialize(parent = nil, model = nil)
     super(parent)
 
+		enable_excel_action
+
     setModel(model) if model
 
     sizePolicy = Qt::SizePolicy.new(Qt::SizePolicy::Expanding, Qt::SizePolicy::Expanding)

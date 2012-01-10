@@ -8,9 +8,9 @@ class DoctorReportExport < Qt::Dialog
     super(parent)
   end
   
-  def setup_ui(tableview)
-    @tableview = tableview
-    @ui = Ui::DoctorExport.new(self)
+  def setup_ui(form)
+    @form = form
+    @ui = Ui::DoctorExcelExport.new(self)
     @ui.setup_ui(self)
     filename = "#{Dir.home}/export.xls"
     @ui.fileNameEdit.text = filename
@@ -22,7 +22,7 @@ class DoctorReportExport < Qt::Dialog
   end
 
   def accept
-    error = @tableview.excel_export(@ui.fileNameEdit.text, selection)
+    error = @form.excel_export(@ui.fileNameEdit.text, excel_options)
     if error.nil?
       Qt::MessageBox.information(self, "Εξαγωγή σε Excel", "Η Εξαγωγή Ολοκληρώθηκε με επιτυχία!")
       super
@@ -32,8 +32,14 @@ class DoctorReportExport < Qt::Dialog
     end
   end
 
-  def selection
-    @ui.selectionOnly.checked
+  def excel_options
+		if @ui.patientRadio.checked
+			{:patient => @ui.patientCombo.get_item}
+		elsif @ui.dateRadio.checked
+			{:date => @ui.dateEdit.date}
+		else # @ui.allRadio.checked
+			{:all => true}
+		end
   end
 
 end

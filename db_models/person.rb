@@ -22,7 +22,9 @@ module Person
   end
 
   def age
-    Date.today.year - self.birthDate.year
+		d = self.birthDate
+		return 0 if d.nil?
+    Date.today.year - d.year
   end
 
   def to_s

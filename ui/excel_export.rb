@@ -31,8 +31,4 @@ class ExcelExport < Qt::Dialog
     end
   end
 
-  def selection
-    @ui.selectionOnly.checked
-  end
-
 end

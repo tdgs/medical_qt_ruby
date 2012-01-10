@@ -26,13 +26,7 @@ p, li { white-space: pre-wrap; }
     </widget>
    </item>
    <item>
-    <widget class="QFrame" name="frame">
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
+    <widget class="QGroupBox" name="groupBox">
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0" colspan="2">
        <widget class="QLabel" name="label_2">
@@ -55,13 +49,6 @@ p, li { white-space: pre-wrap; }
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QRadioButton" name="radioButton_2">
-        <property name="text">
-         <string>Από Ημερομηνία:</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="1">
        <widget class="QDateEdit" name="dateEdit">
         <property name="enabled">
@@ -76,7 +63,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </item>
       <item row="3" column="0">
-       <widget class="QRadioButton" name="radioButton_3">
+       <widget class="QRadioButton" name="patientRadio">
         <property name="text">
          <string>Ενός Ασθενή</string>
         </property>
@@ -86,6 +73,13 @@ p, li { white-space: pre-wrap; }
        <widget class="PatientCombo" name="patientCombo">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QRadioButton" name="dateRadio">
+        <property name="text">
+         <string>Από Ημερομηνία:</string>
         </property>
        </widget>
       </item>
@@ -153,8 +147,8 @@ p, li { white-space: pre-wrap; }
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>256</x>
-     <y>310</y>
+     <x>260</x>
+     <y>300</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -169,8 +163,8 @@ p, li { white-space: pre-wrap; }
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>324</x>
-     <y>310</y>
+     <x>328</x>
+     <y>300</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -185,8 +179,8 @@ p, li { white-space: pre-wrap; }
    <slot>showFileDialog()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>479</x>
-     <y>274</y>
+     <x>321</x>
+     <y>264</y>
     </hint>
     <hint type="destinationlabel">
      <x>490</x>
@@ -195,34 +189,34 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>radioButton_2</sender>
+   <sender>dateRadio</sender>
    <signal>toggled(bool)</signal>
    <receiver>dateEdit</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>60</x>
-     <y>157</y>
+     <x>130</x>
+     <y>144</y>
     </hint>
     <hint type="destinationlabel">
-     <x>183</x>
-     <y>166</y>
+     <x>186</x>
+     <y>147</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>radioButton_3</sender>
+   <sender>patientRadio</sender>
    <signal>toggled(bool)</signal>
    <receiver>patientCombo</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>87</x>
-     <y>188</y>
+     <x>76</x>
+     <y>171</y>
     </hint>
     <hint type="destinationlabel">
-     <x>216</x>
-     <y>187</y>
+     <x>185</x>
+     <y>179</y>
     </hint>
    </hints>
   </connection>
