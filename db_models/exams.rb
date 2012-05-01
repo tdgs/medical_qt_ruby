@@ -63,11 +63,34 @@ class ExamSet
     (not d.nil? and d.full_name) || ""
   end
 
-  def values
-    exam_values.inject({}) do |h, v|
-      h[v.exam_field.name] = v.value
-      h
-    end
+  def value_for(field)
+    v = self.exam_values.first(exam_field: field)
+    v.nil? ? "" : v.value
+  end
+
+  def values(fields = ExamField)
+    @values = 
+      begin
+        fields.inject({}) { |h, field|
+          h[field.name] = value_for(field)
+          h
+        }
+      end
+  end
+
+  def values_for_group(group)
+    group = if group.is_a? String 
+              ExamFieldGroup.first(name: group)
+            else
+              group
+            end
+    values group.exam_fields
+  end
+
+
+  def reload
+    @values = nil
+    super
   end
 
 end

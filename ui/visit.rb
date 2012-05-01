@@ -41,11 +41,12 @@ class EditVisit < Qt::Widget
     end
 
     def print
+      @item.reload
       g = ReportGenerator.new(@item)
-      file = Tempfile.new(['tdgs_medical_visit', '.html'])
-      g.render(file)
-      file.close
-      Launchy.open(file.path)
+      f = Tempfile.new(['tdgs_medical_visit', '.odt'])
+      f.close
+      g.render f.path
+      Launchy.open(f.path)
     end
 
 
