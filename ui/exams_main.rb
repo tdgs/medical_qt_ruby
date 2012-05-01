@@ -14,10 +14,10 @@ class ExamsMainWidget  < Qt::Frame
     @ui.setup_ui(self)
     setResultsTable
     show_all
-    @optionsHash = SearchOptionHash.new([[ExamSet.patient.surname, @ui.examSetPatient],
-                                       [ExamSet.doctor.surname, @ui.examSetDoctor],
-                                       [:date, [@ui.examSetFromDate,@ui.examSetToDate], {:validation => :isEnabled}]])
-
+    @optionsHash = SearchOptionHash.new(
+      [[ExamSet.patient.surname, @ui.examSetPatient],
+        [ExamSet.doctor.surname, @ui.examSetDoctor],
+        [:date, [@ui.examSetFromDate,@ui.examSetToDate], {validation: :isEnabled}]])
   end
 
 end

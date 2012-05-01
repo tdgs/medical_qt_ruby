@@ -1,19 +1,6 @@
 # encoding: utf-8
 require 'Qt'
 
-class MyTextEdit < Qt::TextEdit
-  def initialize(parent = nil)
-    super(parent)
-    self.acceptRichText = false
-  end
-	def text
-		self.plainText
-	end
-	def text=(val)
-		self.plainText = val.to_s
-	end
-end
-
 module DataBaseModelWidget
 	
 	attr_accessor :attributes

@@ -23,10 +23,12 @@ class MainWindow < Qt::MainWindow
     @ui = Ui::MainWindow.new
     @ui.setup_ui(self)
     initialize_stack
-    Qt::Object.connect(@stack, SIGNAL('currentChanged(int)'), self, SLOT('stack_changed(int)'))
+    Qt::Object.connect(@stack, 
+                       SIGNAL('currentChanged(int)'), 
+                       self, SLOT('stack_changed(int)'))
   end
 
-  def new_patient ;edit(Patient.new); end
+  def new_patient; edit(Patient.new); end
 
   def new_doctor; edit(Doctor.new); end
 

@@ -26,8 +26,6 @@ class ExamField
   def value(exam_set)
     self.exam_values(:exam_set => exam_set).first || ExamValue.new(:exam_field => self, :exam_set => exam_set)
   end
-
-
 end
 
 
@@ -42,6 +40,7 @@ class ExamValue
   def name
     self.exam_field.name
   end
+
 end
 
 class ExamSet

@@ -13,15 +13,16 @@ class PersonMainWidget < Qt::Frame
   
   def setup_ui
     @ask = true
-    @ui = Ui::PersonFrame.new(self)
+    @ui = Ui::PersonFrame.new
     @ui.setup_ui(self)
     setResultsTable
     show_all
-    @optionsHash = SearchOptionHash.new([[:name, @ui.name],
-                                               [:surname, @ui.surname], 
-                                               [:address, @ui.address],
-                                               [:phone, @ui.phone]])
-                                               #[:email, @ui.email],
-                                               #[:birthDate, @ui.birthDate, {:validation => :isEnabled}]])
+    @optionsHash = SearchOptionHash.new(
+      [[:name, @ui.name],
+        [:surname, @ui.surname],
+        [:address, @ui.address],
+        [:phone, @ui.phone]])
+        #[:email, @ui.email],
+        #[:birthDate, @ui.birthDate, {:validation => :isEnabled}]])
   end
 end

@@ -36,5 +36,5 @@ flegm2 =  ExamFieldGroup.first_or_create(:name => 'Φλεγμονόδη Στοι
 end 
 
 %w(ΠΑΡΑΤΗΡΗΣΕΙΣ ΣΥΜΠΕΡΑΣΜΑΤΑ).each do |name|
-   ExamField.first_or_create(:name => name, :widget => DefaultWidget, :exam_field_group => root)
+   ExamField.first_or_create(:name => name, :widget => 'MyTextEdit', :exam_field_group => root)
 end 
