@@ -19,7 +19,7 @@ task :run => [:default] do
 end
 
 task :console  do
-  sh "pry -r ./db_models"
+  sh "pry -r ./require.rb"
 end
 
 task :test_report do
