@@ -9,7 +9,8 @@ require_relative '../db_models'
 require_relative 'restore_backup'
 
 class MainWindow < Qt::MainWindow
-  slots 'edit_item(QVariant&)', 'new_patient()', 'new_doctor()', 'search()', 'backup_action()', 'restore_action()', 'action_triggered(QAction*)'
+  slots 'edit_item(QVariant&)', 'new_patient()', 'new_doctor()', 'search()'
+  slots 'backup_action()', 'restore_action()', 'action_triggered(QAction*)'
   slots 'main_patient_screen()', 'main_doctor_screen()', 'main_exams_screen()'
   slots 'stack_changed(int)'
   attr_reader :current_item, :current_action
