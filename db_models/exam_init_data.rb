@@ -15,7 +15,7 @@ flegm =  ExamFieldGroup.first_or_create(:name => 'Φλεγμονόδη Στοι�
 end
 
 xlorida =  ExamFieldGroup.first_or_create(:name => 'Χλωρίδα', :parent => g)
-['Κολποβακτηρίδια (B. Doderlein)', 'Μύκητες','Τριχομονάδες', 'Κόκκοι', 'Κοκκοβακτηρίδια', 'Αιμόφιλος(Gardin. Vag'].each do |name|
+['Κολποβακτηρίδια (B. Doderlein)', 'Μύκητες','Τριχομονάδες', 'Κόκκοι', 'Κοκκοβακτηρίδια', 'Αιμόφιλος (Gardin. Vag)'].each do |name|
   ExamField.first_or_create(:name => name, :widget => DefaultWidget, :exam_field_group => xlorida)
 end
 
