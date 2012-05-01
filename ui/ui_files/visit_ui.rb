@@ -2,7 +2,7 @@
 =begin
 ** Form generated from reading ui file 'visit.ui'
 **
-** Created: Wed Oct 19 14:28:39 2011
+** Created: Tue May 1 18:12:55 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -41,9 +41,7 @@ class Ui_EditVisit
     @actionPatient.icon = icon1
     @actionPrint = Qt::Action.new(editVisit)
     @actionPrint.objectName = "actionPrint"
-    icon2 = Qt::Icon.new
-    icon2.addPixmap(Qt::Pixmap.new(":/images/document-print.png"), Qt::Icon::Normal, Qt::Icon::Off)
-    @actionPrint.icon = icon2
+    @actionPrint.icon = icon
     @gridLayout = Qt::GridLayout.new(editVisit)
     @gridLayout.objectName = "gridLayout"
     @label_4 = Qt::Label.new(editVisit)

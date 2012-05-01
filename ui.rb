@@ -8,6 +8,7 @@ require_relative 'ui/edit_exam'
 require_relative 'ui/edit_doctor'
 require_relative 'ui/visit'
 require_relative 'ui/patients_main'
+require_relative 'ui/my_text_edit'
 
 Patient.editWidget = EditPatient
 ExamSet.editWidget = EditVisit

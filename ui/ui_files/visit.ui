@@ -152,7 +152,7 @@ p, li { white-space: pre-wrap; }
   <action name="actionPrint">
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
-     <normaloff>:/images/document-print.png</normaloff>:/images/document-print.png</iconset>
+     <normaloff>:/images/document-save.png</normaloff>:/images/document-save.png</iconset>
    </property>
    <property name="text">
     <string>Εκτύπωση</string>
