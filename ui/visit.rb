@@ -27,7 +27,7 @@ class EditVisit < Qt::Widget
         @ui.dateEdit.text = @item.date
         @ui.editExamSet.item = @item
         @ui.editExamSet.load_from_db
- #       @ui.doctorCombo.set_item(@item.doctor.id)
+        @ui.doctorCombo.set_item(@item.doctor.id) unless @item.doctor.nil?
     end
 
     def save_to_db
