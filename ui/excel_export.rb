@@ -9,7 +9,7 @@ class ExcelExport < Qt::Dialog
   
   def setup_ui(form)
     @form = form
-    @ui = Ui::ExcelExport.new(self)
+    @ui = Ui::ExcelExport.new
     @ui.setup_ui(self)
     filename = "#{Dir.home}/export.xls"
     @ui.fileNameEdit.text = filename

@@ -15,7 +15,7 @@ class EditDoctor < Qt::Widget
 		puts 'patientForm!!'
 		super(parent)
 		@item = doctor
-		@ui = Ui::DoctorForm.new(self)
+		@ui = Ui::DoctorForm.new
 		@ui.setup_ui(self)
 		@attributes = [:name, :surname, :address,  :phone]
 		enable_excel_action(:action_name => 'Αναφορά Ασθενών Ιατρού', :dialog_klass => DoctorReportExport)
