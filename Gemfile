@@ -1,4 +1,5 @@
 source :rubygems
+
 gem "sqlite3"
 gem "data_mapper"
 gem "dm-sqlite-adapter"
@@ -7,4 +8,12 @@ gem "qtbindings"
 gem "haml"
 gem "launchy"
 gem "spreadsheet"
-gem "serenity", :git => "git://github.com/kremso/serenity.git"
+gem "rake"
+gem "serenity", "1.0", :git => "git://github.com/kremso/serenity.git"
+gem "rubyzip"
+
+
+
+group :development do
+  gem "pry"
+end
