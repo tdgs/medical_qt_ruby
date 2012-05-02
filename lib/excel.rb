@@ -11,7 +11,7 @@ module ExcelExporter
   def enable_excel_action(attrs = {})
     action_name = attrs[:action_name] || 'Εξαγωγη των στοιχειων του πινακα σε Excel'
 		@excel_dialog_klass = attrs[:dialog_klass] || ExcelExport
-    icon = attrs[:icon] || ":/images/excel-icon.jpg"
+    icon = attrs[:icon] || ":/images/excel-icon.png"
     @excelAction = Qt::Action.new(action_name, self)
     excelIcon = Qt::Icon.new
     excelIcon.addPixmap(Qt::Pixmap.new(icon), Qt::Icon::Normal, Qt::Icon::Off)

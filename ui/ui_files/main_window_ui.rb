@@ -2,8 +2,8 @@
 =begin
 ** Form generated from reading ui file 'main_window.ui'
 **
-** Created: Wed Oct 19 13:31:11 2011
-**      by: Qt User Interface Compiler version 4.7.4
+** Created: Wed May 2 18:52:54 2012
+**      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 =end
@@ -98,7 +98,7 @@ class Ui_MainWindow
     @actionAbout = Qt::Action.new(mainWindow)
     @actionAbout.objectName = "actionAbout"
     icon9 = Qt::Icon.new
-    icon9.addPixmap(Qt::Pixmap.new(":/images/medical-symbol.jpg"), Qt::Icon::Normal, Qt::Icon::Off)
+    icon9.addPixmap(Qt::Pixmap.new(":/images/medical-symbol.png"), Qt::Icon::Normal, Qt::Icon::Off)
     @actionAbout.icon = icon9
     @centralwidget = Qt::Widget.new(mainWindow)
     @centralwidget.objectName = "centralwidget"

@@ -239,7 +239,7 @@
   <action name="actionAbout">
    <property name="icon">
     <iconset resource="../../resources/icons.qrc">
-     <normaloff>:/images/medical-symbol.jpg</normaloff>:/images/medical-symbol.jpg</iconset>
+     <normaloff>:/images/medical-symbol.png</normaloff>:/images/medical-symbol.png</iconset>
    </property>
    <property name="text">
     <string>Πληροφορίες Προγράμματος...</string>
