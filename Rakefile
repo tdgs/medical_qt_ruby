@@ -15,7 +15,12 @@ DST = SRC.sub('.ui', '_ui.rb')
 task :default => ["resources/resources.rb"] + DST
 
 task :run => [:default] do
-  sh "ruby main.rb"
+	require 'rbconfig'
+	if RbConfig::CONFIG['host_os'] =~/mingw|mswin/
+		sh "rubyw main.rb"
+	else
+	  sh "ruby main.rb"
+	end
 end
 
 task :console  do
